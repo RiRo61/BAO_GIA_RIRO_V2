@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">BÁO GIÁ IN CATALOGUE RIRO – Báo Giá Catalogue</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1a3a6b;--brand-mid:#2856a3;--brand-dark:#0f2347;
+  --accent:#0ea5e9;--accent2:#f97316;
+  --green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --bg:#f4f6f9;--surface:#fff;--surface2:#f8fafc;
+  --border:#e2e8f0;--text1:#0f172a;--text2:#334155;--text3:#64748b;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:22px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.05);--shadow-lg:0 12px 40px rgba(0,0,0,.14);
+  --font:'Be Vietnam Pro',sans-serif;--topbar-h:68px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{font-family:var(--font);background:var(--bg);color:var(--text1);min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+button,input,select,textarea{font-family:var(--font);}
+.topbar{position:sticky;top:0;z-index:200;height:var(--topbar-h);background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+.tb-brand{display:flex;align-items:center;gap:10px;cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);}
+.tb-name{font-size:1.35rem;font-weight:800;color:var(--brand);letter-spacing:.6px;line-height:1.25;text-align:center;}
+.tb-name small{display:block;font-size:.82rem;font-weight:400;color:var(--text3);letter-spacing:.2px;margin-top:2px;}
+.tb-right{display:flex;align-items:center;gap:8px;}
+.tb-btn{height:32px;padding:0 12px;border:1.5px solid var(--border);background:var(--surface);color:var(--text2);border-radius:var(--r-sm);font-size:.78rem;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px;}
+.tb-btn:hover{background:var(--surface2);border-color:var(--brand);color:var(--brand);}
+.tb-ver{font-size:.68rem;color:var(--text3);background:var(--surface);padding:2px 8px;border-radius:20px;border:1px solid var(--border);}
+.mod-body{max-width:860px;margin:0 auto;padding:18px 14px 56px;}
+.mod-title{font-size:1.2rem;font-weight:800;color:var(--brand);display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.mod-sub{font-size:.78rem;color:var(--text3);margin-bottom:16px;}
+.card{background:var(--surface);border-radius:var(--r-lg);padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.05);border:1px solid #dde3ec;margin-bottom:12px;}
+.card-hd{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--border);}
+.card-ico{width:28px;height:28px;border-radius:6px;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.card-ttl{font-size:.9rem;font-weight:700;color:var(--brand);}
+.card-dsc{font-size:.73rem;color:var(--text3);margin-top:1px;}
+.fg{display:flex;flex-direction:column;gap:7px;}
+.fg label{font-size:.82rem;font-weight:700;color:var(--brand);letter-spacing:.2px;margin-bottom:2px;}
+.ub{font-size:.72rem;background:#dbeafe;color:var(--brand-mid);padding:2px 7px;border-radius:8px;font-weight:600;vertical-align:middle;margin-left:3px;}
+.fg input,.fg select{padding:13px 16px;border:2px solid #bdc9de;border-radius:var(--r-sm);font-size:1rem;color:var(--text1);background:var(--surface);transition:.18s;width:100%;}
+.fg input:focus,.fg select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px rgba(26,58,107,.12);}
+.fg .hint{font-size:.7rem;color:var(--text3);}
+.fg .hint.warn{color:var(--amber);font-weight:600;}
+.req{color:#dc2626;font-size:.85rem;font-weight:900;margin-left:2px;}
+.input-wrap{position:relative;}.input-wrap input{padding-right:48px;}
+.isuf{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.78rem;color:var(--text3);font-weight:600;pointer-events:none;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.section-sep{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin:14px 0 10px;display:flex;align-items:center;gap:7px;}
+.section-sep::after{content:'';flex:1;border-top:1px solid var(--border);}
+.res-strip{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1.5px solid #bfdbfe;border-radius:var(--r-md);padding:13px 16px;margin-bottom:12px;}
+.res-strip-ttl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:9px;}
+.res-grid{display:grid;gap:10px;}
+.ri .ri-l{font-size:.68rem;color:var(--text3);line-height:1.3;}
+.ri .ri-v{font-size:.86rem;font-weight:700;color:var(--brand);}
+.ri .ri-v.g{color:var(--green);}.ri .ri-v.a{color:var(--amber);}
+.price-display{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:13px;}
+.pbox{border-radius:var(--r-md);padding:14px 17px;text-align:center;}
+.pbox.unit{background:#eff6ff;border:2px solid #bfdbfe;}
+.pbox.total{background:linear-gradient(135deg,var(--brand),var(--brand-mid));color:#fff;box-shadow:0 4px 16px rgba(26,58,107,.3);}
+.pbox .pb-l{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px;}
+.pbox.unit .pb-l{color:var(--brand-mid);}.pbox.total .pb-l{color:rgba(255,255,255,.72);}
+.pbox .pb-v{font-size:1.55rem;font-weight:900;line-height:1;}
+.pbox.unit .pb-v{color:var(--brand);}.pbox.total .pb-v{color:#fff;}
+.pbox .pb-s{font-size:.71rem;margin-top:4px;}.pbox.total .pb-s{color:rgba(255,255,255,.65);}
+.notice{border-radius:var(--r-sm);padding:10px 13px;font-size:.81rem;display:flex;align-items:flex-start;gap:7px;margin-bottom:11px;}
+.notice.warn{background:#fffbeb;border:1.5px solid #fde68a;color:#92400e;}
+.notice.ok{background:#f0fdf4;border:1.5px solid #86efac;color:#15803d;}
+.notice.info{background:#f0f9ff;border:1.5px solid #bae6fd;color:#0369a1;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:0 18px;height:40px;border:none;border-radius:var(--r-sm);font-size:.85rem;font-weight:700;cursor:pointer;transition:.18s;white-space:nowrap;}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-mid));color:#fff;box-shadow:0 3px 12px rgba(26,58,107,.25);}
+.btn-p:hover{transform:translateY(-1px);}
+.btn-accent{background:var(--accent2);color:#fff;box-shadow:0 3px 12px rgba(249,115,22,.25);}
+.btn-accent:hover{opacity:.9;transform:translateY(-1px);}
+.btn-green{background:var(--green);color:#fff;}
+.btn-green:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{background:var(--surface2);color:var(--text2);border:1.5px solid var(--border);}
+.btn-ghost:hover{background:var(--border);}
+.btn-red{background:#fee2e2;color:var(--red);border:1px solid #fca5a5;}
+.btn-red:hover{background:#fecaca;}
+.btn-out{background:var(--surface);color:var(--brand);border:1.5px solid var(--brand);}
+.btn-out:hover{background:#eff6ff;}
+.btn-sm{height:32px;padding:0 12px;font-size:.78rem;}
+.btn-lg{height:46px;padding:0 26px;font-size:.92rem;}
+.btn-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.save-msg{display:none;background:#dcfce7;border:1px solid #86efac;color:var(--green);padding:7px 13px;border-radius:var(--r-sm);font-size:.8rem;font-weight:600;text-align:center;margin-top:9px;}
+.tbl-wrap{overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border);margin-bottom:10px;}
+.st-tbl{width:100%;border-collapse:collapse;font-size:.81rem;}
+.st-tbl thead th{background:var(--brand);color:#fff;padding:9px 11px;text-align:center;font-weight:700;white-space:nowrap;}
+.st-tbl thead th:first-child{text-align:left;padding-left:14px;}
+.st-tbl tbody td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
+.st-tbl tbody td:first-child{text-align:left;padding-left:14px;font-weight:700;color:var(--brand);font-size:.82rem;}
+.st-tbl tbody tr:last-child td{border-bottom:none;}
+.st-tbl tbody tr:hover td{background:var(--surface2);}
+.st-tbl input[type=number]{width:80px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);}
+.st-tbl input[type=number]:focus{border-color:var(--accent);outline:none;}
+.st-tbl input[type=text]{width:100%;min-width:80px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;font-family:var(--font);}
+.st-tbl input.editable{border-color:var(--amber)!important;background:#fffbeb;}
+.st-tbl select{padding:4px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.78rem;font-family:var(--font);background:var(--surface);}
+.st-tbl select:focus{border-color:var(--accent);outline:none;}
+.st-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.st-tab{padding:6px 14px;border-radius:20px;border:2px solid var(--border);background:var(--surface);font-size:.8rem;font-weight:700;color:var(--text3);cursor:pointer;transition:.15s;}
+.st-tab:hover{border-color:var(--brand);color:var(--brand);}
+.st-tab.active{border-color:var(--brand);background:#eff6ff;color:var(--brand);}
+.st-panel{display:none;}.st-panel.active{display:block;}
+.st-sec{font-size:.75rem;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
+.st-sec::after{content:'';flex:1;border-top:1.5px solid var(--border);}
+.st-sec:first-child{margin-top:0;}
+.fc-grid{display:grid;gap:10px;margin-bottom:12px;}
+.fc-grid.col2{grid-template-columns:1fr 1fr;}
+.fc-box{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 13px;}
+.fc-box label{font-size:.72rem;font-weight:700;color:var(--text2);display:block;margin-bottom:6px;}
+.fc-box input,.fc-box select{width:100%;padding:7px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.88rem;font-weight:700;text-align:center;font-family:var(--font);color:var(--brand);background:var(--surface);}
+.fc-box input:focus,.fc-box select:focus{border-color:var(--accent);outline:none;}
+.fc-box .fc-note{font-size:.66rem;color:var(--text3);margin-top:4px;line-height:1.4;}
+/* ── POPUP OVERLAY & MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(10,20,40,.58);display:none;align-items:center;justify-content:center;z-index:500;padding:14px;}
+.overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:var(--r-xl);width:100%;max-width:560px;max-height:95vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);}
+.modal-lg{max-width:960px;}
+.modal-hd{display:flex;justify-content:space-between;align-items:flex-start;padding:17px 22px 13px;border-bottom:2px solid var(--brand);}
+.mhd-l h3{font-size:.98rem;font-weight:800;color:var(--brand);}
+.mhd-l p{font-size:.74rem;color:var(--text3);margin-top:2px;}
+.mhd-r{text-align:right;}
+.mhd-r strong{font-size:.88rem;color:var(--brand);font-weight:800;display:block;}
+.mhd-r span{font-size:.72rem;color:var(--text3);}
+.modal-body{flex:1;overflow-y:auto;padding:16px 22px;}
+.modal-ft{display:flex;justify-content:flex-end;gap:8px;padding:12px 22px;border-top:1px solid var(--border);}
+
+/* ── INFO LIST (ZEBRA) ── */
+.q-info-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-bottom:13px;}
+.q-info-list .qi-row{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--border);gap:10px;}
+.q-info-list .qi-row:last-child{border-bottom:none;}
+.q-info-list .qi-row:nth-child(odd){background:var(--surface2);}
+.q-info-list .qi-l{font-size:.76rem;color:var(--text3);white-space:nowrap;}
+.q-info-list .qi-v{font-size:.85rem;font-weight:600;color:var(--text1);text-align:right;}
+
+/* ── PRICE STACK (DỌC XANH LÁ) ── */
+.q-price-stack{border:1.5px solid #86efac;border-radius:var(--r-md);overflow:hidden;margin-bottom:13px;}
+.q-price-row{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:10px;}
+.q-price-row+.q-price-row{border-top:1px solid var(--border);}
+.q-price-row.unit-row{background:#f0fdf4;}
+.q-price-row.qty-row{background:var(--surface2);}
+.q-price-row.total-row{background:#f0fdf4;border-top:2px solid #86efac;}
+.q-price-lbl{font-size:.8rem;font-weight:600;color:var(--text3);}
+.q-price-row.unit-row .q-price-lbl{color:#15803d;}
+.q-price-row.total-row .q-price-lbl{color:#15803d;font-size:.85rem;font-weight:700;}
+.q-price-val{font-size:1.05rem;font-weight:800;color:var(--brand);}
+.q-price-row.unit-row .q-price-val{font-size:1.1rem;color:#15803d;}
+.q-price-row.total-row .q-price-val{font-size:1.5rem;font-weight:900;color:#15803d;}
+
+/* ── BẢNG THAM CHIẾU ── */
+.qref-tbl{width:100%;border-collapse:collapse;font-size:.8rem;}
+.qref-tbl th{background:var(--brand);color:#fff;padding:8px 10px;text-align:center;border:none;font-weight:700;font-size:.75rem;letter-spacing:.3px;}
+.qref-tbl th:first-child{text-align:left;padding-left:12px;}
+.qref-tbl td{padding:7px 10px;text-align:center;border-bottom:1px solid var(--border);font-size:.82rem;}
+.qref-tbl td:first-child{text-align:left;padding-left:12px;font-weight:600;color:var(--text2);}
+.qref-tbl td:last-child{font-weight:600;color:var(--text2);}
+.qref-tbl tbody tr:nth-child(even) td{background:#f8fafc;}
+.qref-tbl tbody tr:last-child td{border-bottom:none;}
+.qref-tbl tbody tr:hover td{background:#eff6ff;}
+.qref-tbl tr.cur td{background:linear-gradient(90deg,#eff6ff,#f0fdf4)!important;font-weight:800;}
+.qref-tbl tr.cur td:first-child{color:var(--brand);}
+.qref-tbl tr.cur td:nth-child(2){color:var(--green);font-size:.9rem;}
+.qref-tbl tr.cur td:last-child{color:var(--green);font-size:.9rem;}
+.qref-tbl tr.cur td:first-child::before{content:'▶ ';font-size:.65rem;color:var(--accent2);}
+.brand-preview{background:linear-gradient(135deg,var(--brand-dark),var(--brand));border-radius:var(--r-md);padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.brand-preview-logo{width:40px;height:40px;border-radius:var(--r-sm);background:var(--accent2);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;flex-shrink:0;}
+.brand-preview-text .bp-name{font-size:1.1rem;font-weight:800;color:#fff;}
+.brand-preview-text .bp-tagline{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:1px;}
+@media(max-width:640px){
+  .g2,.g3,.g4{grid-template-columns:1fr 1fr;}
+  .res-grid{grid-template-columns:1fr 1fr;}
+  .price-display,.qph{grid-template-columns:1fr;}
+  .card{padding:14px;}.mod-body{padding:13px 11px 40px;}
+  .two-col-form{grid-template-columns:1fr!important;}
+  .col-divider{display:none!important;}
+}
+@media(max-width:380px){.g2,.g3,.g4,.fc-grid{grid-template-columns:1fr;}}
+@media print{body *{visibility:hidden;}.modal,.modal *{visibility:visible;}.modal{position:fixed;inset:0;max-height:none;overflow:visible;border-radius:0;box-shadow:none;}.modal-ft{display:none;}}
+
+/* RIRO RESPONSIVE SAFETY v2 */
+@media(max-width:640px){
+  html,body{overflow-x:hidden;max-width:100%;}
+  .modal{max-width:100%!important;border-radius:14px!important;max-height:94vh!important;}
+  .modal-lg{max-width:100%!important;}
+  .overlay{padding:6px!important;}
+  .modal-hd{padding:12px 14px 10px!important;flex-wrap:wrap;gap:6px;}
+  .modal-body{padding:12px 14px!important;}
+  .modal-ft{padding:10px 14px!important;flex-wrap:wrap;}
+  .mhd-l h3{font-size:.9rem!important;}
+  .tb-name{font-size:1.05rem!important;line-height:1.2!important;}
+  .tb-name small{font-size:.68rem!important;line-height:1.2;}
+  .tb-ver{position:absolute!important;top:6px!important;right:8px!important;font-size:.6rem!important;padding:1px 6px!important;}
+  .tb-brand{padding:0 60px;}
+  /* Fix inline 2-col grid trong quote popup → 1 cột */
+  .modal-body>div>div[style*="grid-template-columns"]{grid-template-columns:1fr!important;}
+  /* Fix res-grid inline repeat(4/5 cột) → 2 cột */
+  .res-grid[style]{grid-template-columns:repeat(2,1fr)!important;}
+  /* Tables: scroll ngang */
+  table{font-size:.76rem!important;}
+  .st-panel table,.modal-body table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+  .tbl-wrap,.ptbl-wrap,.fee-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .q-info-list{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .btn-row{flex-direction:column;align-items:stretch;}
+  .btn-row .btn{width:100%!important;}
+  .st-tabs{gap:4px;flex-wrap:wrap;}
+  .st-tab{padding:5px 10px!important;font-size:.72rem!important;}
+  /* iOS: ngăn auto-zoom khi focus vào input/select */
+  input,select,textarea{font-size:16px!important;}
+}
+@media(max-width:380px){
+  .pbox .pb-v{font-size:1.15rem!important;}
+  .modal-body{padding:10px 12px!important;}
+  .card{padding:12px!important;}
+  .mod-body{padding:12px 9px 36px!important;}
+  .g2,.g3{grid-template-columns:1fr!important;}
+  .res-grid[style]{grid-template-columns:1fr 1fr!important;}
+  input,select,textarea{font-size:16px!important;}
+}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="tb-brand">
+    <div class="tb-name"><span id="topName">BÁO GIÁ IN CATALOGUE RIRO</span><small id="topTagline">Hệ thống báo giá in ấn chuyên nghiệp</small></div>
+  </div>
+  <div class="tb-right" style="display:flex;align-items:center;gap:6px;">
+    <button onclick="openSettings()" title="Cài Đặt" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; padding: 6px 8px; border-radius: var(--r-sm); color: var(--text3); font-size: 1.1rem; transition: 0.15s;" onmouseover="this.style.background='var(--border)';this.style.color='var(--brand)'" onmouseout="this.style.background='none';this.style.color='var(--text3)'">⚙️</button>
+    <span class="tb-ver">v8.0</span>
+  </div>
+</header>
+
+<div class="mod-body">
+
+  <!-- CARD FORM 2 CỘT -->
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:start;" class="two-col-form">
+
+      <!-- CỘT TRÁI -->
+      <div style="display:flex;flex-direction:column;gap:14px;padding-right:20px;">
+        <div class="fg">
+          <label>Tên khách hàng / Đơn hàng</label>
+          <input type="text" id="cat_name" placeholder="VD: Công ty ABC – Catalogue tháng 6">
+        </div>
+        <div class="fg">
+          <label>Loại khách hàng</label>
+          <select id="cat_custType" onchange="CAT.calc()">
+            <option value="direct">Khách thường</option>
+            <option value="agency">Khách đại lý</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Loại / Khổ</label>
+          <select id="cat_type" onchange="CAT.calc()"><option value="a4v">A4 đứng</option><option value="a4h">A4 ngang</option><option value="a5v">A5 đứng</option><option value="a5h">A5 ngang</option><option value="a6v">A6 đứng</option><option value="a6h">A6 ngang</option></select>
+        </div>
+        <div class="fg">
+          <label>Số trang <span class="ub">≥ 8</span> <span class="req">*</span></label>
+          <input type="number" id="cat_pages" value="" min="8" step="4" placeholder="Nhập số trang" oninput="CAT.calc()" onfocus="this.select()">
+          <div class="hint" id="cat_pageHint" style="color: var(--text3);">Ghim giữa: tối đa 52 trang</div>
+        </div>
+        <div class="fg">
+          <label>Số lượng <span class="ub">cuốn</span> <span class="req">*</span></label>
+          <input type="number" id="cat_qty" value="" min="1" step="1" placeholder="Nhập số lượng" oninput="CAT.calcOnQty()" onfocus="this.select()">
+        </div>
+      </div>
+
+      <!-- ĐƯỜNG KẺ DỌC -->
+      <div class="col-divider" style="background:var(--border);align-self:stretch;"></div>
+
+      <!-- CỘT PHẢI -->
+      <div style="display:flex;flex-direction:column;gap:14px;padding-left:20px;">
+        <div class="fg">
+          <label>Giấy bìa</label>
+          <select id="cat_cover" onchange="CAT.calc()">
+            <option value="c150">Couche 150gsm</option>
+            <option value="c200">Couche 200gsm</option>
+            <option value="c250" selected="">Couche 250gsm</option>
+            <option value="c300">Couche 300gsm</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Giấy ruột</label>
+          <select id="cat_inner" onchange="CAT.calc()">
+            <option value="c100">Couche 100gsm</option>
+            <option value="c150" selected="">Couche 150gsm</option>
+            <option value="c200">Couche 200gsm</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Cán màng bìa</label>
+          <select id="cat_lam" onchange="CAT.calc()">
+            <option value="mo" selected="">Cán mờ 1 mặt</option>
+            <option value="bong">Cán bóng 1 mặt</option>
+            <option value="mo2">Cán mờ 2 mặt</option>
+            <option value="bong2">Cán bóng 2 mặt</option>
+            <option value="none">Không cán màng</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Kiểu đóng quyển</label>
+          <select id="cat_binding" onchange="CAT.onBindingChange()"><option value="saddle">Ghim giữa (≤52 trang)</option><option value="glue">Keo gáy</option><option value="spiral">Gáy lò xo</option></select>
+        </div>
+        <!-- Action buttons thay Ghi chú -->
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto;">
+          <button class="btn btn-accent" style="width:100%;height:44px;font-size:.88rem;" onclick="CAT.openQuote()">📄 Xuất Báo Giá</button>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <button class="btn btn-sm" onclick="CAT.openOffset()" style="background:#fff7ed;color:#c2410c;border:1.5px solid #fed7aa;font-weight:700;height:38px;">📊 Bảng Giá Offset</button>
+            <button class="btn btn-ghost btn-sm" style="height:38px;" onclick="CAT.clearForm()">🔄 Làm mới</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Agency notice -->
+    <div id="cat_agNotice" class="notice ok" style="display:none;margin-top:14px;">
+      <span>🎯</span><span id="cat_agNotice_txt"><strong>Đang áp dụng giảm giá đại lý.</strong> Mức giảm tự động theo giá trị đơn.</span>
+    </div>
+  </div>
+
+  <!-- THÔNG SỐ NỘI BỘ -->
+  <div class="res-strip" id="cat_internalStrip" style="display:none;">
+    <div class="res-strip-ttl">⚙ Thông số kỹ thuật – Nội bộ</div>
+    <div class="res-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+      <div class="ri"><div class="ri-l">Tổng trang in</div><div class="ri-v g" id="r_tongTo">—</div></div>
+      <div class="ri"><div class="ri-l">Đơn giá/trang</div><div class="ri-v" id="r_donGia">—</div></div>
+      <div class="ri"><div class="ri-l">Hệ số khổ</div><div class="ri-v" id="r_heSo">—</div></div>
+      <div class="ri"><div class="ri-l">Giá in / cuốn</div><div class="ri-v" id="r_giaIn">—</div></div>
+    </div>
+    <div style="border-top:1px dashed #bfdbfe;margin-bottom:8px;"></div>
+    <div class="res-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="ri"><div class="ri-l">Phụ phí bìa</div><div class="ri-v a" id="r_coverFee">—</div></div>
+      <div class="ri"><div class="ri-l">Phụ phí ruột</div><div class="ri-v a" id="r_innerFee">—</div></div>
+      <div class="ri"><div class="ri-l">Phí cán màng</div><div class="ri-v a" id="r_lamFee">—</div></div>
+      <div class="ri"><div class="ri-l">Phí đóng quyển</div><div class="ri-v a" id="r_bindFee">—</div></div>
+    </div>
+    <div style="border-top:1px dashed #bfdbfe;margin:6px 0 8px;"></div>
+    <div class="res-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="ri"><div class="ri-l">Đơn giá/cuốn</div><div class="ri-v" id="r_donGiaCuon">—</div></div>
+      <div class="ri"><div class="ri-l">Thành tiền (chưa VAT)</div><div class="ri-v" id="r_subTotal">—</div></div>
+      <div class="ri"><div class="ri-l">VAT</div><div class="ri-v" id="r_vat">—</div></div>
+      <div class="ri"><div class="ri-l">Giảm ĐL (−)</div><div class="ri-v g" id="r_disc">—</div></div>
+    </div>
+  </div>
+
+  <!-- GIÁ -->
+  <div class="price-display" id="cat_priceDisplay">
+    <div class="pbox unit"><div class="pb-l">💲 Giá / 1 cuốn</div><div class="pb-v" id="p_unit">—</div><div class="pb-s" id="p_unit_s"></div></div>
+    <div class="pbox total"><div class="pb-l">💰 Tổng tiền</div><div class="pb-v" id="p_total">—</div><div class="pb-s" id="p_total_s"></div></div>
+  </div>
+
+  <!-- TOGGLE ĐIỀU CHỈNH GIÁ -->
+  <div id="cat_adjToggleRow" style="margin-bottom: 6px; display: none;">
+    <button onclick="CAT.toggleAdjPanel()" style="display: flex; align-items: center; gap: 8px; width: 100%; padding: 9px 14px; background: var(--surface); border: 1.5px solid rgb(191, 219, 254); border-radius: var(--r-sm); cursor: pointer; font-family: var(--font); transition: 0.15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='var(--surface)'">
+      <span style="font-size:.82rem;font-weight:700;color:var(--brand);">⚙️ Điều Chỉnh Giá Xuất</span>
+      <span style="margin-left:auto;font-size:.72rem;color:var(--text3);" id="cat_adjToggleHint">Bấm để mở</span>
+      <span id="cat_adjToggleArrow" style="font-size:.8rem;color:var(--brand);transition:.2s;">▼</span>
+    </button>
+  </div>
+  <div class="card" id="cat_adjustCard" style="display:none;padding:14px 18px;margin-bottom:12px;background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1.5px solid #bfdbfe;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div>
+        <div style="font-size:.75rem;font-weight:700;color:var(--brand);margin-bottom:7px;">📈 Lợi Nhuận (%)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;">
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(-15,this)" style="background:#fee2e2;color:#dc2626;border:1.5px solid #fca5a5;height:30px;padding:0 8px;font-size:.75rem;">−15%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(-10,this)" style="background:#fee2e2;color:#dc2626;border:1.5px solid #fca5a5;height:30px;padding:0 8px;font-size:.75rem;">−10%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(-5,this)" style="background:#fff7ed;color:#ea580c;border:1.5px solid #fed7aa;height:30px;padding:0 8px;font-size:.75rem;">−5%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(0,this)" style="background:#f8fafc;color:var(--text2);border:1.5px solid var(--border);height:30px;padding:0 8px;font-size:.75rem;">0%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(5,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+5%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(10,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+10%</button>
+          <button class="cat-adj-btn btn btn-sm" onclick="CAT.setProfit(15,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+15%</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <input type="number" id="cat_adj_profit_custom" placeholder="Nhập %" step="1" min="-50" max="100" oninput="CAT.setCustomProfit(+this.value)" style="width:80px;padding:5px 8px;border:1.5px solid #bfdbfe;border-radius:6px;font-size:.88rem;font-weight:700;text-align:center;font-family:var(--font);color:var(--brand);background:#fff;">
+          <span style="font-size:.72rem;color:var(--text3);">%  →  LN: <strong id="cat_adj_profit_lbl" style="color:var(--brand);">+0%</strong></span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:.75rem;font-weight:700;color:var(--brand);margin-bottom:7px;">💲 Điều Chỉnh Giá (đ)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+          <div>
+            <div style="font-size:.68rem;color:var(--text3);margin-bottom:3px;font-weight:600;">🔼 Tăng (đ/cuốn)</div>
+            <input type="number" id="cat_adj_inc" min="0" step="100" placeholder="0" oninput="CAT.applyAdj()" style="width:100%;padding:7px 10px;border:1.5px solid #86efac;border-radius:6px;font-size:.9rem;font-weight:700;text-align:center;font-family:var(--font);color:#15803d;background:#f0fdf4;">
+          </div>
+          <div>
+            <div style="font-size:.68rem;color:var(--text3);margin-bottom:3px;font-weight:600;">🔽 Giảm (đ/cuốn)</div>
+            <input type="number" id="cat_adj_dec" min="0" step="100" placeholder="0" oninput="CAT.applyAdj()" style="width:100%;padding:7px 10px;border:1.5px solid #fca5a5;border-radius:6px;font-size:.9rem;font-weight:700;text-align:center;font-family:var(--font);color:#dc2626;background:#fee2e2;">
+          </div>
+        </div>
+        <div style="font-size:.7rem;color:var(--text3);">Điều chỉnh: <strong id="cat_adj_price_lbl" style="color:var(--brand);">+0đ</strong></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:10px 14px;background:#fff;border-radius:var(--r-sm);border:1.5px solid #bfdbfe;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:.75rem;color:var(--text3);font-weight:600;">Giá / cuốn sau điều chỉnh</div>
+      <div style="font-size:1.35rem;font-weight:900;color:var(--brand);" id="cat_adj_unit_out">—</div>
+      <div style="font-size:.75rem;color:var(--text3);font-weight:600;">Tổng tiền</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--green);" id="cat_adj_total_out">—</div>
+      <button class="btn btn-ghost btn-sm" onclick="CAT.resetAdj()">↩ Reset</button>
+    </div>
+  </div>
+
+  <div class="notice warn" id="cat_notice" style="display:none;"><span>⚠️</span><span id="cat_notice_txt"></span></div>
+
+
+</div>
+
+<!-- POPUP BÁO GIÁ – CATALOGUE -->
+<div class="overlay" id="quoteOv">
+  <div class="modal modal-lg" id="quoteMod" style="max-width:880px;">
+
+    <div class="modal-hd">
+      <div class="mhd-l">
+        <h3 id="q_brand">📚 RIRO PRINT</h3>
+        <p id="cat_q_address" style="font-size:.72rem;color:var(--text3);margin-top:2px;"></p>
+        <p id="cat_q_phone" style="font-size:.72rem;color:var(--text3);margin-top:1px;"></p>
+      </div>
+      <div class="mhd-r">
+        <strong id="q_code">—</strong>
+        <span id="q_date">—</span>
+        <span style="display:block;margin-top:1px;">Hiệu lực: 15 ngày</span>
+      </div>
+    </div>
+
+    <div class="modal-body" style="padding:18px 22px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;">
+
+        <!-- CỘT TRÁI: thông tin + giá -->
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;">📋 Thông tin đơn hàng</div>
+          <div class="q-info-list" id="q_info"></div>
+          <div class="q-price-stack" style="margin-top:4px;">
+            <div class="q-price-row unit-row"><span class="q-price-lbl">💲 Giá / 1 cuốn</span><span class="q-price-val" id="q_unit">—</span></div>
+            <div class="q-price-row total-row"><span class="q-price-lbl">💰 Tổng tiền</span><span class="q-price-val" id="q_total">—</span></div>
+            <div style="padding:7px 16px;background:#f0fdf4;border-top:1px dashed #86efac;display:flex;align-items:center;gap:6px;">
+              <span style="font-size:.72rem;color:#15803d;font-weight:700;">✅ Giá đã bao gồm VAT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CỘT PHẢI: bảng tham chiếu -->
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;">📊 Giá tham khảo theo số lượng</div>
+          <div id="q_ref"></div>
+        </div>
+
+      </div>
+      <div id="q_note" style="margin-top:10px;font-size:.78rem;color:var(--text3);line-height:1.6;"></div>
+    </div>
+
+    <div class="modal-ft">
+      <button class="btn btn-green btn-sm" onclick="CAT.copyImage()" title="Ctrl+V để dán">📋 Copy Ảnh</button>
+      <button class="btn btn-accent btn-sm" onclick="CAT.capture()">📸 Lưu Ảnh</button>
+      <button class="btn btn-ghost btn-sm" onclick="CAT.closeQuote()">✕ Đóng</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- POPUP OFFSET -->
+<div class="overlay" id="offsetOv">
+  <div class="modal" id="offsetMod" style="max-width:600px;">
+    <div class="modal-hd" style="border-bottom:2px solid #f97316;background:linear-gradient(135deg,#7c2d12 0%,#c2410c 100%);padding:15px 22px;">
+      <div class="mhd-l">
+        <h3 style="color:#fff;font-size:1.1rem;">🖨️ Bảng Giá In Offset – Catalogue</h3>
+        <p style="color:rgba(255,255,255,.7);font-size:.8rem;margin-top:2px;">Ghim giữa · 7–10 ngày</p>
+        <div style="margin-top:5px;"><span style="background:rgba(255,255,255,.2);color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;">✅ Đã bao gồm VAT</span></div>
+      </div>
+      <div class="mhd-r">
+        <strong id="cat_ofs_brand" style="color:#fff;font-size:.92rem;">BÁO GIÁ IN CATALOGUE RIRO</strong>
+        <span id="cat_ofs_date" style="color:rgba(255,255,255,.6);display:block;margin-top:2px;font-size:.75rem;">12/5/2026</span>
+      </div>
+    </div>
+    <div class="modal-body" style="padding:14px 20px;">
+      <!-- Thông báo gọn -->
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:var(--r-sm);padding:8px 12px;margin-bottom:12px;font-size:.78rem;color:#9a3412;display:flex;gap:6px;align-items:center;">
+        <span>⏱</span>
+        <span>Thời gian: <strong>7–10 ngày</strong> · Màu sắc có thể chênh lệch nhẹ · ✅ Đã bao gồm VAT</span>
+      </div>
+      <!-- 1 bảng ghim giữa full width -->
+      <div style="background:#fff7ed;border:1.5px solid #fed7aa;border-radius:var(--r-md);overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#ea580c,#c2410c);padding:10px 16px;display:flex;align-items:center;gap:10px;">
+          <span style="color:#fff;font-size:1rem;font-weight:800;">📎 Ghim giữa</span>
+          <span style="color:rgba(255,255,255,.78);font-size:.84rem;">8 – 52 trang · A4 đứng · Bìa C300 cán mờ · Ruột C150</span>
+        </div>
+        <div id="cat_ofs_grid_ghim" style="padding:8px 12px;"><table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
+        <thead>
+          <tr>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:left;font-size:.78rem;font-weight:700;border-radius:6px 0 0 6px;">Số trang</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">500 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">1,000 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">2,000 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:right;font-size:.78rem;font-weight:700;border-radius:0 6px 6px 0;">3,000 cuốn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">8 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">11.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">8.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">6.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">5.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">12 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">14.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">9.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">7.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">6.500đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">16 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">18.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">12.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">9.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">7.500đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">20 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">19.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">14.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">9.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">8.500đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">24 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">22.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">16.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">10.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">9.500đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">28 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">25.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">17.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">12.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">11.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">32 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">29.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">19.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">14.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">12.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">36 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">30.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">22.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">16.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">13.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">40 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">32.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">27.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">18.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">14.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">44 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">35.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">30.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">19.500đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">15.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">48 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">41.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">34.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">22.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">17.000đ</td>
+          </tr><tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">52 trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">45.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">38.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">25.000đ</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">19.000đ</td>
+          </tr>
+        </tbody>
+      </table></div>
+      </div>
+    </div>
+    <div class="modal-ft" style="border-top:1px solid #fed7aa;padding:10px 20px;">
+      <button class="btn btn-green btn-sm" onclick="CAT.copyOffsetImage()">📋 Copy Ảnh</button>
+      <button class="btn btn-accent btn-sm" onclick="CAT.captureOffset()">📸 Lưu Ảnh</button>
+      <button class="btn btn-ghost btn-sm" onclick="CAT.closeOffset()">✕ Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- PASSWORD OVERLAY -->
+<div class="overlay" id="pwOv">
+  <div class="modal" style="max-width:360px;">
+    <div class="modal-hd"><div class="mhd-l"><h3>🔐 Xác Nhận Mật Khẩu</h3><p>Nhập mật khẩu để vào Cài Đặt</p></div></div>
+    <div class="modal-body" style="padding:20px 22px;">
+      <div class="fg" style="margin-bottom:14px;"><label>Mật khẩu</label>
+        <input type="password" id="pwInput" placeholder="••••••" autocomplete="off" onkeydown="if(event.key==='Enter')AUTH.check()">
+      </div>
+      <div class="notice warn" id="pwError" style="display:none;margin-bottom:0;"><span>⚠️</span><span>Mật khẩu không đúng!</span></div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-p btn-sm" onclick="AUTH.check()">🔓 Xác Nhận</button>
+      <button class="btn btn-ghost btn-sm" onclick="AUTH.cancel()">✕ Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS OVERLAY -->
+<div class="overlay" id="settingsOv">
+  <div class="modal modal-lg">
+    <div class="modal-hd">
+      <div class="mhd-l"><h3>⚙ Cài Đặt – Catalogue</h3><p>Thương hiệu · Bảng giá · Chất liệu · Đóng quyển · Khổ · Đại lý</p></div>
+      <button class="btn btn-ghost btn-sm" onclick="closeSettings()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="st-tabs">
+        <button class="st-tab" id="stb_brand" onclick="switchST('brand',this)">🏢 Thương Hiệu</button>
+        <button class="st-tab" id="stb_banggia" onclick="switchST('banggia',this)">📊 Bảng Giá</button>
+        <button class="st-tab" id="stb_chatLieu" onclick="switchST('chatLieu',this)">📄 Chất Liệu</button>
+        <button class="st-tab" id="stb_dongquyen" onclick="switchST('dongquyen',this)">📚 Đóng Quyển</button>
+        <button class="st-tab" id="stb_khoso" onclick="switchST('khoso',this)">📐 Khổ &amp; Hệ số</button>
+        <button class="st-tab" id="stb_agency" onclick="switchST('agency',this)">🎯 VAT &amp; Đại Lý</button>
+        <button class="st-tab" id="stb_offset" onclick="switchST('offset',this)">📋 Bảng Offset</button>
+        <button class="st-tab" id="stb_refqty" onclick="switchST('refqty',this)">🔢 Mốc tham chiếu</button>
+        <button class="st-tab" id="stb_pw" onclick="switchST('pw',this)">🔐 Mật Khẩu</button>
+        <button class="st-tab active" id="stb_sync" onclick="switchST('sync',this)">🔄 Đồng Bộ</button>
+      </div>
+
+      <div id="sp_brand" class="st-panel">
+        <div class="brand-preview" style="justify-content:center;">
+          <div class="brand-preview-text"><div class="bp-name" id="prevName">BÁO GIÁ IN CATALOGUE RIRO</div><div class="bp-tagline" id="prevTagline">Hệ thống báo giá in ấn chuyên nghiệp</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:12px;">
+          <div class="fg"><label>Tên thương hiệu / Công ty</label><input type="text" id="bf_name" placeholder="BÁO GIÁ IN CATALOGUE RIRO" oninput="BRAND.preview()"></div>
+          <div class="fg"><label>Slogan / Tagline</label><input type="text" id="bf_tagline" placeholder="Hệ thống báo giá in ấn chuyên nghiệp" oninput="BRAND.preview()"></div>
+          <div class="fg" style="grid-column:span 2;"><label>📍 Địa chỉ</label><input type="text" id="bf_address" placeholder="61 Phạm Thanh, P. Đạo Thạnh, Đồng Tháp"></div>
+          <div class="fg" style="grid-column:span 2;"><label>📞 Điện thoại</label><input type="text" id="bf_phone" placeholder="08.1234.3639 – 082.974.0168 – 0334.642.639"></div>
+        </div>
+        <div class="btn-row" style="margin-bottom:14px;"><button class="btn btn-p btn-sm" onclick="BRAND.save()">💾 Lưu</button><button class="btn btn-red btn-sm" onclick="BRAND.reset()">↩ Reset</button></div>
+        <div class="save-msg" id="brandSaveMsg" style="display: none;">✅ Đã lưu thông tin thương hiệu!</div>
+        <div class="st-sec" style="margin-top:16px;">🔧 Hiển thị giao diện</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;">
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:var(--text1);">Hiện thông số kỹ thuật nội bộ</div>
+            <div style="font-size:.72rem;color:var(--text3);margin-top:2px;">Bật → luôn hiển thị dải chi tiết tính giá sau khi nhập xong thông số</div>
+          </div>
+          <label style="position:relative;display:inline-block;width:44px;height:24px;cursor:pointer;flex-shrink:0;">
+            <input type="checkbox" id="cfg_showInternal" style="opacity:0;width:0;height:0;position:absolute;" onchange="CFG.toggleInternal(this.checked)">
+            <span id="cfg_toggleTrack" style="position:absolute;inset:0;border-radius:24px;transition:.2s;background:#cbd5e1;"></span>
+            <span id="cfg_toggleThumb" style="position:absolute;left:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.2);"></span>
+          </label>
+        </div>
+      </div>
+
+      <div id="sp_banggia" class="st-panel">
+        <div class="notice info"><span>💡</span><span>Giá theo <strong>tổng số trang</strong> (= số trang/cuốn × số cuốn). Mốc số trang <strong>không thể sửa</strong>, chỉ sửa đơn giá.</span></div>
+        <div class="tbl-wrap"><table class="st-tbl">
+          <thead><tr><th>Mốc tổng trang</th><th>Giá/trang (đ)</th><th style="width:44px;"></th></tr></thead>
+          <tbody id="bg_body"><tr><td>16 trang</td><td><input class="editable" type="number" min="0" step="50" value="5000" onchange="CFG._setBGP(0,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(0)">✕</button></td></tr><tr><td>50 trang</td><td><input class="editable" type="number" min="0" step="50" value="3500" onchange="CFG._setBGP(1,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(1)">✕</button></td></tr><tr><td>100 trang</td><td><input class="editable" type="number" min="0" step="50" value="3000" onchange="CFG._setBGP(2,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(2)">✕</button></td></tr><tr><td>200 trang</td><td><input class="editable" type="number" min="0" step="50" value="2500" onchange="CFG._setBGP(3,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(3)">✕</button></td></tr><tr><td>500 trang</td><td><input class="editable" type="number" min="0" step="50" value="2000" onchange="CFG._setBGP(4,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(4)">✕</button></td></tr><tr><td>700 trang</td><td><input class="editable" type="number" min="0" step="50" value="1800" onchange="CFG._setBGP(5,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(5)">✕</button></td></tr><tr><td>1.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1500" onchange="CFG._setBGP(6,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(6)">✕</button></td></tr><tr><td>2.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1400" onchange="CFG._setBGP(7,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(7)">✕</button></td></tr><tr><td>3.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1300" onchange="CFG._setBGP(8,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(8)">✕</button></td></tr><tr><td>5.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1250" onchange="CFG._setBGP(9,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(9)">✕</button></td></tr><tr><td>10.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1200" onchange="CFG._setBGP(10,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(10)">✕</button></td></tr><tr><td>20.000 trang</td><td><input class="editable" type="number" min="0" step="50" value="1100" onchange="CFG._setBGP(11,this.value)" onfocus="this.select()"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(11)">✕</button></td></tr></tbody>
+        </table></div>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn btn-p btn-sm" onclick="CFG.saveBangGia()">💾 Lưu</button>
+          <button class="btn btn-ghost btn-sm" onclick="CFG.addMoc()">➕ Thêm mốc</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetBangGia()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="bgSaveMsg">✅ Đã lưu bảng giá!</div>
+        <div class="st-sec" style="margin-top:18px;">📐 Cách tính giá/trang</div>
+        <div class="fc-grid col2" style="margin-bottom:4px;">
+          <div class="fc-box">
+            <label>Kiểu nội suy</label>
+            <select id="cfg_pricingMode">
+              <option value="linear">Nội suy tuyến tính (mượt giữa 2 mốc)</option>
+              <option value="moc">Giá mốc chuẩn (nhảy theo bậc)</option>
+            </select>
+            <div class="fc-note">Nội suy: giá thay đổi mượt. Mốc chuẩn: bằng mốc gần nhất phía dưới.</div>
+          </div>
+        </div>
+        <div class="st-sec" style="margin-top:18px;">🔢 Làm tròn &amp; Đơn vị</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Làm tròn đến</label><select id="cfg_round"><option value="1">Hàng đơn vị (1đ)</option><option value="100" selected="">Hàng trăm (100đ)</option><option value="1000">Hàng nghìn (1,000đ)</option></select></div>
+          <div class="fc-box"><label>Đơn vị tiền tệ</label><select id="cfg_unit"><option value="d">đ</option><option value="vnd">VNĐ</option></select></div>
+        </div>
+        <div class="btn-row" style="margin-top:12px;"><button class="btn btn-p btn-sm" onclick="CFG.saveDisplay()">💾 Lưu cài đặt tính giá</button></div>
+        <div class="save-msg" id="displaySaveMsg">✅ Đã lưu!</div>
+      </div>
+
+      <div id="sp_chatLieu" class="st-panel">
+        <div class="st-sec">🖊 Phụ phí giấy bìa (đ/cuốn)</div>
+        <div class="notice info"><span>💡</span><span>Couche 150gsm là chuẩn (0đ). Giấy dày hơn tính phụ phí thêm mỗi cuốn.</span></div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Loại giấy bìa</th><th>Phụ phí (đ/cuốn)</th></tr></thead><tbody id="cover_body"><tr><td>Couche 150gsm</td><td><input type="number" min="0" step="50" value="0" onchange="CFG._setCoverFee(0,this.value)" onfocus="this.select()"></td></tr><tr><td>Couche 200gsm</td><td><input type="number" min="0" step="50" value="200" onchange="CFG._setCoverFee(1,this.value)" onfocus="this.select()"></td></tr><tr><td>Couche 250gsm</td><td><input type="number" min="0" step="50" value="400" onchange="CFG._setCoverFee(2,this.value)" onfocus="this.select()"></td></tr><tr><td>Couche 300gsm</td><td><input type="number" min="0" step="50" value="600" onchange="CFG._setCoverFee(3,this.value)" onfocus="this.select()"></td></tr></tbody></table></div>
+        <div class="st-sec">📄 Phụ phí giấy ruột (đ/trang)</div>
+        <div class="notice info"><span>💡</span><span>Tính × số trang ruột (tổng trang − 2 trang bìa).</span></div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Loại giấy ruột</th><th>Phụ phí (đ/trang)</th></tr></thead><tbody id="inner_body"><tr><td>Couche 100gsm</td><td><input type="number" min="0" step="10" value="-30" onchange="CFG._setInnerFee(0,this.value)" onfocus="this.select()"></td></tr><tr><td>Couche 150gsm</td><td><input type="number" min="0" step="10" value="0" onchange="CFG._setInnerFee(1,this.value)" onfocus="this.select()"></td></tr><tr><td>Couche 200gsm</td><td><input type="number" min="0" step="10" value="50" onchange="CFG._setInnerFee(2,this.value)" onfocus="this.select()"></td></tr></tbody></table></div>
+        <div class="st-sec">🎨 Phí cán màng bìa (đ/cuốn)</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Kiểu cán màng</th><th>Phí (đ/cuốn)</th></tr></thead><tbody id="lam_body"><tr><td>Không cán</td><td><input type="number" min="0" step="100" value="0" onchange="CFG._setLamFee(0,this.value)" onfocus="this.select()"></td></tr><tr><td>Cán mờ 1 mặt</td><td><input type="number" min="0" step="100" value="1000" onchange="CFG._setLamFee(1,this.value)" onfocus="this.select()"></td></tr><tr><td>Cán bóng 1 mặt</td><td><input type="number" min="0" step="100" value="1000" onchange="CFG._setLamFee(2,this.value)" onfocus="this.select()"></td></tr><tr><td>Cán mờ 2 mặt</td><td><input type="number" min="0" step="100" value="1800" onchange="CFG._setLamFee(3,this.value)" onfocus="this.select()"></td></tr><tr><td>Cán bóng 2 mặt</td><td><input type="number" min="0" step="100" value="1800" onchange="CFG._setLamFee(4,this.value)" onfocus="this.select()"></td></tr></tbody></table></div>
+        <div class="btn-row" style="margin-top:14px;">
+          <button class="btn btn-p btn-sm" onclick="CFG.saveChatLieu()">💾 Lưu Chất Liệu</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetChatLieu()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="clSaveMsg">✅ Đã lưu chất liệu!</div>
+      </div>
+
+      <div id="sp_dongquyen" class="st-panel">
+        <div class="notice info"><span>💡</span><span>Phí đóng quyển cộng thêm mỗi cuốn. Giới hạn trang: nhập số hoặc 0 = không giới hạn.</span></div>
+        <div class="tbl-wrap"><table class="st-tbl">
+          <thead><tr><th>Kiểu đóng quyển</th><th>Phí (đ/cuốn)</th><th>Phí tối thiểu (đ)</th><th>Giới hạn trang</th></tr></thead>
+          <tbody id="binding_body">
+      <tr>
+        <td><input type="text" value="Ghim giữa" onchange="CFG._setBindLbl(0,this.value)" style="min-width:110px;"></td>
+        <td><input type="number" min="0" step="500" value="0" onchange="CFG._setBindFee(0,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="1000" value="0" onchange="CFG._setBindMin(0,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="4" value="52" onchange="CFG._setBindMax(0,this.value)" onfocus="this.select()" placeholder="0=không giới hạn" style="width:110px;"></td>
+        <td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBind(0)">✕</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Keo gáy" onchange="CFG._setBindLbl(1,this.value)" style="min-width:110px;"></td>
+        <td><input type="number" min="0" step="500" value="5000" onchange="CFG._setBindFee(1,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="1000" value="50000" onchange="CFG._setBindMin(1,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="4" value="0" onchange="CFG._setBindMax(1,this.value)" onfocus="this.select()" placeholder="0=không giới hạn" style="width:110px;"></td>
+        <td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBind(1)">✕</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" value="Gáy lò xo" onchange="CFG._setBindLbl(2,this.value)" style="min-width:110px;"></td>
+        <td><input type="number" min="0" step="500" value="10000" onchange="CFG._setBindFee(2,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="1000" value="20000" onchange="CFG._setBindMin(2,this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="4" value="0" onchange="CFG._setBindMax(2,this.value)" onfocus="this.select()" placeholder="0=không giới hạn" style="width:110px;"></td>
+        <td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBind(2)">✕</button></td>
+      </tr></tbody>
+        </table></div>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn btn-ghost btn-sm" onclick="CFG.addBinding()">➕ Thêm kiểu</button>
+          <button class="btn btn-p btn-sm" onclick="CFG.saveBinding()">💾 Lưu</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetBinding()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="bindSaveMsg">✅ Đã lưu đóng quyển!</div>
+      </div>
+
+      <div id="sp_khoso" class="st-panel">
+        <div class="notice info"><span>💡</span><span>Hệ số so với <strong>A4 đứng (chuẩn = ×1.0)</strong>. Có thể thêm khổ tùy chỉnh.</span></div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Tên khổ</th><th>Loại hệ số</th><th>Hệ số ×</th><th>Cộng thêm (đ/cuốn)</th><th style="width:44px;"></th></tr></thead><tbody id="kho_body"><tr><td><input type="text" value="A4 đứng" onchange="CFG._setKLbl(0,this.value)" style="min-width:140px;" disabled=""> <span style="font-size:.65rem;color:var(--text3);">(chuẩn)</span></td><td><span style="font-size:.8rem;color:var(--text3);">A4 chuẩn</span></td><td><input type="number" value="1.0" disabled=""></td><td><input type="number" value="0" disabled=""></td><td></td></tr><tr><td><input type="text" value="A4 ngang" onchange="CFG._setKLbl(1,this.value)" style="min-width:140px;"></td><td><select onchange="CFG._setKType(1,this.value)"><option value="mul" selected="">Hệ số ×</option><option value="add">Cộng thêm đ</option></select></td><td><input type="number" value="1.1" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(1,this.value)" class="editable"></td><td><input type="number" value="0" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(1,this.value)" disabled="" style="opacity:.4;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(1)">✕</button></td></tr><tr><td><input type="text" value="A5 đứng" onchange="CFG._setKLbl(2,this.value)" style="min-width:140px;"></td><td><select onchange="CFG._setKType(2,this.value)"><option value="mul" selected="">Hệ số ×</option><option value="add">Cộng thêm đ</option></select></td><td><input type="number" value="0.6" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(2,this.value)" class="editable"></td><td><input type="number" value="0" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(2,this.value)" disabled="" style="opacity:.4;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(2)">✕</button></td></tr><tr><td><input type="text" value="A5 ngang" onchange="CFG._setKLbl(3,this.value)" style="min-width:140px;"></td><td><select onchange="CFG._setKType(3,this.value)"><option value="mul" selected="">Hệ số ×</option><option value="add">Cộng thêm đ</option></select></td><td><input type="number" value="0.65" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(3,this.value)" class="editable"></td><td><input type="number" value="0" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(3,this.value)" disabled="" style="opacity:.4;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(3)">✕</button></td></tr><tr><td><input type="text" value="A6 đứng" onchange="CFG._setKLbl(4,this.value)" style="min-width:140px;"></td><td><select onchange="CFG._setKType(4,this.value)"><option value="mul" selected="">Hệ số ×</option><option value="add">Cộng thêm đ</option></select></td><td><input type="number" value="0.35" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(4,this.value)" class="editable"></td><td><input type="number" value="0" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(4,this.value)" disabled="" style="opacity:.4;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(4)">✕</button></td></tr><tr><td><input type="text" value="A6 ngang" onchange="CFG._setKLbl(5,this.value)" style="min-width:140px;"></td><td><select onchange="CFG._setKType(5,this.value)"><option value="mul" selected="">Hệ số ×</option><option value="add">Cộng thêm đ</option></select></td><td><input type="number" value="0.4" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(5,this.value)" class="editable"></td><td><input type="number" value="0" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(5,this.value)" disabled="" style="opacity:.4;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(5)">✕</button></td></tr></tbody></table></div>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn btn-ghost btn-sm" onclick="CFG.addKho()">➕ Thêm khổ</button>
+          <button class="btn btn-p btn-sm" onclick="CFG.saveKhoSo()">💾 Lưu</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetKhoSo()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="khoSaveMsg">✅ Đã lưu khổ &amp; hệ số!</div>
+      </div>
+
+      <div id="sp_agency" class="st-panel">
+        <div class="st-sec">🧾 Thuế VAT</div>
+        <div class="fc-grid col2" style="margin-bottom:4px;">
+          <div class="fc-box"><label>Thuế VAT (%)</label><input type="number" id="cfg_vat" value="10" min="0" max="50" step="1" onfocus="this.select()"><div class="fc-note">Áp dụng cho tất cả khách hàng</div></div>
+        </div>
+        <div class="st-sec" style="margin-top:18px;">🎯 Giảm giá đại lý (lũy tiến)</div>
+        <div class="notice info"><span>💡</span><span>Giảm giá tính sau VAT, theo tổng giá trị đơn. Đơn càng lớn giảm càng ít.</span></div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>#</th><th>Giá trị đơn từ (VNĐ)</th><th>% Giảm</th><th style="width:44px;"></th></tr></thead><tbody id="agency_body"><tr><td style="text-align:center;">1</td><td><input type="number" min="0" step="100000" value="0" onchange="CFG._setAgFrom(0,this.value)" onfocus="this.select()"></td><td><input type="number" min="0" max="100" step="0.5" value="15" onchange="CFG._setAgPct(0,this.value)" onfocus="this.select()" style="width:72px;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delAgency(0)">✕</button></td></tr><tr><td style="text-align:center;">2</td><td><input type="number" min="0" step="100000" value="1000000" onchange="CFG._setAgFrom(1,this.value)" onfocus="this.select()"></td><td><input type="number" min="0" max="100" step="0.5" value="12" onchange="CFG._setAgPct(1,this.value)" onfocus="this.select()" style="width:72px;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delAgency(1)">✕</button></td></tr><tr><td style="text-align:center;">3</td><td><input type="number" min="0" step="100000" value="3000000" onchange="CFG._setAgFrom(2,this.value)" onfocus="this.select()"></td><td><input type="number" min="0" max="100" step="0.5" value="10" onchange="CFG._setAgPct(2,this.value)" onfocus="this.select()" style="width:72px;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delAgency(2)">✕</button></td></tr><tr><td style="text-align:center;">4</td><td><input type="number" min="0" step="100000" value="7000000" onchange="CFG._setAgFrom(3,this.value)" onfocus="this.select()"></td><td><input type="number" min="0" max="100" step="0.5" value="8" onchange="CFG._setAgPct(3,this.value)" onfocus="this.select()" style="width:72px;"></td><td><button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delAgency(3)">✕</button></td></tr></tbody></table></div>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn btn-ghost btn-sm" onclick="CFG.addAgencyTier()">➕ Thêm mốc</button>
+          <button class="btn btn-p btn-sm" onclick="CFG.saveAgency()">💾 Lưu</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetAgency()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="agencySaveMsg">✅ Đã lưu VAT &amp; giảm giá đại lý!</div>
+      </div>
+
+      <div id="sp_offset" class="st-panel">
+        <div class="notice info"><span>💡</span><span>Bảng giá <strong>In Offset</strong> – giá <strong>đ/cuốn</strong> theo số trang &amp; số lượng. Có thể chỉnh sửa tự do.</span></div>
+        <div style="overflow-x:auto;">
+          <table class="st-tbl">
+            <thead><tr><th>Số trang</th><th>500 cuốn</th><th>1,000 cuốn</th><th>2,000 cuốn</th><th>3,000 cuốn</th></tr></thead>
+            <tbody id="offset_body">
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">8 trang</td>
+        <td><input type="number" min="0" step="500" value="11000" onchange="CFG._setOff(0,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="8000" onchange="CFG._setOff(0,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="6000" onchange="CFG._setOff(0,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="5000" onchange="CFG._setOff(0,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">12 trang</td>
+        <td><input type="number" min="0" step="500" value="14000" onchange="CFG._setOff(1,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="9500" onchange="CFG._setOff(1,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="7500" onchange="CFG._setOff(1,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="6500" onchange="CFG._setOff(1,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">16 trang</td>
+        <td><input type="number" min="0" step="500" value="18000" onchange="CFG._setOff(2,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="12000" onchange="CFG._setOff(2,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="9000" onchange="CFG._setOff(2,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="7500" onchange="CFG._setOff(2,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">20 trang</td>
+        <td><input type="number" min="0" step="500" value="19500" onchange="CFG._setOff(3,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="14000" onchange="CFG._setOff(3,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="9500" onchange="CFG._setOff(3,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="8500" onchange="CFG._setOff(3,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">24 trang</td>
+        <td><input type="number" min="0" step="500" value="22000" onchange="CFG._setOff(4,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="16500" onchange="CFG._setOff(4,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="10500" onchange="CFG._setOff(4,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="9500" onchange="CFG._setOff(4,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">28 trang</td>
+        <td><input type="number" min="0" step="500" value="25000" onchange="CFG._setOff(5,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="17500" onchange="CFG._setOff(5,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="12000" onchange="CFG._setOff(5,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="11000" onchange="CFG._setOff(5,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">32 trang</td>
+        <td><input type="number" min="0" step="500" value="29000" onchange="CFG._setOff(6,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="19500" onchange="CFG._setOff(6,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="14000" onchange="CFG._setOff(6,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="12000" onchange="CFG._setOff(6,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">36 trang</td>
+        <td><input type="number" min="0" step="500" value="30000" onchange="CFG._setOff(7,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="22000" onchange="CFG._setOff(7,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="16000" onchange="CFG._setOff(7,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="13000" onchange="CFG._setOff(7,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">40 trang</td>
+        <td><input type="number" min="0" step="500" value="32500" onchange="CFG._setOff(8,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="27000" onchange="CFG._setOff(8,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="18000" onchange="CFG._setOff(8,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="14000" onchange="CFG._setOff(8,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">44 trang</td>
+        <td><input type="number" min="0" step="500" value="35500" onchange="CFG._setOff(9,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="30000" onchange="CFG._setOff(9,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="19500" onchange="CFG._setOff(9,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="15000" onchange="CFG._setOff(9,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">48 trang</td>
+        <td><input type="number" min="0" step="500" value="41000" onchange="CFG._setOff(10,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="34000" onchange="CFG._setOff(10,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="22000" onchange="CFG._setOff(10,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="17000" onchange="CFG._setOff(10,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">52 trang</td>
+        <td><input type="number" min="0" step="500" value="45000" onchange="CFG._setOff(11,'v500',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="38000" onchange="CFG._setOff(11,'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="25000" onchange="CFG._setOff(11,'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="19000" onchange="CFG._setOff(11,'v3000',this.value)" onfocus="this.select()"></td>
+      </tr></tbody>
+          </table>
+        </div>
+        <div class="btn-row" style="margin-top:10px;">
+          <button class="btn btn-p btn-sm" onclick="CFG.saveOffset()">💾 Lưu Bảng Offset</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetOffset()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="offSaveMsg" style="display: none;">✅ Đã lưu bảng giá Offset!</div>
+      </div>
+
+      <div id="sp_refqty" class="st-panel">
+        <div class="notice info"><span>💡</span><span>Danh sách số lượng hiển thị trong bảng <strong>Giá tham khảo</strong> khi xuất báo giá. Mỗi mốc 1 dòng, tối thiểu 2 mốc.</span></div>
+        <div class="st-sec">📊 Các mốc số lượng tham chiếu</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px;" id="refqty_grid">
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="1" onchange="CFG._setRQ(0,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(0)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="5" onchange="CFG._setRQ(1,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(1)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="10" onchange="CFG._setRQ(2,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(2)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="20" onchange="CFG._setRQ(3,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(3)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="30" onchange="CFG._setRQ(4,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(4)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="50" onchange="CFG._setRQ(5,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(5)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="100" onchange="CFG._setRQ(6,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(6)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="150" onchange="CFG._setRQ(7,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(7)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="200" onchange="CFG._setRQ(8,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(8)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="300" onchange="CFG._setRQ(9,this.value)" onfocus="this.select()" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        <button onclick="CFG._delRQ(9)" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div></div>
+        <div class="btn-row" style="margin-top:4px;">
+          <button class="btn btn-ghost btn-sm" onclick="CFG.addRefQty()">➕ Thêm mốc</button>
+          <button class="btn btn-p btn-sm" onclick="CFG.saveRefQty()">💾 Lưu</button>
+          <button class="btn btn-red btn-sm" onclick="CFG.resetRefQty()">↩ Reset</button>
+        </div>
+        <div class="save-msg" id="refqtySaveMsg">✅ Đã lưu mốc tham chiếu!</div>
+      </div>
+
+      <div id="sp_pw" class="st-panel">
+        <div class="notice info"><span>🔐</span><span>Đổi mật khẩu vào Cài Đặt. Mặc định: <strong>999999</strong></span></div>
+        <div class="g3">
+          <div class="fg"><label>Mật khẩu hiện tại</label><input type="password" id="pw_cur" placeholder="••••••" autocomplete="new-password"></div>
+          <div class="fg"><label>Mật khẩu mới</label><input type="password" id="pw_new" placeholder="••••••" autocomplete="new-password"></div>
+          <div class="fg"><label>Xác nhận mới</label><input type="password" id="pw_cfm" placeholder="••••••" autocomplete="new-password"></div>
+        </div>
+        <div class="btn-row" style="margin-top:10px;"><button class="btn btn-p btn-sm" onclick="AUTH.changePass()">💾 Đổi Mật Khẩu</button></div>
+        <div class="save-msg" id="passSaveMsg">✅ Đã đổi mật khẩu!</div>
+        <div class="notice warn" id="passErrMsg" style="display:none;margin-top:8px;"><span>⚠️</span><span id="passErrTxt"></span></div>
+      </div>
+
+      <div id="sp_sync" class="st-panel active">
+        <div class="notice info"><span>💡</span><span>Đồng bộ toàn bộ cài đặt bảng giá giữa các máy. <strong>Không đồng bộ mật khẩu.</strong></span></div>
+        <div class="st-sec">📦 Xuất File HTML (kèm cài đặt)</div>
+        <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px;">Tạo file HTML mới với toàn bộ cài đặt nhúng sẵn. Gửi cho nhân viên — mở lên dùng ngay, không cần cấu hình lại.</p>
+        <div class="btn-row">
+          <button class="btn btn-p btn-sm" onclick="SYNC.exportHTML(()=&gt;APP.showMsg('syncHtmlMsg'))">📦 Xuất File HTML (kèm cài đặt)</button>
+        </div>
+        <div class="save-msg" id="syncHtmlMsg">✅ Đã tải file HTML kèm cài đặt!</div>
+        <div class="st-sec" style="margin-top:18px;">📤 Xuất / 📥 Nhập JSON</div>
+        <p style="font-size:.82rem;color:var(--text2);margin-bottom:10px;">Backup cài đặt ra file JSON nhỏ gọn hoặc nạp cài đặt từ file JSON đã xuất trước.</p>
+        <div class="btn-row">
+          <button class="btn btn-ghost btn-sm" onclick="SYNC.exportJSON()">📤 Xuất JSON</button>
+          <label class="btn btn-ghost btn-sm" style="cursor:pointer;">
+            📥 Nhập JSON
+            <input type="file" accept=".json" style="display:none;" onchange="SYNC.importJSON(this,()=&gt;APP.showMsg('syncJsonMsg'),msg=&gt;{const e=document.getElementById('syncErrMsg');e.style.display='flex';e.querySelector('span:last-child').textContent=msg;})">
+          </label>
+        </div>
+        <div class="save-msg" id="syncJsonMsg">✅ Đã nhập cài đặt! Đang tải lại...</div>
+        <div class="notice warn" id="syncErrMsg" style="display:none;margin-top:8px;"><span>⚠️</span><span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="__cfg_CATALOGUE__" type="application/json">{"_version":"catalogue_v8.0","_module":"CATALOGUE","_exported":"2026-05-12T10:23:41.077Z","cat_brand":"{\"name\":\"BÁO GIÁ IN CATALOGUE RIRO\",\"abbr\":\"RP\",\"tagline\":\"Hệ thống báo giá in ấn chuyên nghiệp\",\"address\":\"61 Phạm Thanh , Phường Đạo Thạnh , Đồng Tháp\",\"phone\":\"08.1234.3639 - 0829.740.168 - 0334.642.639\"}","cat_bind":"[{\"id\":\"saddle\",\"lbl\":\"Ghim giữa\",\"fee\":0,\"feeMin\":0,\"maxPage\":52},{\"id\":\"glue\",\"lbl\":\"Keo gáy\",\"fee\":5000,\"feeMin\":50000,\"maxPage\":0},{\"id\":\"spiral\",\"lbl\":\"Gáy lò xo\",\"fee\":10000,\"feeMin\":20000,\"maxPage\":0}]","cat_disp":"{\"round\":100,\"unit\":\"d\",\"vat\":10,\"showInternal\":false,\"pricingMode\":\"linear\"}","cat_offset":"[{\"p\":8,\"v500\":11000,\"v1000\":8000,\"v2000\":6000,\"v3000\":5000},{\"p\":12,\"v500\":14000,\"v1000\":9500,\"v2000\":7500,\"v3000\":6500},{\"p\":16,\"v500\":18000,\"v1000\":12000,\"v2000\":9000,\"v3000\":7500},{\"p\":20,\"v500\":19500,\"v1000\":14000,\"v2000\":9500,\"v3000\":8500},{\"p\":24,\"v500\":22000,\"v1000\":16500,\"v2000\":10500,\"v3000\":9500},{\"p\":28,\"v500\":25000,\"v1000\":17500,\"v2000\":12000,\"v3000\":11000},{\"p\":32,\"v500\":29000,\"v1000\":19500,\"v2000\":14000,\"v3000\":12000},{\"p\":36,\"v500\":30000,\"v1000\":22000,\"v2000\":16000,\"v3000\":13000},{\"p\":40,\"v500\":32500,\"v1000\":27000,\"v2000\":18000,\"v3000\":14000},{\"p\":44,\"v500\":35500,\"v1000\":30000,\"v2000\":19500,\"v3000\":15000},{\"p\":48,\"v500\":41000,\"v1000\":34000,\"v2000\":22000,\"v3000\":17000},{\"p\":52,\"v500\":45000,\"v1000\":38000,\"v2000\":25000,\"v3000\":19000}]"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+/* ══ PRE-INIT RAM STORE ══
+   Khởi tạo window._S (bộ nhớ RAM) và nạp embedded config (nếu có) vào _S
+   TRƯỚC KHI bất kỳ module nào chạy — đảm bảo APP.load() đọc đúng dữ liệu.
+   Không dùng localStorage / sessionStorage / IndexedDB.                    */
+(function(){
+  window._S = {};
+  try{
+    var t = document.getElementById('__cfg_CATALOGUE__');
+    if(t && t.textContent && t.textContent.trim()){
+      var e = JSON.parse(t.textContent);
+      if(e && typeof e === 'object'){
+        Object.keys(e).forEach(function(k){
+          if(k.charAt(0) !== '_') window._S[k] = e[k];
+        });
+      }
+    }
+  }catch(err){}
+})();
+</script>
+<script>
+'use strict';
+const APP={
+  save:(k,v)=>{window._S[k]=JSON.stringify(v);},
+  load(k,d){try{const v=window._S[k];return v!==undefined?JSON.parse(v):JSON.parse(JSON.stringify(d));}catch{return JSON.parse(JSON.stringify(d));}},
+  showMsg(id,ms=2600){const e=document.getElementById(id);if(!e)return;e.style.display='block';setTimeout(()=>e.style.display='none',ms);}
+};
+function fmt(n){
+  const c=APP.load('cat_disp',{round:100,unit:'d'});
+  const r=parseInt(c.round)||100;
+  return new Intl.NumberFormat('vi-VN').format(Math.round(n/r)*r)+(c.unit==='vnd'?' VNĐ':'đ');
+}
+// fmtMoney: format số đã làm tròn (không làm tròn thêm) — dùng cho unitFinal/finalTotal
+function fmtMoney(n){
+  const c=APP.load('cat_disp',{unit:'d'});
+  return new Intl.NumberFormat('vi-VN').format(Math.round(n))+(c.unit==='vnd'?' VNĐ':'đ');
+}
+function fmtN(n){return new Intl.NumberFormat('vi-VN').format(Math.round(n));}
+
+const AUTH=(()=>{
+  const getPass=()=>window._S['cat_pass']||'999999';
+  function openGate(){document.getElementById('pwInput').value='';document.getElementById('pwError').style.display='none';document.getElementById('pwOv').classList.add('open');setTimeout(()=>document.getElementById('pwInput').focus(),100);}
+  function check(){if(document.getElementById('pwInput').value===getPass()){document.getElementById('pwOv').classList.remove('open');_openSettings();}else{document.getElementById('pwError').style.display='flex';document.getElementById('pwInput').value='';document.getElementById('pwInput').focus();}}
+  function cancel(){document.getElementById('pwOv').classList.remove('open');}
+  function changePass(){
+    const c=document.getElementById('pw_cur').value,n=document.getElementById('pw_new').value,f=document.getElementById('pw_cfm').value;
+    const ee=document.getElementById('passErrMsg'),et=document.getElementById('passErrTxt');ee.style.display='none';
+    if(c!==getPass()){et.textContent='Mật khẩu hiện tại không đúng!';ee.style.display='flex';return;}
+    if(!n){et.textContent='Mật khẩu mới không được trống!';ee.style.display='flex';return;}
+    if(n!==f){et.textContent='Xác nhận không khớp!';ee.style.display='flex';return;}
+    window._S['cat_pass']=n;['pw_cur','pw_new','pw_cfm'].forEach(id=>document.getElementById(id).value='');APP.showMsg('passSaveMsg');
+  }
+  return{openGate,check,cancel,changePass};
+})();
+
+const BRAND=(()=>{
+  const DEF={name:'BÁO GIÁ IN CATALOGUE RIRO',abbr:'BG',tagline:'Hệ thống báo giá in ấn chuyên nghiệp',address:'61 Phạm Thanh, P. Đạo Thạnh, Đồng Tháp',phone:'08.1234.3639 – 082.974.0168 – 0334.642.639'};
+  let cfg=APP.load('cat_brand',DEF);
+  function apply(){
+    const e=id=>document.getElementById(id);
+    if(e('topName'))e('topName').textContent=cfg.name;
+    if(e('topTagline'))e('topTagline').textContent=cfg.tagline;
+    if(e('bf_name'))e('bf_name').value=cfg.name;
+    if(e('bf_tagline'))e('bf_tagline').value=cfg.tagline;
+    const _bfa=document.getElementById('bf_address');if(_bfa)_bfa.value=cfg.address||'';
+    const _bfp=document.getElementById('bf_phone');if(_bfp)_bfp.value=cfg.phone||'';
+    document.getElementById('pageTitle').textContent=cfg.name+' – Báo Giá Catalogue';
+    preview();
+  }
+  function preview(){
+    const n=document.getElementById('bf_name')?.value||'BÁO GIÁ IN CATALOGUE RIRO',t=document.getElementById('bf_tagline')?.value||'';
+    document.getElementById('prevName').textContent=n;document.getElementById('prevTagline').textContent=t;
+  }
+  function save(){cfg.name=document.getElementById('bf_name').value.trim()||'BÁO GIÁ IN CATALOGUE RIRO';cfg.tagline=document.getElementById('bf_tagline').value.trim()||'';cfg.address=document.getElementById('bf_address')?.value.trim()||'';cfg.phone=document.getElementById('bf_phone')?.value.trim()||'';APP.save('cat_brand',cfg);apply();APP.showMsg('brandSaveMsg');}
+  function reset(){cfg=JSON.parse(JSON.stringify(DEF));APP.save('cat_brand',cfg);apply();}
+  function reinit(){
+    cfg=APP.load('cat_brand',DEF);
+    const e=id=>document.getElementById(id);
+    if(e('bf_name'))e('bf_name').value=cfg.name;
+    if(e('bf_tagline'))e('bf_tagline').value=cfg.tagline;
+    const bf_addr=e('bf_address');if(bf_addr)bf_addr.value=cfg.address||'';
+    const bf_ph=e('bf_phone');if(bf_ph)bf_ph.value=cfg.phone||'';
+    preview();
+  }
+  apply();
+  return{preview,save,reset,get:()=>cfg,reinit};
+})();
+window.BRAND=BRAND;
+
+const CFG=(()=>{
+  // Mốc: tổng số trang (pages × qty), giá đ/trang
+  const DEF_BG=[{q:16,p:5000},{q:50,p:3500},{q:100,p:3000},{q:200,p:2500},{q:500,p:2000},{q:700,p:1800},{q:1000,p:1500},{q:2000,p:1400},{q:3000,p:1300},{q:5000,p:1250},{q:10000,p:1200},{q:20000,p:1100}];
+  const DEF_COVER=[{id:'c150',lbl:'Couche 150gsm',fee:0},{id:'c200',lbl:'Couche 200gsm',fee:200},{id:'c250',lbl:'Couche 250gsm',fee:400},{id:'c300',lbl:'Couche 300gsm',fee:600}];
+  const DEF_INNER=[{id:'c100',lbl:'Couche 100gsm',fee:-30},{id:'c150',lbl:'Couche 150gsm',fee:0},{id:'c200',lbl:'Couche 200gsm',fee:50}];
+  const DEF_LAM=[{id:'none',lbl:'Không cán',fee:0},{id:'mo',lbl:'Cán mờ 1 mặt',fee:1000},{id:'bong',lbl:'Cán bóng 1 mặt',fee:1000},{id:'mo2',lbl:'Cán mờ 2 mặt',fee:1800},{id:'bong2',lbl:'Cán bóng 2 mặt',fee:1800}];
+  const DEF_BIND=[
+    {id:'saddle',lbl:'Ghim giữa',  fee:0,     feeMin:0,     maxPage:52},
+    {id:'glue',  lbl:'Keo gáy',    fee:2000,  feeMin:50000, maxPage:0},
+    {id:'spiral',lbl:'Gáy lò xo',  fee:10000, feeMin:20000, maxPage:0},
+  ];
+  const DEF_KHO=[
+    {id:'a4v', lbl:'A4 đứng',  type:'mul',mul:1.0,  add:0,locked:true},
+    {id:'a4h', lbl:'A4 ngang', type:'mul',mul:1.1,  add:0},
+    {id:'a5v', lbl:'A5 đứng',  type:'mul',mul:0.6,  add:0},
+    {id:'a5h', lbl:'A5 ngang', type:'mul',mul:0.65, add:0},
+    {id:'a6v', lbl:'A6 đứng',  type:'mul',mul:0.35, add:0},
+    {id:'a6h', lbl:'A6 ngang', type:'mul',mul:0.4,  add:0},
+  ];
+  const DEF_AGENCY=[{from:0,pct:15},{from:1000000,pct:12},{from:3000000,pct:10},{from:7000000,pct:8}];
+  const DEF_DISP={round:100,unit:'d',vat:10,showInternal:true,pricingMode:'linear'};
+  const DEF_OFFSET=[
+    {p:8,  v500:9500,  v1000:6000,  v2000:4500,  v3000:4000},
+    {p:12, v500:12000, v1000:7500,  v2000:5500,  v3000:5000},
+    {p:16, v500:16500, v1000:10000, v2000:7000,  v3000:6000},
+    {p:20, v500:17200, v1000:11000, v2000:8000,  v3000:6800},
+    {p:24, v500:20500, v1000:12800, v2000:9300,  v3000:8000},
+    {p:28, v500:22500, v1000:14300, v2000:10200, v3000:9000},
+    {p:32, v500:27000, v1000:16800, v2000:11900, v3000:10250},
+    {p:36, v500:28000, v1000:17600, v2000:12700, v3000:11000},
+    {p:40, v500:31200, v1000:19800, v2000:14200, v3000:12300},
+    {p:44, v500:33500, v1000:21200, v2000:15200, v3000:13200},
+    {p:48, v500:37800, v1000:23700, v2000:16800, v3000:14600},
+    {p:52, v500:39000, v1000:24600, v2000:17700, v3000:15400},
+  ];
+  const DEF_REFQTY=[1,5,10,20,30,50,100,150,200,300];
+  let bangGia=APP.load('cat_bg',DEF_BG),coverList=APP.load('cat_cover',DEF_COVER),innerList=APP.load('cat_inner',DEF_INNER),lamList=APP.load('cat_lam',DEF_LAM),bindList=APP.load('cat_bind',DEF_BIND),khoList=APP.load('cat_kho',DEF_KHO),agency=APP.load('cat_agency',DEF_AGENCY),disp=APP.load('cat_disp',DEF_DISP),offsetList=APP.load('cat_offset',DEF_OFFSET),refQtys=APP.load('cat_refqty',DEF_REFQTY);
+  // Migration khổ: bỏ a3h, thêm a6v/a6h nếu chưa có
+  (()=>{
+    let changed=false;
+    const before=khoList.length;
+    khoList=khoList.filter(k=>k.id!=='a3h'&&k.id!=='dl');
+    if(khoList.length!==before)changed=true;
+    if(!khoList.find(k=>k.id==='a6v')){khoList.push({id:'a6v',lbl:'A6 đứng',type:'mul',mul:0.35,add:0});changed=true;}
+    if(!khoList.find(k=>k.id==='a6h')){khoList.push({id:'a6h',lbl:'A6 ngang',type:'mul',mul:0.4,add:0});changed=true;}
+    if(changed)APP.save('cat_kho',khoList);
+  })();
+  const get=()=>({bangGia,coverList,innerList,lamList,bindList,khoList,agency,disp,offsetList,refQtys});
+
+  function renderBangGia(){document.getElementById('bg_body').innerHTML=bangGia.map((r,i)=>`<tr><td>${fmtN(r.q)} trang</td><td><input class="editable" type="number" min="0" step="50" value="${r.p}" onchange="CFG._setBGP(${i},this.value)" onfocus="this.select()"></td><td>${bangGia.length>4?`<button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBG(${i})">✕</button>`:''}</td></tr>`).join('');}
+  function _setBGP(i,v){if(bangGia[i])bangGia[i].p=Math.round(parseFloat(v)||0);}
+  function _delBG(i){if(bangGia.length<=4)return;bangGia.splice(i,1);renderBangGia();}
+  function addMoc(){const q=parseInt(prompt('Mốc tổng trang mới:'));if(!q||isNaN(q)||q<=0)return;if(bangGia.find(r=>r.q===q)){alert('Mốc đã tồn tại!');return;}bangGia.push({q,p:0});bangGia.sort((a,b)=>a.q-b.q);renderBangGia();}
+  function saveBangGia(){bangGia.sort((a,b)=>a.q-b.q);APP.save('cat_bg',bangGia);APP.showMsg('bgSaveMsg');CAT.calc();}
+  function resetBangGia(){if(!confirm('Reset bảng giá?'))return;bangGia=JSON.parse(JSON.stringify(DEF_BG));APP.save('cat_bg',bangGia);renderBangGia();CAT.calc();}
+
+  function renderChatLieu(){
+    document.getElementById('cover_body').innerHTML=coverList.map((r,i)=>`<tr><td>${r.lbl}</td><td><input type="number" min="0" step="50" value="${r.fee}" onchange="CFG._setCoverFee(${i},this.value)" onfocus="this.select()"></td></tr>`).join('');
+    document.getElementById('inner_body').innerHTML=innerList.map((r,i)=>`<tr><td>${r.lbl}</td><td><input type="number" min="0" step="10" value="${r.fee}" onchange="CFG._setInnerFee(${i},this.value)" onfocus="this.select()"></td></tr>`).join('');
+    document.getElementById('lam_body').innerHTML=lamList.map((r,i)=>`<tr><td>${r.lbl}</td><td><input type="number" min="0" step="100" value="${r.fee}" onchange="CFG._setLamFee(${i},this.value)" onfocus="this.select()"></td></tr>`).join('');
+  }
+  function _setCoverFee(i,v){if(coverList[i])coverList[i].fee=Math.round(parseFloat(v)||0);}
+  function _setInnerFee(i,v){if(innerList[i])innerList[i].fee=Math.round(parseFloat(v)||0);}
+  function _setLamFee(i,v){if(lamList[i])lamList[i].fee=Math.round(parseFloat(v)||0);}
+  function saveChatLieu(){APP.save('cat_cover',coverList);APP.save('cat_inner',innerList);APP.save('cat_lam',lamList);APP.showMsg('clSaveMsg');CAT.calc();}
+  function resetChatLieu(){coverList=JSON.parse(JSON.stringify(DEF_COVER));innerList=JSON.parse(JSON.stringify(DEF_INNER));lamList=JSON.parse(JSON.stringify(DEF_LAM));APP.save('cat_cover',coverList);APP.save('cat_inner',innerList);APP.save('cat_lam',lamList);renderChatLieu();CAT.calc();}
+
+  function renderBinding(){
+    document.getElementById('binding_body').innerHTML=bindList.map((r,i)=>`
+      <tr>
+        <td><input type="text" value="${r.lbl}" onchange="CFG._setBindLbl(${i},this.value)" style="min-width:110px;"></td>
+        <td><input type="number" min="0" step="500" value="${r.fee}" onchange="CFG._setBindFee(${i},this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="1000" value="${r.feeMin||0}" onchange="CFG._setBindMin(${i},this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="4" value="${r.maxPage||0}" onchange="CFG._setBindMax(${i},this.value)" onfocus="this.select()" placeholder="0=không giới hạn" style="width:110px;"></td>
+        <td>${bindList.length>1?`<button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delBind(${i})">✕</button>`:''}</td>
+      </tr>`).join('');
+  }
+  function _setBindLbl(i,v){if(bindList[i])bindList[i].lbl=v;}
+  function _setBindFee(i,v){if(bindList[i])bindList[i].fee=Math.round(parseFloat(v)||0);}
+  function _setBindMin(i,v){if(bindList[i])bindList[i].feeMin=Math.round(parseFloat(v)||0);}
+  function _setBindMax(i,v){if(bindList[i])bindList[i].maxPage=Math.round(parseFloat(v)||0);}
+  function _delBind(i){if(bindList.length<=1)return;bindList.splice(i,1);renderBinding();}
+  function addBinding(){bindList.push({id:'bind_'+Date.now(),lbl:'Kiểu mới',fee:0,feeMin:0,maxPage:0});renderBinding();}
+  function saveBinding(){APP.save('cat_bind',bindList);APP.showMsg('bindSaveMsg');CAT.calc();_syncBindSelect();}
+  function resetBinding(){bindList=JSON.parse(JSON.stringify(DEF_BIND));APP.save('cat_bind',bindList);renderBinding();CAT.calc();_syncBindSelect();}
+  function _syncBindSelect(){
+    const sel=document.getElementById('cat_binding');if(!sel)return;
+    const cur=sel.value;sel.innerHTML=bindList.map(b=>`<option value="${b.id}">${b.lbl}${b.maxPage?' (≤'+b.maxPage+' trang)':''}</option>`).join('');
+    if(bindList.find(b=>b.id===cur))sel.value=cur;
+  }
+
+  function renderKhoSo(){document.getElementById('kho_body').innerHTML=khoList.map((k,i)=>`<tr><td><input type="text" value="${k.lbl}" onchange="CFG._setKLbl(${i},this.value)" style="min-width:140px;"${k.locked?' disabled':''}>${k.locked?' <span style="font-size:.65rem;color:var(--text3);">(chuẩn)</span>':''}</td><td>${k.locked?'<span style="font-size:.8rem;color:var(--text3);">A4 chuẩn</span>':`<select onchange="CFG._setKType(${i},this.value)"><option value="mul" ${k.type==='mul'?'selected':''}>Hệ số ×</option><option value="add" ${k.type==='add'?'selected':''}>Cộng thêm đ</option></select>`}</td><td>${k.locked?`<input type="number" value="1.0" disabled>`:`<input type="number" value="${k.mul}" min="0.01" step="0.05" onfocus="this.select()" onchange="CFG._setKMul(${i},this.value)" ${k.type==='add'?'disabled style="opacity:.4;"':'class="editable"'}>`}</td><td>${k.locked?`<input type="number" value="0" disabled>`:`<input type="number" value="${k.add}" min="0" step="100" onfocus="this.select()" onchange="CFG._setKAdd(${i},this.value)" ${k.type==='mul'?'disabled style="opacity:.4;"':'class="editable"'}>`}</td><td>${!k.locked&&khoList.length>1?`<button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delKho(${i})">✕</button>`:''}</td></tr>`).join('');}
+  function _setKLbl(i,v){if(khoList[i])khoList[i].lbl=v;}
+  function _setKType(i,v){khoList[i].type=v;renderKhoSo();}
+  function _setKMul(i,v){khoList[i].mul=parseFloat(v)||1;}
+  function _setKAdd(i,v){khoList[i].add=Math.round(parseFloat(v)||0);}
+  function _delKho(i){if(khoList[i]?.locked||khoList.length<=1)return;khoList.splice(i,1);renderKhoSo();}
+  function addKho(){khoList.push({id:'kho_'+Date.now(),lbl:'Khổ mới',type:'mul',mul:1.0,add:0});renderKhoSo();}
+  function saveKhoSo(){APP.save('cat_kho',khoList);APP.showMsg('khoSaveMsg');CAT.calc();_syncKhoSelect();}
+  function resetKhoSo(){khoList=JSON.parse(JSON.stringify(DEF_KHO));APP.save('cat_kho',khoList);renderKhoSo();CAT.calc();_syncKhoSelect();}
+  function _syncKhoSelect(){
+    const sel=document.getElementById('cat_type');if(!sel)return;
+    const cur=sel.value;
+    // Chỉ hiển thị tên, strip kích thước nếu có
+    sel.innerHTML=khoList.map(k=>`<option value="${k.id}">${k.lbl.replace(/\s*\(.*\)/,'')}</option>`).join('');
+    if(khoList.find(k=>k.id===cur))sel.value=cur;
+  }
+
+  function renderAgency(){document.getElementById('agency_body').innerHTML=agency.map((r,i)=>`<tr><td style="text-align:center;">${i+1}</td><td><input type="number" min="0" step="100000" value="${r.from}" onchange="CFG._setAgFrom(${i},this.value)" onfocus="this.select()"></td><td><input type="number" min="0" max="100" step="0.5" value="${r.pct}" onchange="CFG._setAgPct(${i},this.value)" onfocus="this.select()" style="width:72px;"></td><td>${agency.length>1?`<button class="btn btn-red btn-sm" style="padding:0 8px;height:26px;" onclick="CFG._delAgency(${i})">✕</button>`:''}</td></tr>`).join('');}
+  function _setAgFrom(i,v){if(agency[i])agency[i].from=Math.round(parseFloat(v)||0);}
+  function _setAgPct(i,v){if(agency[i])agency[i].pct=parseFloat(v)||0;}
+  function _delAgency(i){if(agency.length<=1)return;agency.splice(i,1);renderAgency();}
+  function addAgencyTier(){agency.push({from:0,pct:0});renderAgency();}
+  function saveAgency(){
+    // Lưu VAT từ field cfg_vat (nằm trong sp_agency)
+    disp.vat=parseInt(document.getElementById('cfg_vat').value)||10;
+    APP.save('cat_disp',disp);
+    agency.sort((a,b)=>b.from-a.from);APP.save('cat_agency',agency);APP.showMsg('agencySaveMsg');CAT.calc();
+  }
+  function resetAgency(){agency=JSON.parse(JSON.stringify(DEF_AGENCY));APP.save('cat_agency',agency);renderAgency();}
+
+  function renderDisplay(){
+    const vatEl=document.getElementById('cfg_vat');if(vatEl)vatEl.value=disp.vat||10;
+    const roundEl=document.getElementById('cfg_round');if(roundEl)roundEl.value=disp.round||100;
+    const unitEl=document.getElementById('cfg_unit');if(unitEl)unitEl.value=disp.unit||'d';
+    const modeEl=document.getElementById('cfg_pricingMode');if(modeEl)modeEl.value=disp.pricingMode||'linear';
+    _syncToggle(disp.showInternal!==false);
+  }
+  function saveDisplay(){
+    disp.vat=parseInt(document.getElementById('cfg_vat')?.value)||10;
+    disp.round=parseInt(document.getElementById('cfg_round')?.value)||100;
+    disp.unit=document.getElementById('cfg_unit')?.value||'d';
+    disp.pricingMode=document.getElementById('cfg_pricingMode')?.value||'linear';
+    APP.save('cat_disp',disp);APP.showMsg('displaySaveMsg');CAT.calc();
+  }
+  function _syncToggle(on){
+    const cb=document.getElementById('cfg_showInternal'),tr=document.getElementById('cfg_toggleTrack'),th=document.getElementById('cfg_toggleThumb');
+    if(cb)cb.checked=on;
+    if(tr)tr.style.background=on?'var(--brand)':'#cbd5e1';
+    if(th)th.style.left=on?'23px':'3px';
+  }
+  function toggleInternal(on){
+    disp.showInternal=on;APP.save('cat_disp',disp);_syncToggle(on);
+    // Áp dụng ngay — strip hiện nếu bật, ẩn nếu tắt
+    const strip=document.getElementById('cat_internalStrip');
+    if(strip)strip.style.display=on?'':'none';
+  }
+
+  function renderOffset(){
+    document.getElementById('offset_body').innerHTML=offsetList.map((r,i)=>`
+      <tr>
+        <td style="font-weight:700;color:var(--brand);">${r.p} trang</td>
+        <td><input type="number" min="0" step="500" value="${r.v500}"  onchange="CFG._setOff(${i},'v500',this.value)"  onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="${r.v1000}" onchange="CFG._setOff(${i},'v1000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="${r.v2000}" onchange="CFG._setOff(${i},'v2000',this.value)" onfocus="this.select()"></td>
+        <td><input type="number" min="0" step="500" value="${r.v3000}" onchange="CFG._setOff(${i},'v3000',this.value)" onfocus="this.select()"></td>
+      </tr>`).join('');
+  }
+  function _setOff(i,k,v){if(offsetList[i])offsetList[i][k]=Math.round(parseFloat(v)||0);}
+  function saveOffset(){APP.save('cat_offset',offsetList);APP.showMsg('offSaveMsg');CAT.calc();}
+  function resetOffset(){if(!confirm('Reset bảng giá Offset?'))return;offsetList=JSON.parse(JSON.stringify(DEF_OFFSET));APP.save('cat_offset',offsetList);renderOffset();}
+
+  function renderAll(){renderBangGia();renderChatLieu();renderBinding();renderKhoSo();renderAgency();renderDisplay();renderOffset();renderRefQty();}
+
+  function renderRefQty(){
+    const el=document.getElementById('refqty_grid');
+    if(!el)return;
+    el.innerHTML=refQtys.map((q,i)=>`
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="1" step="1" value="${q}" onchange="CFG._setRQ(${i},this.value)" onfocus="this.select()"
+          style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9rem;font-weight:700;color:var(--brand);text-align:center;background:var(--surface);width:100%;">
+        ${refQtys.length>2?`<button onclick="CFG._delRQ(${i})" style="width:22px;height:22px;border:none;background:#fee2e2;color:#dc2626;border-radius:4px;cursor:pointer;font-size:.75rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>`:''}
+      </div>`).join('');
+  }
+  function _setRQ(i,v){if(refQtys[i]!==undefined)refQtys[i]=Math.max(1,parseInt(v)||1);}
+  function _delRQ(i){if(refQtys.length<=2)return;refQtys.splice(i,1);renderRefQty();}
+  function addRefQty(){refQtys.push(0);renderRefQty();const inputs=document.querySelectorAll('#refqty_grid input');if(inputs.length)inputs[inputs.length-1].focus();}
+  function saveRefQty(){refQtys.sort((a,b)=>a-b);APP.save('cat_refqty',refQtys);APP.showMsg('refqtySaveMsg');}
+  function resetRefQty(){if(!confirm('Reset mốc tham chiếu?'))return;refQtys=JSON.parse(JSON.stringify(DEF_REFQTY));APP.save('cat_refqty',refQtys);renderRefQty();}
+
+  function _syncTogglePublic(){
+    const on=disp.showInternal!==false;
+    _syncToggle(on);
+    const strip=document.getElementById('cat_internalStrip');
+    if(strip)strip.style.display=on?'':'none';
+  }
+
+  function reinit(){
+    bangGia    =APP.load('cat_bg',     DEF_BG);
+    coverList  =APP.load('cat_cover',  DEF_COVER);
+    innerList  =APP.load('cat_inner',  DEF_INNER);
+    lamList    =APP.load('cat_lam',    DEF_LAM);
+    bindList   =APP.load('cat_bind',   DEF_BIND);
+    khoList    =APP.load('cat_kho',    DEF_KHO);
+    agency     =APP.load('cat_agency', DEF_AGENCY);
+    disp       =APP.load('cat_disp',   DEF_DISP);
+    offsetList =APP.load('cat_offset', DEF_OFFSET);
+    refQtys    =APP.load('cat_refqty', DEF_REFQTY);
+    renderAll();
+    if(typeof CAT!=='undefined'&&CAT.calc)CAT.calc();
+  }
+  return{get,renderAll,renderBangGia,renderChatLieu,renderBinding,renderKhoSo,renderAgency,renderDisplay,renderOffset,renderRefQty,reinit:reinit,
+    saveBangGia,resetBangGia,addMoc,saveChatLieu,resetChatLieu,saveBinding,resetBinding,addBinding,
+    saveKhoSo,resetKhoSo,addKho,_syncKhoSelect,
+    saveAgency,resetAgency,addAgencyTier,saveDisplay,toggleInternal,saveOffset,resetOffset,_setOff,
+    saveRefQty,resetRefQty,addRefQty,_setRQ,_delRQ,
+    _syncBindSelect,_syncTogglePublic,
+    _setBGP,_delBG,_setCoverFee,_setInnerFee,_setLamFee,
+    _setBindFee,_setBindLbl,_setBindMin,_setBindMax,_delBind,
+    _setKType,_setKMul,_setKAdd,_setKLbl,_delKho,
+    _setAgFrom,_setAgPct,_delAgency,_setOff};
+})();
+window.CFG=CFG;
+
+/* ═══════════════════════════════════════
+   CÔNG THỨC CHUẨN (KHÔNG ĐỔI):
+   donGia/cuốn = giá_in + phụ_phí_chất_liệu + đóng_quyển  (× hệ_số_khổ)
+   unitFinal   = donGia × (1 + VAT) × (1 − discPct/100)
+   totalFinal  = unitFinal × qty          ← LUÔN ĐÚNG
+═══════════════════════════════════════ */
+function noiSuyBG(bg,tongTrang){
+  const b=[...bg].sort((a,c)=>a.q-c.q);
+  if(tongTrang<=b[0].q)return b[0].p;
+  if(tongTrang>=b[b.length-1].q)return b[b.length-1].p;
+  for(let i=0;i<b.length-1;i++){
+    const{q:q0,p:p0}=b[i],{q:q1,p:p1}=b[i+1];
+    if(tongTrang>=q0&&tongTrang<=q1)return p0+(tongTrang-q0)/(q1-q0)*(p1-p0);
+  }
+  return b[b.length-1].p;
+}
+function mocChuanBG(bg,tongTrang){
+  // Lấy đúng giá của mốc gần nhất không vượt quá (step pricing)
+  const b=[...bg].sort((a,c)=>a.q-c.q);
+  if(tongTrang<=b[0].q)return b[0].p;
+  if(tongTrang>=b[b.length-1].q)return b[b.length-1].p;
+  let price=b[0].p;
+  for(let i=0;i<b.length;i++){if(tongTrang>=b[i].q)price=b[i].p;}
+  return price;
+}
+function getAgDisc(agency,total){const s=[...agency].sort((a,b)=>b.from-a.from);const t=s.find(x=>total>=x.from);return t?t.pct:0;}
+
+function tinhGia(inp,qty){
+  const q=qty||inp.qty;
+  const{catType,pages,coverPaper,innerPaper,lamination,binding,custType}=inp;
+  const{bangGia,coverList,innerList,lamList,bindList,khoList,agency,disp}=CFG.get();
+  const vat=(disp.vat||10)/100;
+  const useNoiSuy=(disp.pricingMode!=='moc');  // mặc định nội suy
+
+  // B1: Tổng trang
+  const tongTrang=pages*q;
+
+  // B2: Giá/trang theo tổng trang
+  const giaTrang=useNoiSuy?noiSuyBG(bangGia,tongTrang):mocChuanBG(bangGia,tongTrang);
+
+  // B3: Giá in cơ bản / cuốn = giaTrang × pages
+  const giaIn=giaTrang*pages;
+
+  // B4: Phụ phí chất liệu / cuốn
+  const coverFee=(coverList.find(c=>c.id===coverPaper)||{fee:0}).fee;
+  const innerFeePerPage=(innerList.find(c=>c.id===innerPaper)||{fee:0}).fee;
+  const innerFee=innerFeePerPage*Math.max(0,pages-2);
+  const lamFee=(lamList.find(c=>c.id===lamination)||{fee:0}).fee;
+  const bindRow=bindList.find(c=>c.id===binding)||{fee:0,feeMin:0};
+  const bindFeeRaw=bindRow.fee*q;
+  const bindFeeMin=bindRow.feeMin||0;
+  const bindFeeTotal=Math.max(bindFeeRaw,bindFeeMin);
+  // Phân bổ lại về đ/cuốn (để cộng vào donGiaBase)
+  const bindFee=q>0?bindFeeTotal/q:bindRow.fee;
+
+  // B5: Đơn giá cơ bản / cuốn (chưa hệ số khổ)
+  const donGiaBase=giaIn+coverFee+innerFee+lamFee+bindFee;
+
+  // B6: Áp hệ số khổ
+  const kh=khoList.find(k=>k.id===catType)||{type:'mul',mul:1,add:0};
+  const donGia=kh.type==='mul'?donGiaBase*kh.mul:kh.type==='add'?donGiaBase+kh.add:donGiaBase;
+  const kh_display=kh.type==='mul'?'×'+kh.mul:'+'+fmtN(kh.add)+'đ';
+
+  // B7: VAT
+  const donGiaVAT=donGia*(1+vat);
+
+  // B8: Giảm giá đại lý (tính trên tổng sau VAT trước discount)
+  const subTotalVAT=donGiaVAT*q;
+  let discPct=0,discAmt=0;
+  if(custType==='agency'){discPct=getAgDisc(agency,subTotalVAT);discAmt=subTotalVAT*(discPct/100);}
+
+  // ══ CÔNG THỨC CHUẨN ══
+  // Bước 1: tính unitFinal raw (giá 1 cuốn chưa làm tròn)
+  const unitFinal_raw = donGiaVAT * (1 - discPct/100);
+  // Bước 2: làm tròn unitFinal theo cấu hình → đây là giá hiển thị
+  const rnd = parseInt((disp.round)||100)||100;
+  const unitFinal = Math.round(unitFinal_raw / rnd) * rnd;
+  // Bước 3: totalFinal = unitFinal (đã làm tròn) × qty → LUÔN KHỚP KHI NHÂN LẠI
+  const finalTotal = unitFinal * q;
+
+  // Thông số nội bộ (chỉ hiển thị, không dùng tính)
+  const subTotal=donGia*q;
+  const vatAmt=donGiaVAT*q-subTotal;
+  const tongChuaDisc=donGiaVAT*q;
+
+  return{giaTrang,tongTrang,giaIn,coverFee,innerFee,lamFee,bindFee,
+    donGiaBase,donGia,kh_display,subTotal,vatAmt,tongChuaDisc,
+    discPct,discAmt,unitFinal,finalTotal,vat,useNoiSuy};
+}
+
+const CAT=(()=>{
+  let isReady=false,lastInp=null,lastR=null;
+  function getInp(){return{catType:document.getElementById('cat_type').value,pages:parseInt(document.getElementById('cat_pages').value)||16,qty:parseInt(document.getElementById('cat_qty').value)||1,custType:document.getElementById('cat_custType').value,coverPaper:document.getElementById('cat_cover').value,innerPaper:document.getElementById('cat_inner').value,lamination:document.getElementById('cat_lam').value,binding:document.getElementById('cat_binding').value};}
+
+  function onBindingChange(){
+    const b=document.getElementById('cat_binding').value,pages=parseInt(document.getElementById('cat_pages').value)||16;
+    const bd=CFG.get().bindList.find(x=>x.id===b)||{};
+    const h=document.getElementById('cat_pageHint'),n=document.getElementById('cat_notice'),nt=document.getElementById('cat_notice_txt');
+    h.style.color='var(--text3)';
+    if(b==='saddle'&&bd.maxPage&&pages>bd.maxPage){h.textContent='⚠️ Vượt giới hạn ghim giữa (max '+bd.maxPage+' trang)!';h.style.color='var(--red)';n.style.display='flex';nt.textContent='Số trang '+pages+' vượt giới hạn ghim giữa. Đề xuất dùng keo gáy hoặc gáy lò xo.';}
+    else{n.style.display='none';h.textContent=b==='saddle'?'Ghim giữa: tối đa '+(bd.maxPage||52)+' trang':b==='glue'?'Keo gáy: phù hợp từ 32 trang trở lên':'Gáy lò xo: không giới hạn trang';}
+    calc();
+  }
+
+  function calc(){
+    const inp=getInp();
+    if(!inp.pages||inp.pages<8||!inp.qty||inp.qty<1){
+      ['p_unit','p_total'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='—';});
+      const _adjTRr=document.getElementById('cat_adjToggleRow');if(_adjTRr)_adjTRr.style.display='none';
+      const _adjCr=document.getElementById('cat_adjustCard');if(_adjCr)_adjCr.style.display='none';
+      return;
+    }
+    try{const r=tinhGia(inp);lastInp=inp;lastR=r;_strip(inp,r);_price(inp,r);const _adjTR=document.getElementById('cat_adjToggleRow');if(_adjTR)_adjTR.style.display='';CAT.applyAdj&&CAT.applyAdj();}catch(e){console.error(e);}
+  }
+
+  // Chỉ hiển thị kết quả khi nhập số lượng — đây là điều kiện bắt buộc cuối cùng
+  function calcOnQty(){
+    const qty=parseInt(document.getElementById('cat_qty').value)||0;
+    const pages=parseInt(document.getElementById('cat_pages').value)||0;
+    if(!qty||qty<1||!pages||pages<8){
+      ['p_unit','p_total'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='—';});
+      return;
+    }
+    calc();
+  }
+
+  function _strip(inp,r){
+    // Strip hiện/ẩn do toggleInternal điều khiển — _strip chỉ cập nhật data
+    document.getElementById('r_tongTo').textContent=fmtN(r.tongTrang)+' trang';
+    document.getElementById('r_donGia').textContent=fmt(r.giaTrang)+'/trang'+(r.useNoiSuy?' (nội suy)':' (mốc)');
+    document.getElementById('r_heSo').textContent=r.kh_display;
+    document.getElementById('r_giaIn').textContent=fmt(r.giaIn)+'/cuốn';
+    document.getElementById('r_coverFee').textContent=r.coverFee?fmt(r.coverFee)+'/cuốn':'—';
+    document.getElementById('r_innerFee').textContent=r.innerFee?fmt(Math.abs(r.innerFee))+(r.innerFee<0?' (−)':'')+'/cuốn':'—';
+    document.getElementById('r_lamFee').textContent=r.lamFee?fmt(r.lamFee)+'/cuốn':'—';
+    document.getElementById('r_bindFee').textContent=r.bindFee?fmt(r.bindFee)+'/cuốn':'—';
+    document.getElementById('r_donGiaCuon').textContent=fmt(r.donGia)+'/cuốn';
+    document.getElementById('r_subTotal').textContent=fmt(r.subTotal);
+    document.getElementById('r_vat').textContent=fmt(r.vatAmt);
+    document.getElementById('r_disc').textContent=r.discPct?'−'+r.discPct+'%':'—';
+  }
+
+  function _price(inp,r){
+    document.getElementById('p_unit').textContent=fmtMoney(r.unitFinal);
+    document.getElementById('p_unit_s').textContent='';
+    document.getElementById('p_total').textContent=fmtMoney(r.finalTotal);
+    document.getElementById('p_total_s').textContent='';
+    document.getElementById('cat_agNotice').style.display='none';
+  }
+
+  function openQuote(){
+    // Guard: phải có đủ thông số mới xuất báo giá
+    const pages=parseInt(document.getElementById('cat_pages').value)||0;
+    const qty=parseInt(document.getElementById('cat_qty').value)||0;
+    if(!pages||pages<8||!qty||qty<1){
+      alert('⚠️ Vui lòng nhập đủ Số trang và Số lượng trước khi xuất báo giá!');
+      return;
+    }
+    if(!lastInp||!lastR){calc();if(!lastR)return;}
+    const inp=lastInp,r=lastR,{khoList,coverList,innerList,lamList,bindList}=CFG.get(),brand=BRAND.get();
+
+    // ── HEADER (chuẩn POPUP_STANDARD_RIRO_2026) ──
+    document.getElementById('q_brand').textContent='⚡ '+brand.name;
+    const _aEl=document.getElementById('cat_q_address');if(_aEl)_aEl.textContent=brand.address?'📍 '+brand.address:'';
+    const _pEl=document.getElementById('cat_q_phone');if(_pEl)_pEl.textContent=brand.phone?'📞 '+brand.phone:'';
+    const code='BG-CT-'+Math.random().toString(36).slice(2,7).toUpperCase();
+    document.getElementById('q_code').textContent=code;
+    document.getElementById('q_date').textContent=new Date().toLocaleDateString('vi-VN');
+
+    // ── INFO LIST (zebra, tự ẩn dòng rỗng) ──
+    const tenKhach=document.getElementById('cat_name')?.value?.trim()||'';
+    const khoTxt=(khoList.find(k=>k.id===inp.catType)||{lbl:'A4 đứng'}).lbl.replace(/\s*\(.*\)/,'');
+    // Gộp khổ + số trang
+    const khoTrang=khoTxt+' / '+inp.pages+' trang';
+    // Gộp quy cách: Bìa + cán màng + Ruột
+    const coverLbl=(coverList.find(c=>c.id===inp.coverPaper)||{lbl:''}).lbl;
+    const lamLbl=(lamList.find(c=>c.id===inp.lamination)||{lbl:''}).lbl;
+    const innerLbl=(innerList.find(c=>c.id===inp.innerPaper)||{lbl:''}).lbl;
+    const quyCach=[coverLbl&&lamLbl?coverLbl+' – '+lamLbl:coverLbl||lamLbl, innerLbl?'Ruột '+innerLbl:''].filter(Boolean).join(' / ');
+    const bindLbl=(bindList.find(c=>c.id===inp.binding)||{lbl:'—'}).lbl;
+    const rows=[
+      ['Khách hàng',  tenKhach],
+      ['Khổ / Số trang', khoTrang],
+      ['Quy cách',    quyCach],
+      ['Đóng quyển',  bindLbl],
+      ['Số lượng',    inp.qty.toLocaleString('vi-VN')+' cuốn'],
+    ];
+    document.getElementById('q_info').innerHTML=rows
+      .filter(([,v])=>v)
+      .map(([l,v])=>`<div class="qi-row"><span class="qi-l">${l}</span><span class="qi-v">${v}</span></div>`)
+      .join('');
+
+    // ── PRICE STACK ──
+    const _catQUnit=lastR.hasAdj?lastR.adjUnit:r.unitFinal;
+    const _catQTotal=lastR.hasAdj?lastR.adjTotal:r.finalTotal;
+    document.getElementById('q_unit').textContent=fmtMoney(_catQUnit);
+    document.getElementById('q_total').textContent=fmtMoney(_catQTotal);
+
+    // ── BẢNG THAM CHIẾU ──
+    const{refQtys}=CFG.get();
+    const refs=refQtys.length>=2?[...refQtys].sort((a,b)=>a-b):[1,5,10,20,30,50,100,150,200,300];
+    const refEl=document.getElementById('q_ref');
+    refEl.innerHTML=`<table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
+      <thead>
+        <tr>
+          <th style="background:var(--brand);color:#fff;padding:6px 10px;text-align:left;font-size:.72rem;border-radius:var(--r-sm) 0 0 var(--r-sm);">Số cuốn</th>
+          <th style="background:var(--brand);color:#fff;padding:6px 10px;text-align:center;font-size:.72rem;">Giá / cuốn</th>
+          <th style="background:var(--brand);color:#fff;padding:6px 10px;text-align:right;font-size:.72rem;border-radius:0 var(--r-sm) var(--r-sm) 0;">Thành tiền</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${refs.map(q=>{
+          try{
+            const rq=tinhGia(inp,q);
+            const isCur=q===inp.qty;
+            return `<tr>
+              <td style="padding:6px 10px;font-size:.8rem;font-weight:${isCur?'800':'600'};color:${isCur?'var(--brand)':'var(--text2)'};background:${isCur?'#eff6ff':'var(--surface2)'};border:${isCur?'1.5px solid var(--brand)':'1px solid var(--border)'};border-right:none;border-radius:var(--r-sm) 0 0 var(--r-sm);">${isCur?'▶ ':''}${q.toLocaleString('vi-VN')} cuốn</td>
+              <td style="padding:6px 10px;font-size:.85rem;font-weight:800;color:${isCur?'var(--green)':'var(--text1)'};text-align:center;background:${isCur?'#eff6ff':'var(--surface2)'};border-top:${isCur?'1.5px solid var(--brand)':'1px solid var(--border)'};border-bottom:${isCur?'1.5px solid var(--brand)':'1px solid var(--border)'};">${fmtMoney(rq.unitFinal)}</td>
+              <td style="padding:6px 10px;font-size:.8rem;font-weight:700;color:${isCur?'var(--green)':'var(--text2)'};text-align:right;background:${isCur?'#eff6ff':'var(--surface2)'};border:${isCur?'1.5px solid var(--brand)':'1px solid var(--border)'};border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;">${fmtMoney(rq.finalTotal)}</td>
+            </tr>`;
+          }catch(e){return '';}
+        }).join('')}
+      </tbody>
+    </table>`;
+
+    // ── GHI CHÚ ──
+    const noteVal='';
+    document.getElementById('q_note').innerHTML=(noteVal?'📝 <strong>Ghi chú:</strong> '+noteVal+'<br>':'')+'📝 Liên hệ <strong>'+brand.name+'</strong> để xác nhận đơn hàng.';
+
+    document.getElementById('quoteOv').classList.add('open');
+  }
+  function _getCanvas(){
+    const mod=document.getElementById('quoteMod');
+    const ft=document.querySelector('#quoteOv .modal-ft');
+    ft.style.display='none';
+    return html2canvas(mod,{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false})
+      .finally(()=>ft.style.display='');
+  }
+  async function capture(){
+    if(typeof html2canvas==='undefined'){alert('Thư viện chưa tải.');return;}
+    const brand=BRAND.get();
+    _getCanvas().then(c=>{
+      const l=document.createElement('a');
+      l.download='BaoGia_'+document.getElementById('q_code').textContent+'.png';
+      l.href=c.toDataURL('image/png');
+      l.click();
+    }).catch(e=>alert('Lỗi lưu ảnh: '+e.message));
+  }
+  async function copyImage(){
+    if(typeof html2canvas==='undefined'){alert('Thư viện chưa tải.');return;}
+    try{
+      const canvas=await _getCanvas();
+      canvas.toBlob(async blob=>{
+        try{
+          await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+          const btn=document.querySelector('#quoteOv .btn-green');
+          if(btn){const t=btn.textContent;btn.textContent='✅ Đã copy!';setTimeout(()=>btn.textContent=t,2000);}
+        }catch(e){
+          const l=document.createElement('a');
+          l.download='BaoGia_'+document.getElementById('q_code').textContent+'.png';
+          l.href=URL.createObjectURL(blob);l.click();
+        }
+      });
+    }catch(e){alert('Lỗi copy ảnh: '+e.message);}
+  }
+  function closeQuote(){document.getElementById('quoteOv').classList.remove('open');}
+
+  function openOffset(){
+    const{offsetList}=CFG.get();
+    const ghim=offsetList.filter(r=>r.p<=52);
+
+    const renderGrid=(gridId,data)=>{
+      const el=document.getElementById(gridId);
+      if(!el)return;
+      if(!data||!data.length){el.innerHTML='<p style="text-align:center;color:#9a3412;font-size:.82rem;padding:12px;">Chưa có dữ liệu</p>';return;}
+      el.innerHTML=`<table style="width:100%;border-collapse:separate;border-spacing:0 3px;">
+        <thead>
+          <tr>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:left;font-size:.78rem;font-weight:700;border-radius:6px 0 0 6px;">Số trang</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">500 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">1,000 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:center;font-size:.78rem;font-weight:700;">2,000 cuốn</th>
+            <th style="background:rgba(194,65,12,.15);color:#9a3412;padding:7px 12px;text-align:right;font-size:.78rem;font-weight:700;border-radius:0 6px 6px 0;">3,000 cuốn</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.map(r=>`<tr>
+            <td style="padding:8px 12px;font-size:.9rem;font-weight:700;color:#9a3412;background:#fff;border:1px solid #fed7aa;border-right:none;border-radius:6px 0 0 6px;">${r.p} trang</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">${r.v500?r.v500.toLocaleString('vi-VN')+'đ':'—'}</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">${r.v1000?r.v1000.toLocaleString('vi-VN')+'đ':'—'}</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:center;background:#fff;border-top:1px solid #fed7aa;border-bottom:1px solid #fed7aa;">${r.v2000?r.v2000.toLocaleString('vi-VN')+'đ':'—'}</td>
+            <td style="padding:8px 12px;font-size:.92rem;font-weight:800;color:#c2410c;text-align:right;background:#fff;border:1px solid #fed7aa;border-left:none;border-radius:0 6px 6px 0;">${r.v3000?r.v3000.toLocaleString('vi-VN')+'đ':'—'}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+    };
+    renderGrid('cat_ofs_grid_ghim',ghim);
+
+    const brand=BRAND.get();
+    document.getElementById('cat_ofs_brand').textContent=brand.name||'RIRO PRINT';
+    document.getElementById('cat_ofs_date').textContent=new Date().toLocaleDateString('vi-VN');
+    document.getElementById('offsetOv').classList.add('open');
+  }
+  function closeOffset(){document.getElementById('offsetOv').classList.remove('open');}
+
+  function _getOffsetCanvas(){
+    const mod=document.getElementById('offsetMod');
+    const ft=document.querySelector('#offsetOv .modal-ft');
+    ft.style.display='none';
+    return html2canvas(mod,{scale:2,useCORS:true,backgroundColor:'#fff',logging:false}).finally(()=>ft.style.display='');
+  }
+  function captureOffset(){
+    if(typeof html2canvas==='undefined'){alert('Thư viện html2canvas chưa tải.');return;}
+    _getOffsetCanvas().then(c=>{
+      const l=document.createElement('a');
+      l.download='BangGia_Offset_Catalogue_'+new Date().toLocaleDateString('vi-VN').replace(/\//g,'-')+'.png';
+      l.href=c.toDataURL('image/png');l.click();
+    });
+  }
+  async function copyOffsetImage(){
+    if(typeof html2canvas==='undefined'){alert('Thư viện html2canvas chưa tải.');return;}
+    try{
+      const canvas=await _getOffsetCanvas();
+      canvas.toBlob(async blob=>{
+        try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);alert('✅ Đã copy ảnh bảng giá Offset!');}
+        catch{const l=document.createElement('a');l.download='BangGia_Offset_Catalogue.png';l.href=URL.createObjectURL(blob);l.click();}
+      });
+    }catch(e){alert('Lỗi: '+e.message);}
+  }
+
+  function clearForm(){
+    ['cat_name','cat_type','cat_pages','cat_qty','cat_custType','cat_cover','cat_inner','cat_lam','cat_binding'].forEach(id=>{const e=document.getElementById(id);if(!e)return;if(e.tagName==='INPUT')e.value='';else e.value=id==='cat_type'?'a4v':id==='cat_custType'?'direct':id==='cat_cover'?'c250':id==='cat_inner'?'c150':id==='cat_lam'?'mo':'saddle';});
+    document.getElementById('cat_pageHint').textContent='Ghim giữa: tối đa 52 trang';document.getElementById('cat_pageHint').style.color='var(--text3)';
+    document.getElementById('cat_notice').style.display='none';document.getElementById('cat_agNotice').style.display='none';
+    ['r_tongTo','r_donGia','r_heSo','r_giaIn','r_coverFee','r_innerFee','r_lamFee','r_bindFee','r_donGiaCuon','r_subTotal','r_vat','r_disc'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='—';});
+    ['p_unit','p_total'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='—';});
+    ['p_unit_s','p_total_s'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='';});
+    lastInp=null;lastR=null;
+    _adjPanelOpen=false;
+    const _adjTRcf=document.getElementById('cat_adjToggleRow');if(_adjTRcf)_adjTRcf.style.display='none';
+    const _adjCcf=document.getElementById('cat_adjustCard');if(_adjCcf)_adjCcf.style.display='none';
+    ['cat_adj_unit_out','cat_adj_total_out'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent='—';});
+    ['cat_adj_inc','cat_adj_dec','cat_adj_profit_custom'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  }
+
+  function init(){
+    isReady=true;
+    // Sync select khổ từ config (khoList)
+    CFG._syncKhoSelect();
+    // Sync select đóng quyển từ config (bindList)
+    CFG._syncBindSelect();
+    // Áp toggle thông số kỹ thuật ngay khi load
+    CFG._syncTogglePublic();
+    document.dispatchEvent(new CustomEvent('MODULE_READY',{detail:{name:'CAT'}}));
+  }
+  /* ── PRICE ADJUSTMENT ── */
+  let _adjProfitPct=0,_adjPanelOpen=false;
+  function toggleAdjPanel(){
+    _adjPanelOpen=!_adjPanelOpen;
+    const card=document.getElementById('cat_adjustCard'),arrow=document.getElementById('cat_adjToggleArrow'),hint=document.getElementById('cat_adjToggleHint');
+    if(card)card.style.display=_adjPanelOpen?'':'none';
+    if(arrow)arrow.style.transform=_adjPanelOpen?'rotate(180deg)':'rotate(0)';
+    if(hint)hint.textContent=_adjPanelOpen?'Đang bật':'Bấm để mở';
+  }
+  function setProfit(pct,btn){
+    _adjProfitPct=pct;
+    document.querySelectorAll('.cat-adj-btn').forEach(b=>{b.style.fontWeight=b===btn?'900':'700';b.style.outline=b===btn?'2px solid var(--brand)':'none';});
+    const cust=document.getElementById('cat_adj_profit_custom');if(cust)cust.value='';
+    applyAdj();
+  }
+  function setCustomProfit(val){
+    if(isNaN(val))return;_adjProfitPct=val;
+    document.querySelectorAll('.cat-adj-btn').forEach(b=>{b.style.fontWeight='700';b.style.outline='none';});
+    applyAdj();
+  }
+  function applyAdj(){
+    if(!lastR||!lastR.unitFinal)return;
+    const d=CFG.getDisp?CFG.getDisp():{round:100};const rndr=parseInt(d.round||100)||100;
+    const inc=+(document.getElementById('cat_adj_inc')?.value||0);
+    const dec=+(document.getElementById('cat_adj_dec')?.value||0);
+    const netAdj=inc-dec;
+    const adjUnit=Math.round((lastR.unitFinal*(1+_adjProfitPct/100)+netAdj)/rndr)*rndr;
+    const adjTotal=adjUnit*(lastInp?.qty||1);
+    const lbl=document.getElementById('cat_adj_profit_lbl');if(lbl)lbl.textContent=(_adjProfitPct>=0?'+':'')+_adjProfitPct+'%';
+    const pLbl=document.getElementById('cat_adj_price_lbl');if(pLbl)pLbl.textContent=(netAdj>=0?'+':'')+netAdj.toLocaleString('vi-VN')+'đ';
+    const uEl=document.getElementById('cat_adj_unit_out');if(uEl)uEl.textContent=adjUnit.toLocaleString('vi-VN')+'đ';
+    const tEl=document.getElementById('cat_adj_total_out');if(tEl)tEl.textContent=adjTotal.toLocaleString('vi-VN')+'đ';
+    lastR.adjUnit=adjUnit;lastR.adjTotal=adjTotal;lastR.hasAdj=(adjUnit!==lastR.unitFinal);
+  }
+  function resetAdj(){
+    _adjProfitPct=0;
+    ['cat_adj_inc','cat_adj_dec','cat_adj_profit_custom'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+    document.querySelectorAll('.cat-adj-btn').forEach(b=>{b.style.fontWeight='700';b.style.outline='none';});
+    applyAdj();
+  }
+  return{init,calc,calcOnQty,onBindingChange,openQuote,closeQuote,capture,copyImage,openOffset,closeOffset,captureOffset,copyOffsetImage,clearForm,isReady:()=>isReady,toggleAdjPanel,setProfit,setCustomProfit,applyAdj,resetAdj};
+})();
+window.CAT=CAT;
+
+const SYNC=(()=>{
+  const MODULE_ID='CATALOGUE';
+  const VER='catalogue_v8.0';
+  const CFG_TAG_ID='__cfg_CATALOGUE__';
+  const SYNC_KEYS=['cat_brand','cat_bg','cat_cover','cat_inner','cat_lam','cat_bind','cat_kho','cat_agency','cat_disp','cat_offset','cat_refqty'];
+  function _collect(){
+    const cfg={_version:VER,_module:MODULE_ID,_exported:new Date().toISOString()};
+    SYNC_KEYS.forEach(k=>{const v=window._S[k];if(v!==undefined)cfg[k]=v;});
+    return cfg;
+  }
+  function _apply(cfg){
+    if(!cfg||cfg._module!==MODULE_ID)return false;
+    SYNC_KEYS.forEach(k=>{if(cfg[k]!==undefined)window._S[k]=cfg[k];});
+    return true;
+  }
+  function exportJSON(){
+    const cfg=_collect();
+    const blob=new Blob([JSON.stringify(cfg,null,2)],{type:'application/json'});
+    const a=document.createElement('a');
+    const d=new Date();
+    const stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+    a.download='CATALOGUE_config_'+stamp+'.json';
+    a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);
+  }
+  function importJSON(input,onSuccess,onError){
+    const file=input.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=e=>{
+      try{
+        const cfg=JSON.parse(e.target.result);
+        if(typeof cfg!=='object'||!cfg._version||cfg._module!==MODULE_ID){onError('File không hợp lệ hoặc không thuộc module Catalogue.');return;}
+        _apply(cfg);
+        if(typeof BRAND!=='undefined'&&BRAND.reinit)BRAND.reinit();
+        if(typeof CFG!=='undefined'&&CFG.reinit)CFG.reinit();
+        onSuccess();
+      }catch(err){onError('Lỗi đọc file: '+err.message);}
+    };
+    reader.readAsText(file);input.value='';
+  }
+  function exportHTML(onSuccess){
+    const cfg=_collect();
+    const cfgJson=JSON.stringify(cfg);
+    // Tạm đóng tất cả overlay → file xuất mở từ màn hình chính
+    const _ovs=[];document.querySelectorAll('.overlay.open').forEach(function(ov){_ovs.push(ov);ov.classList.remove('open');});
+    let src=document.documentElement.outerHTML;
+    _ovs.forEach(function(ov){ov.classList.add('open');});
+    const OPEN='<script id="'+CFG_TAG_ID+'" type="application/json">';
+    const CLOSE='<'+'/'+'script>';
+    const parts=src.split(OPEN);
+    if(parts.length<2){
+      const BODY_CLOSE='<'+'/'+'body>';
+      src=src.replace(BODY_CLOSE,OPEN+cfgJson+CLOSE+'\n'+BODY_CLOSE);
+    }else{
+      const inner=parts[1].split(CLOSE);
+      inner[0]=cfgJson;parts[1]=inner.join(CLOSE);
+      src=parts.join(OPEN);
+    }
+    const output='<!DOCTYPE html>\n'+src;
+    const blob=new Blob([output],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a');
+    const d=new Date();
+    const stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+    a.download='IN_CATALOGUE_RIRO_'+stamp+'.html';
+    a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);
+    if(onSuccess)onSuccess();
+  }
+  // INIT: apply embedded config nếu máy chưa có data
+  (function(){
+    try{
+      const tag=document.getElementById(CFG_TAG_ID);
+      const embedded=tag?JSON.parse(tag.textContent):null;
+      if(embedded&&embedded._version&&embedded._module===MODULE_ID){
+        const hasData=false; // _S luôn fresh, embedded đã được nạp bởi pre-init
+        if(!hasData)_apply(embedded);
+      }
+    }catch(e){}
+  })();
+  return{exportJSON,importJSON,exportHTML};
+})();
+window.SYNC=SYNC;
+
+const ST_IDS=['brand','banggia','chatLieu','dongquyen','khoso','agency','offset','refqty','pw','sync'];
+function openSettings(){AUTH.openGate();}
+function openBrandSettings(){AUTH.openGate();}
+function _openSettings(){CFG.renderAll();document.getElementById('settingsOv').classList.add('open');switchST('brand',document.getElementById('stb_brand'));BRAND.reinit();}
+function closeSettings(){document.getElementById('settingsOv').classList.remove('open');}
+function switchST(tab,btn){
+  ST_IDS.forEach(id=>{const p=document.getElementById('sp_'+id);if(p)p.classList.remove('active');});
+  document.querySelectorAll('.st-tab').forEach(b=>b.classList.remove('active'));
+  const p=document.getElementById('sp_'+tab);if(p)p.classList.add('active');
+  if(btn)btn.classList.add('active');
+  const map={banggia:'renderBangGia',chatLieu:'renderChatLieu',dongquyen:'renderBinding',khoso:'renderKhoSo',agency:'renderAgency',offset:'renderOffset',refqty:'renderRefQty'};
+  if(map[tab])CFG[map[tab]]();
+  // Khi mở agency tab: cũng sync VAT field
+  if(tab==='agency'){const e=document.getElementById('cfg_vat');if(e)e.value=CFG.get().disp.vat||10;}
+  // Khi mở banggia tab: sync round/unit/mode
+  if(tab==='banggia')CFG.renderDisplay();
+}
+['settingsOv','pwOv','quoteOv','offsetOv'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)el.addEventListener('click',e=>{if(e.target.id===id){if(id==='pwOv')AUTH.cancel();else if(id==='quoteOv')CAT.closeQuote();else if(id==='offsetOv')CAT.closeOffset();else closeSettings();}});
+});
+document.addEventListener('DOMContentLoaded',()=>CAT.init());
+</script>
+
+<script>
+/* RIRO HOTKEY — Ctrl+Shift+A (Cmd+Shift+A) mở Settings. Click brand không có tác dụng. */
+document.addEventListener('keydown', function(e) {
+  if((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+    e.preventDefault();
+    if(typeof openSettings === 'function') openSettings();
+    else if(typeof openBrandSettings === 'function') open</script></body></html>
