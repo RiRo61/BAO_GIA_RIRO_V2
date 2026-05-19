@@ -1,0 +1,2548 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RIRO PRINT – Báo Giá Túi Giấy v9</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1a3a6b;--brand-mid:#2856a3;--brand-dark:#0f2347;
+  --accent:#0ea5e9;--accent2:#f97316;
+  --green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --bg:#f4f6f9;--surface:#fff;--surface2:#f8fafc;
+  --border:#e2e8f0;--text1:#0f172a;--text2:#334155;--text3:#64748b;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:22px;
+  --shadow-lg:0 12px 40px rgba(0,0,0,.14);
+  --font:'Be Vietnam Pro',sans-serif;--topbar-h:68px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font);background:var(--bg);color:var(--text1);min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+button,input,select{font-family:var(--font);}
+.topbar{position:sticky;top:0;z-index:200;height:var(--topbar-h);background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+.tb-brand{cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);}
+.tb-name{font-size:1.35rem;font-weight:800;color:var(--brand);letter-spacing:.6px;line-height:1.25;text-align:center;}
+.tb-name small{display:block;font-size:.82rem;font-weight:400;color:var(--text3);margin-top:2px;}
+.tb-right{display:flex;align-items:center;}
+.tb-ver{font-size:.68rem;color:var(--text3);background:var(--surface);padding:2px 8px;border-radius:20px;border:1px solid var(--border);}
+.mod-body{max-width:1200px;margin:0 auto;padding:18px 14px 56px;}
+.card{background:var(--surface);border-radius:var(--r-lg);padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.05);border:1px solid #dde3ec;margin-bottom:12px;}
+.card-hd{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--border);}
+.card-ico{width:28px;height:28px;border-radius:6px;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.card-ttl{font-size:.9rem;font-weight:700;color:var(--brand);}
+.card-dsc{font-size:.73rem;color:var(--text3);margin-top:1px;}
+.fg{display:flex;flex-direction:column;gap:7px;}
+.fg label{font-size:.82rem;font-weight:700;color:var(--brand);letter-spacing:.2px;margin-bottom:2px;}
+.ub{font-size:.65rem;background:#dbeafe;color:var(--brand-mid);padding:1px 5px;border-radius:8px;font-weight:600;vertical-align:middle;margin-left:3px;}
+.fg input,.fg select{padding:13px 16px;border:2px solid #bdc9de;border-radius:var(--r-sm);font-size:1rem;color:var(--text1);background:var(--surface);transition:.18s;width:100%;}
+.fg input:focus,.fg select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px rgba(26,58,107,.12);}
+.req{color:#dc2626;font-size:.85rem;font-weight:900;margin-left:2px;}
+.fg .hint{font-size:.7rem;color:var(--text3);}
+.input-wrap{position:relative;}.input-wrap input{padding-right:48px;}
+.isuf{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.78rem;color:var(--text3);font-weight:600;pointer-events:none;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.section-sep{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin:14px 0 10px;display:flex;align-items:center;gap:7px;}
+.section-sep::after{content:'';flex:1;border-top:1px solid var(--border);}
+/* SIZE GRID */
+.size-card{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:7px 5px;text-align:center;cursor:pointer;transition:.2s;}
+.size-card:hover{border-color:var(--brand);background:#eff6ff;transform:translateY(-1px);}
+.size-card.sel{border-color:var(--brand);background:#eff6ff;box-shadow:0 0 0 2.5px rgba(40,86,163,.18);}
+.sc-dim{font-size:.72rem;font-weight:800;color:var(--brand);line-height:1.25;}
+.sc-cat{font-size:.58rem;color:var(--text3);margin-top:2px;}
+.size-card.sel .sc-cat{color:var(--brand-mid);font-weight:700;}
+.sgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:2px;}
+.sgrid2{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;}
+.sep-lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text3);margin:8px 0 5px;display:flex;align-items:center;gap:5px;}
+.sep-lbl::after{content:'';flex:1;border-top:1px solid var(--border);}
+/* BREAKDOWN */
+.breakdown{background:linear-gradient(135deg,#f0f9ff,#f8fafc);border:1.5px solid #bae6fd;border-radius:var(--r-md);padding:15px 17px;margin-bottom:12px;}
+.bd-title{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:12px;}
+.bd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px;}
+.bd-item .bd-l{font-size:.67rem;color:var(--text3);line-height:1.3;margin-bottom:2px;}
+.bd-item .bd-v{font-size:.85rem;font-weight:700;color:var(--text1);}
+.bd-item .bd-v.g{color:var(--green);}.bd-item .bd-v.a{color:var(--amber);}.bd-item .bd-v.b{color:var(--brand);}
+.bd-sep{border-top:1px dashed #bae6fd;margin:8px 0;}
+/* METHOD COMPARE */
+.method-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.method-box{border-radius:var(--r-md);padding:13px 15px;border:2px solid var(--border);background:var(--surface2);position:relative;}
+.method-box.winner{border-color:var(--green);background:linear-gradient(135deg,#f0fdf4,#f8fafc);box-shadow:0 3px 12px rgba(22,163,74,.12);}
+.method-box.loser{opacity:.6;}
+.method-box.na{opacity:.35;}
+.method-badge{position:absolute;top:-9px;left:12px;font-size:.65rem;font-weight:800;padding:2px 8px;border-radius:10px;text-transform:uppercase;}
+.winner .method-badge{background:var(--green);color:#fff;}
+.loser .method-badge,.na .method-badge{background:var(--border);color:var(--text3);}
+.method-name{font-size:.82rem;font-weight:800;color:var(--brand);margin-bottom:8px;margin-top:4px;}
+.method-rows{display:flex;flex-direction:column;gap:4px;}
+.method-row{display:flex;justify-content:space-between;font-size:.76rem;}
+.method-row .mr-l{color:var(--text3);}.method-row .mr-v{font-weight:700;}
+.method-total{margin-top:8px;padding-top:7px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.method-total .mt-l{font-size:.74rem;font-weight:700;color:var(--text2);}
+.method-total .mt-v{font-size:1rem;font-weight:900;color:var(--brand);}
+.winner .method-total .mt-v{color:var(--green);}
+.method-na{font-size:.76rem;color:var(--text3);text-align:center;padding:14px 0;}
+/* PRICE */
+.price-display{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:13px;}
+.pbox{border-radius:var(--r-md);padding:14px 17px;text-align:center;}
+.pbox.unit{background:#eff6ff;border:2px solid #bfdbfe;}
+.pbox.total{background:linear-gradient(135deg,var(--brand),var(--brand-mid));color:#fff;box-shadow:0 4px 16px rgba(26,58,107,.3);}
+.pbox .pb-l{font-size:.7rem;font-weight:700;text-transform:uppercase;margin-bottom:5px;}
+.pbox.unit .pb-l{color:var(--brand-mid);}.pbox.total .pb-l{color:rgba(255,255,255,.72);}
+.pbox .pb-v{font-size:1.55rem;font-weight:900;line-height:1;}
+.pbox.unit .pb-v{color:var(--brand);}.pbox.total .pb-v{color:#fff;}
+.pbox .pb-s{font-size:.71rem;margin-top:4px;}.pbox.total .pb-s{color:rgba(255,255,255,.65);}
+/* NOTICES */
+.notice{border-radius:var(--r-sm);padding:10px 13px;font-size:.81rem;display:flex;align-items:flex-start;gap:7px;margin-bottom:11px;}
+.notice.warn{background:#fffbeb;border:1.5px solid #fde68a;color:#92400e;}
+.notice.ok{background:#f0fdf4;border:1.5px solid #86efac;color:#15803d;}
+.notice.info{background:#f0f9ff;border:1.5px solid #bae6fd;color:#0369a1;}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:0 18px;height:40px;border:none;border-radius:var(--r-sm);font-size:.85rem;font-weight:700;cursor:pointer;transition:.18s;white-space:nowrap;}
+.btn-p{background:linear-gradient(135deg,var(--brand),var(--brand-mid));color:#fff;box-shadow:0 3px 12px rgba(26,58,107,.25);}
+.btn-p:hover{transform:translateY(-1px);}
+.btn-accent{background:var(--accent2);color:#fff;}.btn-accent:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{background:var(--surface2);color:var(--text2);border:1.5px solid var(--border);}.btn-ghost:hover{background:var(--border);}
+.btn-red{background:#fee2e2;color:var(--red);border:1px solid #fca5a5;}
+.btn-sm{height:32px;padding:0 12px;font-size:.78rem;}
+.btn-lg{height:46px;padding:0 26px;font-size:.92rem;}
+.btn-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.save-msg{display:none;background:#dcfce7;border:1px solid #86efac;color:var(--green);padding:7px 13px;border-radius:var(--r-sm);font-size:.8rem;font-weight:600;text-align:center;margin-top:9px;}
+/* TOGGLE */
+.tog-row{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-sm);margin-bottom:8px;cursor:pointer;}
+.tog-lbl{font-size:.82rem;font-weight:600;color:var(--text2);}
+.tog-track{width:40px;height:22px;border-radius:11px;background:#cbd5e1;position:relative;transition:.2s;flex-shrink:0;}
+.tog-track.on{background:var(--green);}
+.tog-thumb{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:3px;left:3px;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.tog-track.on .tog-thumb{left:21px;}
+/* TABLES */
+.tbl-wrap{overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border);margin-bottom:10px;}
+.st-tbl{width:100%;border-collapse:collapse;font-size:.81rem;}
+.st-tbl thead th{background:var(--brand);color:#fff;padding:8px 10px;text-align:center;font-weight:700;white-space:nowrap;}
+.st-tbl thead th:first-child{text-align:left;padding-left:12px;}
+.st-tbl tbody td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
+.st-tbl tbody td:first-child{text-align:left;padding-left:12px;}
+.st-tbl tbody tr:last-child td{border-bottom:none;}
+.st-tbl input[type=number],.st-tbl input[type=text]{width:100%;min-width:60px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);}
+.st-tbl input:focus{border-color:var(--accent);outline:none;}
+/* SETTINGS */
+.st-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.st-tab{padding:5px 12px;border-radius:20px;border:2px solid var(--border);background:var(--surface);font-size:.78rem;font-weight:700;color:var(--text3);cursor:pointer;transition:.15s;}
+.st-tab:hover{border-color:var(--brand);color:var(--brand);}
+.st-tab.active{border-color:var(--brand);background:#eff6ff;color:var(--brand);}
+.st-panel{display:none;}.st-panel.active{display:block;}
+.st-sec{font-size:.73rem;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 9px;display:flex;align-items:center;gap:8px;}
+.st-sec::after{content:'';flex:1;border-top:1.5px solid var(--border);}
+.st-sec:first-child{margin-top:0;}
+.fc-grid{display:grid;gap:9px;margin-bottom:10px;}
+.fc-grid.col2{grid-template-columns:1fr 1fr;}
+.fc-grid.col3{grid-template-columns:repeat(3,1fr);}
+.fc-box{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 12px;}
+.fc-box label{font-size:.72rem;font-weight:700;color:var(--text2);display:block;margin-bottom:5px;}
+.fc-box input,.fc-box select{width:100%;padding:6px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.86rem;font-weight:700;text-align:center;font-family:var(--font);color:var(--brand);background:var(--surface);}
+.fc-box input:focus{border-color:var(--accent);outline:none;}
+.fc-box .fc-note{font-size:.65rem;color:var(--text3);margin-top:3px;line-height:1.4;}
+/* OVERLAY */
+.overlay{position:fixed;inset:0;background:rgba(10,20,40,.58);display:none;align-items:flex-end;justify-content:center;z-index:500;padding:0;}
+.overlay.open{display:flex;}
+@media(min-width:600px){.overlay{align-items:center;padding:14px;}}
+.modal{background:var(--surface);border-radius:var(--r-xl) var(--r-xl) 0 0;width:100%;max-width:100%;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);}
+@media(min-width:600px){.modal{border-radius:var(--r-xl);max-width:var(--modal-max,720px);max-height:95vh;}}
+.modal-hd{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 22px 12px;border-bottom:2px solid var(--brand);}
+.mhd-l h3{font-size:.98rem;font-weight:800;color:var(--brand);}
+.mhd-l p{font-size:.74rem;color:var(--text3);margin-top:2px;}
+.mhd-r{text-align:right;}
+.mhd-r strong{font-size:.88rem;color:var(--brand);font-weight:800;display:block;}
+.mhd-r span{font-size:.72rem;color:var(--text3);}
+.modal-body{flex:1;overflow-y:auto;padding:15px 22px;}
+.modal-ft{display:flex;justify-content:flex-end;gap:8px;padding:11px 22px;border-top:1px solid var(--border);flex-wrap:wrap;}
+@media(max-width:599px){.modal-hd{padding:14px 14px 10px;}.modal-body{padding:12px 14px;}.modal-ft{padding:10px 14px;gap:6px;}.modal-ft .btn{flex:1;min-width:0;font-size:.78rem;padding:0 8px;}}
+/* QUOTE */
+.q-layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
+/* Font 120% tăng đều — chỉ áp trên desktop */
+@media(min-width:600px){
+  #q_inner{font-size:1.05rem;}
+  .q-price-val{font-size:1.2rem!important;}
+  .total-row .q-price-val{font-size:1.6rem!important;}
+  .qi-v{font-size:.95rem!important;}
+}
+@media(max-width:599px){
+  .q-layout-grid{grid-template-columns:1fr!important;gap:12px;}
+  .modal-body{padding:12px 13px!important;}
+  #q_inner{font-size:.9rem;}
+}
+.q-info-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-bottom:12px;}
+.qi-row{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--border);gap:10px;}
+.qi-row:last-child{border-bottom:none;}
+.qi-row:nth-child(odd){background:var(--surface2);}
+.qi-l{font-size:.76rem;color:var(--text3);white-space:nowrap;}
+.qi-v{font-size:.85rem;font-weight:600;color:var(--text1);text-align:right;}
+.q-price-stack{border:1.5px solid #86efac;border-radius:var(--r-md);overflow:hidden;margin-bottom:12px;}
+.q-price-row{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;}
+.q-price-row+.q-price-row{border-top:1px solid var(--border);}
+.q-price-row.unit-row{background:#f0fdf4;}
+.q-price-row.qty-row{background:var(--surface2);}
+.q-price-row.total-row{background:#f0fdf4;border-top:2px solid #86efac;}
+.q-price-lbl{font-size:.8rem;font-weight:600;color:var(--text3);}
+.unit-row .q-price-lbl,.total-row .q-price-lbl{color:#15803d;}
+.q-price-val{font-size:1.05rem;font-weight:800;color:var(--brand);}
+.unit-row .q-price-val{font-size:1.1rem;color:#15803d;}
+.total-row .q-price-val{font-size:1.5rem;font-weight:900;color:#15803d;}
+.brand-preview{background:linear-gradient(135deg,var(--brand-dark),var(--brand));border-radius:var(--r-md);padding:14px 18px;margin-bottom:12px;}
+.bp-name{font-size:1.1rem;font-weight:800;color:#fff;}
+.bp-tagline{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:1px;}
+/* DAN MODE TOGGLE */
+.dan-opt{padding:7px 6px;border:1.5px solid var(--border);border-radius:7px;font-size:.75rem;font-weight:700;color:var(--text2);text-align:center;cursor:pointer;background:var(--surface2);transition:.15s;user-select:none;}
+.dan-opt:hover{border-color:var(--accent);color:var(--accent);}
+.dan-opt.dan-active{border-color:var(--brand);background:#eff6ff;color:var(--brand);}
+/* MAIN FORM GRID */
+.main-form-grid{display:grid;grid-template-columns:1fr 1px 1fr 1px 1.1fr;gap:0;align-items:start;}
+@media(max-width:1000px){
+  .main-form-grid{grid-template-columns:1fr 1px 1fr!important;}
+  .col-size{display:none;}
+}
+@media(max-width:640px){
+  /* Layout */
+  .mod-body{padding:10px 10px 40px;}
+  .card{padding:13px 12px;}
+  /* Form: 1 cột, bỏ divider, hiện lại cột size */
+  .main-form-grid{grid-template-columns:1fr!important;}
+  .main-form-grid>div[style*="background:var(--border)"]{display:none!important;}
+  .main-form-grid>div:nth-child(3){padding:0!important;}
+  .col-size{display:block!important;padding-left:0!important;}
+  /* Label size có sẵn gọn hơn trên mobile */
+  .col-size .sgrid3,.col-size .sgrid2{gap:5px;}
+  /* Grids */
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr;}
+  /* Price & breakdown */
+  .price-display{grid-template-columns:1fr;}
+  .method-compare{grid-template-columns:1fr;}
+  .bd-grid{grid-template-columns:1fr;}
+  /* Input font size 16px tránh iOS zoom */
+  input,select,textarea{font-size:16px!important;}
+  /* Modal footer: nút đều nhau */
+  .modal-ft .btn{flex:1;min-width:0;font-size:.76rem;padding:0 6px;}
+}
+@media(max-width:380px){
+  .g2,.g3{grid-template-columns:1fr;}
+  .dan-opt{font-size:.68rem;padding:6px 4px;}
+}
+@media print{body *{visibility:hidden;}.modal,.modal *{visibility:visible;}.modal{position:fixed;inset:0;max-height:none;overflow:visible;border-radius:0;box-shadow:none;}.modal-ft{display:none;}}
+
+/* RIRO RESPONSIVE SAFETY v2 */
+@media(max-width:640px){
+  html,body{overflow-x:hidden;max-width:100%;}
+  .modal{max-width:100%!important;border-radius:14px!important;max-height:94vh!important;}
+  .modal-lg{max-width:100%!important;}
+  .overlay{padding:6px!important;}
+  .modal-hd{padding:12px 14px 10px!important;flex-wrap:wrap;gap:6px;}
+  .modal-body{padding:12px 14px!important;}
+  .modal-ft{padding:10px 14px!important;flex-wrap:wrap;}
+  .mhd-l h3{font-size:.9rem!important;}
+  .tb-name{font-size:1.05rem!important;line-height:1.2!important;}
+  .tb-name small{font-size:.68rem!important;line-height:1.2;}
+  .tb-ver{position:absolute!important;top:6px!important;right:8px!important;font-size:.6rem!important;padding:1px 6px!important;}
+  .tb-brand{padding:0 60px;}
+  /* Fix inline 2-col grid trong quote popup → 1 cột */
+  .modal-body>div>div[style*="grid-template-columns"]{grid-template-columns:1fr!important;}
+  /* Fix res-grid inline repeat(4/5 cột) → 2 cột */
+  .res-grid[style]{grid-template-columns:repeat(2,1fr)!important;}
+  /* Tables: scroll ngang */
+  table{font-size:.76rem!important;}
+  .st-panel table,.modal-body table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+  .tbl-wrap,.ptbl-wrap,.fee-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .q-info-list{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .btn-row{flex-direction:column;align-items:stretch;}
+  .btn-row .btn{width:100%!important;}
+  .st-tabs{gap:4px;flex-wrap:wrap;}
+  .st-tab{padding:5px 10px!important;font-size:.72rem!important;}
+  /* iOS: ngăn auto-zoom khi focus vào input/select */
+  input,select,textarea{font-size:16px!important;}
+}
+@media(max-width:380px){
+  .pbox .pb-v{font-size:1.15rem!important;}
+  .modal-body{padding:10px 12px!important;}
+  .card{padding:12px!important;}
+  .mod-body{padding:12px 9px 36px!important;}
+  .g2,.g3{grid-template-columns:1fr!important;}
+  .res-grid[style]{grid-template-columns:1fr 1fr!important;}
+  input,select,textarea{font-size:16px!important;}
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div></div>
+  <div class="tb-brand">
+    <div class="tb-name"><span id="topName">BÁO GIÁ TÚI GIẤY RIRO</span><small id="topTagline">Báo giá nhanh - Đồng hành hợp tác - Phát triển bền vững</small></div>
+  </div>
+  <div class="tb-right" style="display:flex;align-items:center;gap:6px;"><button onclick="openOv('ov_pw')" title="Cài Đặt" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; cursor: pointer; padding: 6px 8px; border-radius: var(--r-sm); color: var(--text3); font-size: 1.1rem; transition: 0.15s;" onmouseover="this.style.background='var(--border)';this.style.color='var(--brand)'" onmouseout="this.style.background='none';this.style.color='var(--text3)'">⚙️</button><span class="tb-ver">v8.0</span></div>
+</header>
+
+<div class="mod-body">
+  <!-- FORM 3 CỘT -->
+  <div class="card" style="margin-bottom:12px;">
+    <div class="main-form-grid">
+      <div style="display:flex;flex-direction:column;gap:14px;padding-right:18px;">
+        <div class="fg"><label>Tên khách hàng / Đơn hàng</label><input type="text" id="v9_name" placeholder="VD: Shop ABC – Túi kraft tết 2025"></div>
+        <div class="fg">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+            <label style="margin:0;">Nhóm báo giá</label>
+            <span id="tg_custLockBadge" style="font-size: 0.72rem; background: var(--brand); color: rgb(255, 255, 255); padding: 1px 7px; border-radius: 99px; font-weight: 600; display: none;">🔒 Đã khoá</span>
+          </div>
+          <select id="v9_cust" onchange="V9.onCustChange()" style="">
+            <option value="normal">Khách thường</option>
+            <option value="agency">Khách đại lý</option>
+          </select>
+        </div>
+        <div class="section-sep" style="margin:4px 0 2px;">Kích thước túi (W × H × Hông cm)</div>
+        <span class="hint" style="font-size:.72rem;color:var(--text3);">Chọn size có sẵn bên phải hoặc nhập tự do</span>
+        <div class="g3">
+          <div class="fg"><label>Rộng<span class="ub">cm</span></label><div class="input-wrap"><input type="number" id="v9_w" min="5" step="0.5" oninput="V9.onManualDim()"><span class="isuf">cm</span></div></div>
+          <div class="fg"><label>Cao<span class="ub">cm</span></label><div class="input-wrap"><input type="number" id="v9_h" min="5" step="0.5" oninput="V9.onManualDim()"><span class="isuf">cm</span></div></div>
+          <div class="fg"><label>Hông<span class="ub">cm</span></label><div class="input-wrap"><input type="number" id="v9_g" min="0" step="0.5" oninput="V9.onManualDim()"><span class="isuf">cm</span></div></div>
+        </div>
+        <div class="fg">
+          <label>Số lượng<span class="ub">túi</span><span class="req">*</span></label>
+          <div class="input-wrap"><input type="number" id="v9_qty" min="100" step="100" oninput="V9.calc()" placeholder="Nhập số lượng..."><span class="isuf">túi</span></div>
+        </div>
+        <!-- Action buttons dưới Số lượng -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button class="btn btn-accent" style="height:44px;font-size:.88rem;" onclick="V9.openQuote()">📄 Xuất Báo Giá</button>
+          <button class="btn btn-ghost" style="height:44px;" onclick="V9.clearForm()">🔄 Làm mới</button>
+        </div>
+
+        <div class="fg" style="display: none;">
+          <label style="margin-bottom:4px;">Phương án dán <span style="font-size:.7rem;font-weight:400;color:var(--text3);">— tự chọn tối ưu, tích để override</span></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div id="dan_btn_noi" class="dan-opt dan-active" onclick="V9.setDanMode('noi')" style="opacity: 1;">✂️ Dán nối</div>
+            <div id="dan_btn_1lan" class="dan-opt" onclick="V9.setDanMode('1lan')" style="opacity: 0.45;">📄 Dán 1 lần</div>
+          </div>
+        </div>
+        <div id="v9_agNote" class="notice ok" style="display:none;margin-bottom:0;"><span>🎯</span><span><strong>Khách đại lý</strong> – áp dụng bảng lợi nhuận đại lý</span></div>
+      </div>
+      <div style="background:var(--border);align-self:stretch;"></div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:0 18px;">
+        <div class="fg"><label>Loại giấy<span class="req">*</span></label><select id="v9_paper" onchange="V9.onPaperChange()"><option value="ivory">Ivory</option><option value="couche">Couche</option><option value="kraft_nau">Kraft nâu</option><option value="kraft_trang">Kraft trắng</option></select></div>
+        <div class="fg"><label>Định lượng<span class="ub">gsm</span></label><select id="v9_gsm" onchange="V9.calc()"><option value="230" selected="">230 gsm</option><option value="250">250 gsm</option><option value="300">300 gsm</option></select></div>
+        <div class="fg"><label>Cán màng</label>
+          <select id="v9_lam" onchange="V9.calc()">
+            <option value="none">Không cán màng</option>
+            <option value="glossy">Cán bóng (Glossy)</option>
+            <option value="matte" selected="">Cán mờ (Matte)</option>
+          </select>
+        </div>
+        <div class="fg"><label>Quai xách</label><select id="v9_handle" onchange="V9.calc()"><option value="poly">Quai poly</option><option value="rybang">Quai Rybang</option><option value="rybang_gan">Quai Rybang gân</option><option value="rybang_dan">Quai Rybang (dán quai trong)</option><option value="rybang_gan_dan">Quai Rybang gân (dán trong)</option><option value="none">Không có quai</option></select></div>
+        <div class="fg"><label>Đóng nút</label><select id="v9_button" onchange="V9.calc()"><option value="none">Không có nút</option><option value="ore_bac">Ore bạc</option><option value="ore_vang">Ore vàng</option></select></div>
+        <div class="fg" style="display: none;">
+          <label style="margin-bottom:4px;">Phương án in <span style="font-size:.7rem;font-weight:400;color:var(--text3);">— tự chọn tối ưu, tích để override</span></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <div id="pm_btn_auto" class="dan-opt dan-active" onclick="V9.setPrintMode('auto')">🤖 Tự động</div>
+            <div id="pm_btn_kts" class="dan-opt" onclick="V9.setPrintMode('kts')" style="opacity: 1;">⚡ In KTS</div>
+            <div id="pm_btn_offset" class="dan-opt" onclick="V9.setPrintMode('offset')" style="opacity: 0.45;">🖨️ In Offset</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--border);align-self:stretch;"></div>
+      <div class="col-size" style="padding-left:18px;">
+        <div style="font-size:.72rem;font-weight:700;color:var(--brand);margin-bottom:8px;">📐 Kích thước có sẵn · <span style="font-weight:400;color:var(--text3);">Click để điền</span></div>
+        <div class="sep-lbl">Túi đứng</div>
+        <div class="sgrid3" id="v9_sizeGrid"><div class="size-card" onclick="V9.pickSize(this,12,17,7)"><div class="sc-dim">12×17×7</div><div class="sc-cat">Size SX</div></div><div class="size-card" onclick="V9.pickSize(this,15,19,7)"><div class="sc-dim">15×19×7</div><div class="sc-cat">Size S</div></div><div class="size-card" onclick="V9.pickSize(this,18,22,8)"><div class="sc-dim">18×22×8</div><div class="sc-cat">Size S</div></div><div class="size-card" onclick="V9.pickSize(this,20,25,10)"><div class="sc-dim">20×25×10</div><div class="sc-cat">Size M</div></div><div class="size-card" onclick="V9.pickSize(this,20,31,10)"><div class="sc-dim">20×31×10</div><div class="sc-cat">Size L</div></div><div class="size-card" onclick="V9.pickSize(this,22,32,8)"><div class="sc-dim">22×32×8</div><div class="sc-cat">Size L</div></div><div class="size-card" onclick="V9.pickSize(this,25,35,10)"><div class="sc-dim">25×35×10</div><div class="sc-cat">Size 3XL</div></div><div class="size-card" onclick="V9.pickSize(this,25,35,12)"><div class="sc-dim">25×35×12</div><div class="sc-cat">Size 3XL</div></div><div class="size-card" onclick="V9.pickSize(this,26,37,15)"><div class="sc-dim">26×37×15</div><div class="sc-cat">Size 4XL</div></div></div>
+        <div class="sep-lbl">Túi ngang</div>
+        <div class="sgrid3" id="v9_sizeGridNgang"><div class="size-card" onclick="V9.pickSize(this,18,16,8)"><div class="sc-dim">18×16×8</div><div class="sc-cat">Size S</div></div><div class="size-card" onclick="V9.pickSize(this,22,18,8)"><div class="sc-dim">22×18×8</div><div class="sc-cat">Size S</div></div><div class="size-card" onclick="V9.pickSize(this,31,21,10)"><div class="sc-dim">31×21×10</div><div class="sc-cat">Size L</div></div><div class="size-card" onclick="V9.pickSize(this,32,22,8)"><div class="sc-dim">32×22×8</div><div class="sc-cat">Size L</div></div><div class="size-card" onclick="V9.pickSize(this,35,25,10)"><div class="sc-dim">35×25×10</div><div class="sc-cat">Size 3XL</div></div><div class="size-card" onclick="V9.pickSize(this,35,25,12)"><div class="sc-dim">35×25×12</div><div class="sc-cat">Size 3XL</div></div><div class="size-card" onclick="V9.pickSize(this,37,26,15)"><div class="sc-dim">37×26×15</div><div class="sc-cat">Size 3XL</div></div></div>
+        <div class="sep-lbl">Túi vuông</div>
+        <div class="sgrid2" id="v9_sizeGridVuong"><div class="size-card" onclick="V9.pickSize(this,10,10,5)"><div class="sc-dim">10×10×5</div><div class="sc-cat">Size SX</div></div><div class="size-card" onclick="V9.pickSize(this,15,15,8)"><div class="sc-dim">15×15×8</div><div class="sc-cat">Size S</div></div><div class="size-card" onclick="V9.pickSize(this,21,21,12)"><div class="sc-dim">21×21×12</div><div class="sc-cat">Size 2XL</div></div><div class="size-card" onclick="V9.pickSize(this,24,24,8)"><div class="sc-dim">24×24×8</div><div class="sc-cat">Size 2XL</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN (toggleable) -->
+  <div id="v9_breakdown" style="display: none; margin-bottom: 12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+      <!-- CARD TRÁI: Thông số kỹ thuật -->
+      <div style="background:linear-gradient(135deg,#f0f9ff,#f8fafc);border:1.5px solid #bae6fd;border-radius:var(--r-md);padding:14px 16px;">
+        <div style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:10px;">⚙️ Thông số kỹ thuật</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;font-size:.78rem;"><span style="color:var(--text3);">Nhóm size</span><span style="font-weight:700;color:var(--brand);" id="bd_cat">Size SX</span></div>
+
+          <!-- 2 KHUNG CHỌN PHƯƠNG ÁN DÁN -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:2px 0;">
+            <div id="bd_frame_noi" style="border-radius: 8px; padding: 8px 10px; border: 2.5px solid var(--brand); background: rgb(239, 246, 255); box-shadow: rgba(26, 58, 107, 0.15) 0px 2px 8px; transition: 0.2s;">
+              <div style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 5px; color: var(--brand);" id="bd_frame_noi_lbl">Dán nối</div>
+              <div style="font-size: 0.82rem; font-weight: 800; color: var(--brand);" id="bd_dnoi_dim">21.0×26.0</div>
+              <div style="font-size:.63rem;color:var(--text3);margin-top:1px;">W×H cm</div>
+            </div>
+            <div id="bd_frame_1lan" style="border-radius: 8px; padding: 8px 10px; border: 2px solid var(--border); background: var(--surface2); opacity: 0.55; transition: 0.2s;">
+              <div style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 5px; color: var(--text3);" id="bd_frame_1lan_lbl">Dán 1 lần</div>
+              <div style="font-size: 0.82rem; font-weight: 800; color: var(--text3);" id="bd_d1lan_dim">40.0×26.0</div>
+              <div style="font-size:.63rem;color:var(--text3);margin-top:1px;">W×H cm</div>
+            </div>
+          </div>
+
+          <!-- KHUNG PHƯƠNG ÁN IN + TỜ GIẤY (nằm cùng nhóm lợi nhuận/chi phí) -->
+          <div style="background:var(--surface);border:1.5px solid #bae6fd;border-radius:8px;padding:8px 10px;">
+            <div style="display:flex;justify-content:space-between;font-size:.76rem;margin-bottom:4px;"><span style="color:var(--text3);">Phương án in</span><span style="font-weight:700;color:var(--brand);text-align:right;max-width:60%;" id="bd_method">KTS – Máy 32.5×36 – Dán nối</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Khổ tờ giấy</span><span style="font-weight:700;color:var(--brand);" id="bd_sheet">79×109 cm</span></div>
+          </div>
+
+          <!-- BẢNG TÍNH CHI TIẾT -->
+          <div id="bd_calc_detail" style="background:var(--surface);border:1.5px solid #bae6fd;border-radius:8px;padding:8px 10px;">
+            <div style="font-size:.63rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:var(--accent);margin-bottom:6px;" id="bd_detail_title">Chi tiết – Khổ dán nối trên tờ 79×109</div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);" id="bd_kho_label">Khổ dán nối / tờ</span><span style="font-weight:700;color:var(--brand);" id="bd_kho_per_tor">15 khổ dán nối / tờ</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Số túi / tờ</span><span style="font-weight:800;color:var(--green);" id="bd_tui_per_tor">7 túi / tờ</span></div>
+              <div style="border-top:1px dashed #bae6fd;margin:1px 0;"></div>
+              <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Khổ cần in (túi thuần)</span><span style="font-weight:600;" id="bd_kho_pure">200 khổ</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--amber);font-weight:600;" id="bd_waste_label">Bù hao +15 túi (30 khổ)</span><span style="font-weight:700;color:var(--amber);" id="bd_kho_waste">(2% min 15)</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.8rem;border-top:1.5px solid #bae6fd;padding-top:4px;margin-top:1px;"><span style="font-weight:700;color:var(--brand);">Tổng khổ cần in</span><span style="font-weight:900;color:var(--brand);" id="bd_kho_total">230 khổ dán nối</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:.8rem;"><span style="font-weight:700;color:var(--brand);">Số tờ giấy</span><span style="font-weight:900;color:var(--brand);" id="bd_tor_total">16 tờ 79×109</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CARD PHẢI: Chi phí & Giá -->
+      <div style="background:linear-gradient(135deg,#f0fdf4,#f8fafc);border:1.5px solid #86efac;border-radius:var(--r-md);padding:14px 16px;">
+        <div style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--green);margin-bottom:10px;">💰 Chi phí &amp; Giá bán</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Giấy</span><span style="font-weight:600;" id="bd_cpaper">63.377₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">In</span><span style="font-weight:600;" id="bd_cprint">230.000₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Khuôn bế</span><span style="font-weight:600;" id="bd_cdie">250.000₫ (−50% size có sẵn)</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Cán màng</span><span style="font-weight:600;" id="bd_clam">150.000₫ (tối thiểu)</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Dán túi</span><span style="font-weight:600;" id="bd_cdan">150.000₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);" id="bd_handle_lbl">Quai poly</span><span style="font-weight:600;" id="bd_chandle">50.000₫</span></div>
+          <div style="border-top:1.5px solid #86efac;margin:4px 0;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;"><span style="font-weight:700;color:var(--brand);">Tổng giá thành</span><span style="font-weight:800;color:var(--brand);" id="bd_ctotal">893.377₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Lợi nhuận (<span id="bd_margin_pct">40%</span>)</span><span style="font-weight:700;color:var(--green);" id="bd_margin">357.351₫</span></div>
+          <div style="border-top:1px dashed #86efac;margin:3px 0;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">Tổng chưa VAT</span><span style="font-weight:700;color:var(--brand);" id="bd_pretotal">1.250.728₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.76rem;"><span style="color:var(--text3);">VAT (<span id="bd_vat_pct">10%</span>)</span><span style="font-weight:600;color:var(--amber);" id="bd_vat">125.073₫</span></div>
+          <div style="border-top:1.5px solid #86efac;margin:4px 0;"></div>
+          <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span style="font-weight:800;color:var(--green);">Tổng có VAT</span><span style="font-weight:900;color:var(--green);font-size:.95rem;" id="bd_withtotal">1.375.801₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;margin-top:3px;"><span style="font-weight:800;color:var(--brand);">Đơn giá / túi</span><span style="font-weight:900;color:var(--brand);font-size:1rem;" id="bd_unitprice">13.750₫</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- METHOD COMPARE (toggleable) -->
+  <div id="v9_cmp" style="display: none; margin-bottom: 12px;">
+    <div class="section-sep" style="margin:0 0 8px;">📊 So sánh Dán nối vs Dán 1 lần</div>
+    <div class="method-compare">
+      <div class="method-box winner" id="mb_noi"><span class="method-badge" id="mb_noi_badge">Dán nối ✓ Tối ưu</span><div class="method-name">Phương án Dán nối</div><div id="mb_noi_body"><div class="method-rows">
+      <div class="method-row"><span class="mr-l">Giá giấy</span><span class="mr-v">63.377₫</span></div>
+      <div class="method-row"><span class="mr-l">Tiền in</span><span class="mr-v">230.000₫</span></div>
+      <div class="method-row"><span class="mr-l">Tiền dán</span><span class="mr-v">150.000₫</span></div>
+    </div><div class="method-total"><span class="mt-l">Tổng chi phí (Giấy+In+Dán)</span><span class="mt-v">443.377₫</span></div></div></div>
+      <div class="method-box loser" id="mb_1lan"><span class="method-badge" id="mb_1lan_badge">Dán 1 lần</span><div class="method-name">Phương án Dán 1 lần</div><div id="mb_1lan_body"><div class="method-rows">
+      <div class="method-row"><span class="mr-l">Giá giấy</span><span class="mr-v">79.221₫</span></div>
+      <div class="method-row"><span class="mr-l">Tiền in</span><span class="mr-v">230.000₫</span></div>
+      <div class="method-row"><span class="mr-l">Tiền dán</span><span class="mr-v">150.000₫</span></div>
+    </div><div class="method-total"><span class="mt-l">Tổng chi phí (Giấy+In+Dán)</span><span class="mt-v">459.221₫</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- GIÁ (toggleable) -->
+  <div id="v9_priceBox" style="display: none;">
+    <div class="price-display">
+      <div class="pbox unit"><div class="pb-l">💲 Giá / 1 túi</div><div class="pb-v" id="v9_punit">—</div><div class="pb-s" id="v9_punit_s"></div></div>
+      <div class="pbox total"><div class="pb-l">💰 Tổng tiền</div><div class="pb-v" id="v9_ptotal">—</div><div class="pb-s" id="v9_ptotal_s"></div></div>
+    </div>
+  </div>
+
+  <div class="notice warn" id="v9_notice" style="display: none;"><span>⚠️</span><span id="v9_ntxt">Số lượng tối thiểu là 100 túi.</span></div>
+
+  <!-- TOGGLE ĐIỀU CHỈNH GIÁ -->
+  <!-- TOGGLE GIÁ ĐÃ BAO GỒM VAT -->
+  <div id="tg_vatToggleRow" style="margin-bottom: 6px;">
+    <button id="tg_vatToggleBtn" onclick="V9.toggleVatLabel()" style="display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px 14px; background: var(--surface); border-color: var(--border); border-radius: var(--r-sm); cursor: pointer; font-family: var(--font); transition: 0.15s;" onmouseover="this.style.borderColor='#86efac'" onmouseout="this.style.borderColor='var(--border)'">
+      <span id="tg_vatToggleIcon" style="font-size:.95rem;">☑️</span>
+      <span style="font-size:.82rem;font-weight:700;color:var(--text2);">Hiển thị "Giá đã bao gồm VAT"</span>
+      <span id="tg_vatToggleState" style="margin-left:auto;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:99px;background:#dcfce7;color:#15803d;">BẬT</span>
+    </button>
+  </div>
+
+  <div id="tg_adjToggleRow" style="margin-bottom: 6px; display: none;">
+    <button onclick="V9.toggleAdjPanel()" style="display: flex; align-items: center; gap: 8px; width: 100%; padding: 9px 14px; background: var(--surface); border: 1.5px solid rgb(191, 219, 254); border-radius: var(--r-sm); cursor: pointer; font-family: var(--font); transition: 0.15s;" onmouseover="this.style.background='#eff6ff'" onmouseout="this.style.background='var(--surface)'">
+      <span style="font-size:.82rem;font-weight:700;color:var(--brand);">⚙️ Điều Chỉnh Giá Xuất</span>
+      <span style="margin-left:auto;font-size:.72rem;color:var(--text3);" id="tg_adjToggleHint">Bấm để mở</span>
+      <span id="tg_adjToggleArrow" style="font-size:.8rem;color:var(--brand);transition:.2s;">▼</span>
+    </button>
+  </div>
+  <div class="card" id="tg_adjustCard" style="display:none;padding:14px 18px;margin-bottom:12px;background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1.5px solid #bfdbfe;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div>
+        <div style="font-size:.75rem;font-weight:700;color:var(--brand);margin-bottom:7px;">📈 Lợi Nhuận (%)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;">
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(-15,this)" style="background:#fee2e2;color:#dc2626;border:1.5px solid #fca5a5;height:30px;padding:0 8px;font-size:.75rem;">−15%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(-10,this)" style="background:#fee2e2;color:#dc2626;border:1.5px solid #fca5a5;height:30px;padding:0 8px;font-size:.75rem;">−10%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(-5,this)" style="background:#fff7ed;color:#ea580c;border:1.5px solid #fed7aa;height:30px;padding:0 8px;font-size:.75rem;">−5%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(0,this)" style="background:#f8fafc;color:var(--text2);border:1.5px solid var(--border);height:30px;padding:0 8px;font-size:.75rem;">0%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(5,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+5%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(10,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+10%</button>
+          <button class="tg-adj-btn btn btn-sm" onclick="V9.setProfit(15,this)" style="background:#f0fdf4;color:#15803d;border:1.5px solid #86efac;height:30px;padding:0 8px;font-size:.75rem;">+15%</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <input type="number" id="tg_adj_profit_custom" placeholder="Nhập %" step="1" min="-50" max="100" oninput="V9.setCustomProfit(+this.value)" style="width:80px;padding:5px 8px;border:1.5px solid #bfdbfe;border-radius:6px;font-size:.88rem;font-weight:700;text-align:center;font-family:var(--font);color:var(--brand);background:#fff;">
+          <span style="font-size:.72rem;color:var(--text3);">%  →  LN: <strong id="tg_adj_profit_lbl" style="color:var(--brand);">undefined%</strong></span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:.75rem;font-weight:700;color:var(--brand);margin-bottom:7px;">💲 Điều Chỉnh Giá (đ)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+          <div>
+            <div style="font-size:.68rem;color:var(--text3);margin-bottom:3px;font-weight:600;">🔼 Tăng (đ/túi)</div>
+            <input type="number" id="tg_adj_inc" min="0" step="50" placeholder="0" oninput="V9.applyAdj()" style="width:100%;padding:7px 10px;border:1.5px solid #86efac;border-radius:6px;font-size:.9rem;font-weight:700;text-align:center;font-family:var(--font);color:#15803d;background:#f0fdf4;">
+          </div>
+          <div>
+            <div style="font-size:.68rem;color:var(--text3);margin-bottom:3px;font-weight:600;">🔽 Giảm (đ/túi)</div>
+            <input type="number" id="tg_adj_dec" min="0" step="50" placeholder="0" oninput="V9.applyAdj()" style="width:100%;padding:7px 10px;border:1.5px solid #fca5a5;border-radius:6px;font-size:.9rem;font-weight:700;text-align:center;font-family:var(--font);color:#dc2626;background:#fee2e2;">
+          </div>
+        </div>
+        <div style="font-size:.7rem;color:var(--text3);">Điều chỉnh: <strong id="tg_adj_price_lbl" style="color:var(--brand);">+0đ</strong></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:10px 14px;background:#fff;border-radius:var(--r-sm);border:1.5px solid #bfdbfe;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:.75rem;color:var(--text3);font-weight:600;">Giá / túi sau điều chỉnh</div>
+      <div style="font-size:1.35rem;font-weight:900;color:var(--brand);" id="tg_adj_unit_out">—</div>
+      <div style="font-size:.75rem;color:var(--text3);font-weight:600;">Tổng tiền</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--green);" id="tg_adj_total_out">—</div>
+      <button class="btn btn-ghost btn-sm" onclick="V9.resetAdj()">↩ Reset</button>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- OVERLAY QUOTE -->
+<div class="overlay" id="ov_quote">
+  <div class="modal" style="--modal-max:860px;">
+    <div class="modal-hd">
+      <div class="mhd-l"><h3 id="q_brand">🛍️ BÁO GIÁ TÚI GIẤY RIRO</h3><p id="tg_q_address" style="font-size:.72rem;color:var(--text3);margin-top:2px;">📍 61 Phạm Thanh , Phường Đạo Thạnh , Đồng Tháp</p><p id="tg_q_phone" style="font-size:.72rem;color:var(--text3);margin-top:1px;">📞 08.1234.3639 - 0829.740.168 - 0334.642.639</p></div>
+      <div class="mhd-r"><strong id="v9_qcode">TG-453813</strong><span id="v9_qdate">13/5/2026</span><span style="display:block;margin-top:1px;font-size:.68rem;color:var(--text3);">Hiệu lực: 15 ngày</span></div>
+    </div>
+    <div class="modal-body" style="padding:18px 22px;">
+      <div id="q_inner">
+      <div class="q-layout-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;">📋 Thông tin đơn hàng</div>
+          <div class="q-info-list" id="q_info"></div>
+          <div class="q-price-stack">
+            <div class="q-price-row unit-row"><span class="q-price-lbl">Giá / 1 túi</span><span class="q-price-val" id="q_unit">—</span></div>
+            <div class="q-price-row total-row"><span class="q-price-lbl">💰 Tổng tiền</span><span class="q-price-val" id="q_total">—</span></div>
+            <div id="tg_vat_note" style="padding: 7px 16px; background: rgb(240, 253, 244); border-top: 1px dashed rgb(134, 239, 172); align-items: center; gap: 6px;"><span style="font-size:.72rem;color:#15803d;font-weight:700;">✅ Giá đã bao gồm VAT</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:8px;">📊 Giá tham khảo theo số lượng</div>
+          <div id="q_ref"></div>
+        </div>
+      </div><!-- /grid -->
+      </div><!-- /q_inner -->
+    </div><!-- /modal-body -->
+    <div class="modal-ft">
+      <button class="btn btn-ghost btn-sm" onclick="closeOv('ov_quote')">✕ Đóng</button>
+      <button class="btn btn-ghost btn-sm" id="q_copy_btn" onclick="V9.copyQuoteImg()">📋 Copy Ảnh</button>
+      <button class="btn btn-ghost btn-sm" id="q_save_btn" onclick="V9.saveQuoteImg()">💾 Lưu Ảnh</button>
+      <button class="btn btn-p btn-sm" onclick="window.print()">🖨️ In</button>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY SETTINGS -->
+<div class="overlay" id="ov_settings">
+  <div class="modal" style="--modal-max:780px;">
+    <div class="modal-hd">
+      <div class="mhd-l"><h3>⚙️ Cài đặt – Túi Giấy v9</h3><p>Giá giấy · In · Bế · Quai · VAT · Size</p></div>
+      <div class="mhd-r"><button class="btn btn-ghost btn-sm" onclick="closeOv('ov_settings')">✕ Đóng</button></div>
+    </div>
+    <div class="modal-body">
+      <div class="st-tabs">
+        <button class="st-tab" onclick="swST('brand',this)">🏢 Thương Hiệu</button>
+        <button class="st-tab" onclick="swST('giay',this)">📄 Giá Giấy</button>
+        <button class="st-tab" onclick="swST('in',this)">🖨️ Chi Phí In</button>
+        <button class="st-tab" onclick="swST('be',this)">✂️ Bế &amp; Khuôn</button>
+        <button class="st-tab" onclick="swST('quai',this)">🧵 Quai &amp; Dán</button>
+        <button class="st-tab" onclick="swST('size',this)">📐 Size Túi</button>
+        <button class="st-tab" onclick="swST('nhom',this)">🏷️ Nhóm Size</button>
+        <button class="st-tab" onclick="swST('vat',this)">💰 VAT &amp; Lợi Nhuận</button>
+        <button class="st-tab active" onclick="swST('sync',this)">🔄 Đồng Bộ</button>
+        <button class="st-tab" onclick="swST('pw',this)">🔐 Mật Khẩu</button>
+      </div>
+
+      <!-- BRAND -->
+      <div id="sp_brand" class="st-panel">
+        <div class="brand-preview"><div><div class="bp-name" id="prevName">RIRO PRINT</div><div class="bp-tagline" id="prevTagline">Báo giá túi giấy – Chi phí thực</div></div></div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Tên công ty</label><input type="text" id="st_bname" oninput="APP.prevBrand()"></div>
+          <div class="fc-box"><label>Tagline</label><input type="text" id="st_btagline" oninput="APP.prevBrand()"></div>
+          <div class="fc-box" style="grid-column:span 2;"><label>📍 Địa chỉ</label><input type="text" id="st_baddress" placeholder="61 Phạm Thanh, P. Đạo Thạnh, Đồng Tháp"></div>
+          <div class="fc-box" style="grid-column:span 2;"><label>📞 Điện thoại</label><input type="text" id="st_bphone" placeholder="08.1234.3639 – 082.974.0168 – 0334.642.639"></div>
+        </div>
+        <div class="st-sec">Bật / Tắt tính năng hiển thị</div>
+        <div id="tog_container"><div class="tog-row" onclick="APP.toggleDisp('breakdown',this)">
+        <span class="tog-lbl">Thông số kỹ thuật &amp; chi phí</span>
+        <div class="tog-track" id="tog_breakdown" data-on="0"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('compare',this)">
+        <span class="tog-lbl">So sánh Dán nối / Dán 1 lần</span>
+        <div class="tog-track" id="tog_compare" data-on="0"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('unit',this)">
+        <span class="tog-lbl">Giá 1 túi</span>
+        <div class="tog-track on" id="tog_unit" data-on="1"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('total',this)">
+        <span class="tog-lbl">Tổng tiền</span>
+        <div class="tog-track on" id="tog_total" data-on="1"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('showName',this)">
+        <span class="tog-lbl">Ô tên khách hàng</span>
+        <div class="tog-track on" id="tog_showName" data-on="1"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('showCust',this)">
+        <span class="tog-lbl">Chọn loại khách hàng</span>
+        <div class="tog-track on" id="tog_showCust" data-on="1"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('showDan',this)">
+        <span class="tog-lbl">Tuỳ chọn phương án dán</span>
+        <div class="tog-track" id="tog_showDan" data-on="0"><div class="tog-thumb"></div></div>
+      </div><div class="tog-row" onclick="APP.toggleDisp('showPrint',this)">
+        <span class="tog-lbl">Tuỳ chọn phương án in</span>
+        <div class="tog-track" id="tog_showPrint" data-on="0"><div class="tog-thumb"></div></div>
+      </div></div>
+        <div class="st-sec">Mặc định loại khách hàng</div>
+        <div class="fc-grid col2">
+          <div class="fc-box">
+            <label>Loại khách áp dụng mặc định</label>
+            <select id="st_defaultCust">
+              <option value="normal">Khách thường</option>
+              <option value="agency">Khách đại lý</option>
+            </select>
+            <div class="fc-note">Khi mở app, loại khách này sẽ được chọn sẵn.</div>
+          </div>
+        </div>
+        <!-- KHOÁ LOẠI KHÁCH HÀNG -->
+        <div class="st-sec" style="margin-top:14px;">🔒 Khoá loại khách hàng</div>
+        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:10px;">
+          <div style="font-size:.78rem;color:var(--text3);margin-bottom:10px;">Khoá cố định loại khách — form báo giá sẽ tự điền và không cho thay đổi. Khác với mặc định, khoá sẽ disable không cho chỉnh.</div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;">
+            <div class="fc-box" style="margin:0;">
+              <label style="font-size:.78rem;">Chế độ khoá</label>
+              <select id="cfg_tg_custLock" style="font-size:.85rem;">
+                <option value="none">🔓 Không khoá (tự chọn)</option>
+                <option value="normal">🔒 Khoá – Khách thường</option>
+                <option value="agency">🔒 Khoá – Khách đại lý</option>
+              </select>
+            </div>
+            <button class="btn btn-p btn-sm" onclick="saveTgCustLock()" style="height:36px;white-space:nowrap;">💾 Áp dụng</button>
+          </div>
+          <div class="save-msg" id="tg_custLockSaveMsg" style="margin-top: 8px; display: none;">✅ Đã lưu! Form báo giá đã được cập nhật.</div>
+        </div>
+
+        <button class="btn btn-p btn-sm" style="margin-top:4px;" onclick="APP.saveBrand()">💾 Lưu Thương Hiệu</button>
+        <div class="save-msg" id="msg_brand" style="display: none;">✅ Đã lưu!</div>
+      </div>
+
+      <!-- GIẤY -->
+      <div id="sp_giay" class="st-panel">
+        <div class="notice info"><span>ℹ️</span><span>Mỗi hàng: Loại giấy · Định lượng · Giá/kg · Khổ giấy (W×H). Nhóm theo loại giấy. Giá tờ = W×H×gsm/1000 × giá_kg.</span></div>
+        <div class="tbl-wrap">
+          <table class="st-tbl" id="paper_combined_tbl">
+            <thead><tr><th>Loại giấy</th><th>GSM</th><th>₫/kg</th><th>Khổ W (cm)</th><th>Khổ H (cm)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="paper_combined_body"><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="230" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="230" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="250" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="250" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="300" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Ivory" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="300" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="20000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Couche" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="250" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="24000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Couche" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="250" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="24000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Couche" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="300" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="24000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Couche" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="300" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="24000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="160" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="19000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="160" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="19000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="180" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="19000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="180" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="19000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="230" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="35000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft nâu" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="230" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="35000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="120" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="120" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="150" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="150" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="160" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="160" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="180" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="65" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="86" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr><tr>
+      <td><input type="text" class="pc_lbl" value="Kraft trắng" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="180" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="38000" min="0"></td>
+      <td><input type="number" class="pc_sw" value="79" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="109" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addPaperCombinedRow()">＋ Thêm dòng</button>
+        <button class="btn btn-p btn-sm" style="margin-left:8px;" onclick="ST.savePaperCombined()">💾 Lưu</button>
+        <div class="save-msg" id="msg_paper">✅ Đã lưu!</div>
+      </div>
+
+      <!-- IN -->
+      <div id="sp_in" class="st-panel">
+        <div class="fc-grid col2" style="margin-bottom:14px;">
+          <div class="fc-box" style="grid-column:1/-1;">
+            <label>Ưu tiên in KTS theo nhóm size &amp; số lượng</label>
+            <div class="fc-note" style="margin-bottom:8px;">Khi số lượng ≤ ngưỡng thì ưu tiên KTS (dù Offset có thể rẻ hơn). Vượt ngưỡng → tự động chuyển Offset.</div>
+            <table class="st-tbl"><thead><tr><th>Nhóm size (cách nhau bởi dấu phẩy)</th><th>SL tối đa (túi)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="kts_rules_body"><tr>
+      <td><input type="text" class="kr_sizes" value="SX, S, M, L, XL" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;font-family:var(--font);" placeholder="VD: SX, S, M"></td>
+      <td><input type="number" class="kr_qty" value="500" min="1" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table>
+            <button class="btn btn-ghost btn-sm" style="margin-top:6px;" onclick="ST.addKtsRuleRow()">＋ Thêm quy tắc</button>
+          </div>
+        </div>
+        <div class="st-sec">Hao hụt in</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>KTS – % hao hụt</label><input type="number" id="waste_kts_pct" min="0" max="20" step="0.5"><div class="fc-note">VD: 2 (= 2%)</div></div>
+          <div class="fc-box"><label>KTS – Tối thiểu (túi)</label><input type="number" id="waste_kts_min" min="0"><div class="fc-note">VD: 15</div></div>
+          <div class="fc-box"><label>Offset – % hao hụt</label><input type="number" id="waste_off_pct" min="0" max="20" step="0.5"><div class="fc-note">VD: 2 (= 2%)</div></div>
+          <div class="fc-box"><label>Offset – Tối thiểu (túi/tờ)</label><input type="number" id="waste_off_min" min="0"><div class="fc-note">VD: 100</div></div>
+        </div>
+        <div class="st-sec">Máy In KTS – Giá/tờ khổ bế</div>
+        <div class="tbl-wrap">
+          <table class="st-tbl">
+            <thead><tr><th>Rộng (cm)</th><th>Cao (cm)</th><th>Giá/tờ (₫)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="kts_body"><tr>
+      <td><input type="number" class="kw" value="32.5" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kh" value="36" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kp" value="1000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="kw" value="32.5" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kh" value="49" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kp" value="2000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="kw" value="28" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kh" value="65" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kp" value="3000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addKtsRow()">＋ Thêm máy KTS</button>
+        <div class="st-sec">Máy In Offset</div>
+        <div class="notice info"><span>ℹ️</span><span>Mỗi máy có thể có nhiều mốc trọn gói. Nhấn ▸ để xem/chỉnh mốc của từng máy.</span></div>
+        <div id="offset_machines_panel"><div class="offset-machine-box" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+          <input type="text" class="om_name" value="52×72" placeholder="Tên máy" style="width:90px;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--brand);font-family:var(--font);">
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">W:<input type="number" class="om_w" value="52" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">H:<input type="number" class="om_h" value="72" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">Thêm/tờ (₫):<input type="number" class="om_extra" value="200" min="0" style="width:75px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"></label>
+          <button class="btn btn-red btn-sm" onclick="this.closest('.offset-machine-box').remove()">✕ Xóa máy</button>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;color:var(--brand);margin-bottom:5px;">Mốc trọn gói:</div>
+          <div class="tbl-wrap" style="margin-bottom:6px;">
+            <table class="st-tbl">
+              <thead><tr><th>Đến (tờ/khổ)</th><th>Giá trọn gói (₫)</th><th style="width:44px;"></th></tr></thead>
+              <tbody class="tiers_body"><tr>
+        <td><input type="number" class="ot_upto" value="1000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1000000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="2000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1100000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="3000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1200000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr></tbody>
+            </table>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="ST.addTierRow(this)">＋ Thêm mốc</button>
+        </div>
+      </div><div class="offset-machine-box" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+          <input type="text" class="om_name" value="79×54" placeholder="Tên máy" style="width:90px;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--brand);font-family:var(--font);">
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">W:<input type="number" class="om_w" value="79" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">H:<input type="number" class="om_h" value="54" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">Thêm/tờ (₫):<input type="number" class="om_extra" value="250" min="0" style="width:75px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"></label>
+          <button class="btn btn-red btn-sm" onclick="this.closest('.offset-machine-box').remove()">✕ Xóa máy</button>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;color:var(--brand);margin-bottom:5px;">Mốc trọn gói:</div>
+          <div class="tbl-wrap" style="margin-bottom:6px;">
+            <table class="st-tbl">
+              <thead><tr><th>Đến (tờ/khổ)</th><th>Giá trọn gói (₫)</th><th style="width:44px;"></th></tr></thead>
+              <tbody class="tiers_body"><tr>
+        <td><input type="number" class="ot_upto" value="1000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1200000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="2000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1300000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="3000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1400000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr></tbody>
+            </table>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="ST.addTierRow(this)">＋ Thêm mốc</button>
+        </div>
+      </div><div class="offset-machine-box" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+          <input type="text" class="om_name" value="72×102" placeholder="Tên máy" style="width:90px;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--brand);font-family:var(--font);">
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">W:<input type="number" class="om_w" value="72" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">H:<input type="number" class="om_h" value="102" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">Thêm/tờ (₫):<input type="number" class="om_extra" value="300" min="0" style="width:75px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"></label>
+          <button class="btn btn-red btn-sm" onclick="this.closest('.offset-machine-box').remove()">✕ Xóa máy</button>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;color:var(--brand);margin-bottom:5px;">Mốc trọn gói:</div>
+          <div class="tbl-wrap" style="margin-bottom:6px;">
+            <table class="st-tbl">
+              <thead><tr><th>Đến (tờ/khổ)</th><th>Giá trọn gói (₫)</th><th style="width:44px;"></th></tr></thead>
+              <tbody class="tiers_body"><tr>
+        <td><input type="number" class="ot_upto" value="1000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1500000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="2000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1600000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr><tr>
+        <td><input type="number" class="ot_upto" value="3000" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="1700000" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr></tbody>
+            </table>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="ST.addTierRow(this)">＋ Thêm mốc</button>
+        </div>
+      </div></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addOffsetMachine()">＋ Thêm máy Offset</button>
+        <button class="btn btn-p btn-sm" style="margin-left:8px;" onclick="ST.savePrint()">💾 Lưu</button>
+        <div class="save-msg" id="msg_print">✅ Đã lưu!</div>
+      </div>
+
+      <!-- BẾ -->
+      <div id="sp_be" class="st-panel">
+        <div class="notice info"><span>ℹ️</span><span>Giá khuôn bế khoán theo nhóm size. Chia đều vào đơn giá/túi.</span></div>
+        <div class="fc-grid col3">
+          <div class="fc-box"><label>SX / S / M / L / XL (₫)</label><input type="number" id="die_sm"></div>
+          <div class="fc-box"><label>2XL / 3XL (₫)</label><input type="number" id="die_md"></div>
+          <div class="fc-box"><label>4XL / 5XL (₫)</label><input type="number" id="die_lg"></div>
+        </div>
+        <button class="btn btn-p btn-sm" onclick="ST.saveDie()">💾 Lưu</button>
+        <div class="save-msg" id="msg_die">✅ Đã lưu!</div>
+      </div>
+
+      <!-- QUAI & DÁN -->
+      <div id="sp_quai" class="st-panel">
+        <div class="st-sec">Quai xách (₫/túi)</div>
+        <div class="tbl-wrap">
+          <table class="st-tbl">
+            <thead><tr><th>Tên quai</th><th>Giá (₫/túi)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="handle_body"><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Quai poly" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="500" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Quai Rybang" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="1000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Quai Rybang gân" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="2000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Quai Rybang (dán quai trong)" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="2500" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Quai Rybang gân (dán trong)" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="3000" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="Không có quai" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="0" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addHandleRow()">＋ Thêm loại quai</button>
+        <div class="st-sec">Chi phí dán (₫/túi)</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Dán nối (₫/túi)</label><input type="number" id="dan_noi"></div>
+          <div class="fc-box"><label>Dán 1 lần (₫/túi)</label><input type="number" id="dan_1lan"></div>
+        </div>
+        <div class="st-sec">Cán màng – In KTS (₫/túi)</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Cán bóng</label><input type="number" id="lkts_glossy"></div>
+          <div class="fc-box"><label>Cán mờ</label><input type="number" id="lkts_matte"></div>
+        </div>
+        <div class="st-sec">Đóng nút (₫/túi)</div>
+        <div class="tbl-wrap">
+          <table class="st-tbl">
+            <thead><tr><th>Tên loại nút</th><th>Giá (₫/túi)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="button_body"><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="btn_n" value="Không có nút" style="min-width:160px;"></td>
+      <td><input type="number" class="btn_p" value="0" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="btn_n" value="Ore bạc" style="min-width:160px;"></td>
+      <td><input type="number" class="btn_p" value="300" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="btn_n" value="Ore vàng" style="min-width:160px;"></td>
+      <td><input type="number" class="btn_p" value="300" min="0"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addButtonRow()">＋ Thêm loại nút</button>
+        <div class="st-sec">Cán màng – In Offset (₫/m²)</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Cán bóng (₫/m²)</label><input type="number" id="loff_glossy"></div>
+          <div class="fc-box"><label>Cán mờ (₫/m²)</label><input type="number" id="loff_matte"></div>
+        </div>
+        <div class="st-sec">Giới hạn tối thiểu / lô</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Dán túi tối thiểu (₫)</label><input type="number" id="dan_min_val"><div class="fc-note">Áp dụng cho cả dán nối &amp; dán 1 lần.</div></div>
+          <div class="fc-box"><label>Cán màng tối thiểu (₫)</label><input type="number" id="lam_min_val"><div class="fc-note">Áp dụng cho cả KTS và Offset.</div></div>
+        </div>
+        <button class="btn btn-p btn-sm" onclick="ST.saveQuai()">💾 Lưu</button>
+        <div class="save-msg" id="msg_quai">✅ Đã lưu!</div>
+      </div>
+
+      <!-- SIZE TÚI -->
+      <div id="sp_size" class="st-panel">
+        <div class="notice info"><span>ℹ️</span><span>Quản lý danh sách size túi hiển thị trong bộ chọn. W × H × Hông (cm).</span></div>
+        <div class="st-sec">Túi đứng</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>W (cm)</th><th>H (cm)</th><th>Hông (cm)</th><th style="width:44px;"></th></tr></thead><tbody id="size_dung_body"><tr>
+        <td><input type="number" class="sw" value="12" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="17" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="7" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="15" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="19" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="7" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="18" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="22" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="20" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="25" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="10" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="20" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="31" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="10" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="22" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="32" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="25" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="35" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="10" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="25" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="35" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="12" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="26" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="37" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="15" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addSizeRow('dung')">＋ Thêm size đứng</button>
+        <div class="st-sec">Túi ngang</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>W (cm)</th><th>H (cm)</th><th>Hông (cm)</th><th style="width:44px;"></th></tr></thead><tbody id="size_ngang_body"><tr>
+        <td><input type="number" class="sw" value="18" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="16" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="22" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="18" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="31" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="21" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="10" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="32" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="22" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="35" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="25" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="10" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="35" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="25" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="12" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="37" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="26" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="15" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addSizeRow('ngang')">＋ Thêm size ngang</button>
+        <div class="st-sec">Túi vuông</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>W (cm)</th><th>H (cm)</th><th>Hông (cm)</th><th style="width:44px;"></th></tr></thead><tbody id="size_vuong_body"><tr>
+        <td><input type="number" class="sw" value="10" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="10" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="5" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="15" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="15" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="21" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="21" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="12" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+        <td><input type="number" class="sw" value="24" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="24" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="8" min="0" step="0.5" style="width:65px;"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addSizeRow('vuong')">＋ Thêm size vuông</button>
+        <button class="btn btn-p btn-sm" style="margin-left:8px;" onclick="ST.saveSizes()">💾 Lưu size</button>
+        <div class="save-msg" id="msg_size">✅ Đã lưu!</div>
+      </div>
+
+      <!-- NHÓM SIZE -->
+      <div id="sp_nhom" class="st-panel">
+        <div class="notice info"><span>ℹ️</span><span>Nhóm size phân loại dựa trên <b>khổ dán nối</b> (W×H cm). Công thức: W<sub>dán nối</sub> = Rộng+Hông+2, H<sub>dán nối</sub> = Hông/2+Cao+5.5. Thứ tự từ nhỏ đến lớn — túi được xếp vào nhóm <b>nhỏ nhất đủ chứa</b>.</span></div>
+        <div class="tbl-wrap">
+          <table class="st-tbl">
+            <thead><tr><th>Tên nhóm</th><th>W tối đa (cm)</th><th>H tối đa (cm)</th><th style="width:44px;"></th></tr></thead>
+            <tbody id="size_cat_body"><tr>
+      <td><input type="text" class="scn" value="SX" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="21" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="32" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="S" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="28" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="32" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="M" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="32" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="36" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="L" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="32" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="43" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="XL" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="32" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="48.5" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="2XL" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="36" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="39" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="3XL" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="39" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="54" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="4XL" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="43" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="65" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="text" class="scn" value="5XL" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="54" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="79" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody>
+          </table>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addSizeCatRow()">＋ Thêm nhóm</button>
+        <button class="btn btn-p btn-sm" style="margin-left:8px;" onclick="ST.saveSizeCats()">💾 Lưu nhóm size</button>
+        <div class="save-msg" id="msg_nhom">✅ Đã lưu!</div>
+      </div>
+
+      <!-- VAT & LN -->
+      <div id="sp_vat" class="st-panel">
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>VAT (%)</label><input type="number" id="st_vat" min="0" max="30" step="0.5"></div>
+          <div class="fc-box"><label>Làm tròn (₫)</label><input type="number" id="st_rnd" min="100" step="100"></div>
+        </div>
+        <div class="st-sec">Phương pháp tính lợi nhuận</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;">
+          <div id="mmode_interpolate" class="dan-opt dan-active" onclick="ST.setMarginMode('interpolate')">
+            <div style="font-size:.8rem;font-weight:800;">📈 Nội suy tuyến tính</div>
+            <div style="font-size:.68rem;color:var(--text3);margin-top:2px;">Lợi nhuận thay đổi mượt giữa các mốc</div>
+          </div>
+          <div id="mmode_fixed" class="dan-opt" onclick="ST.setMarginMode('fixed')">
+            <div style="font-size:.8rem;font-weight:800;">🎯 Mốc cố định</div>
+            <div style="font-size:.68rem;color:var(--text3);margin-top:2px;">Lợi nhuận nhảy theo bậc thang</div>
+          </div>
+        </div>
+        <div id="margin_mode_note" class="notice info" style="margin-bottom:8px;font-size:.72rem;"><span>ℹ️</span><span id="margin_mode_txt">Lợi nhuận thay đổi liên tục giữa 2 mốc. VD: giá thành 3.5tr → nội suy giữa 2tr(40%) và 5tr(30%) → ~35%.</span></div>
+        <div class="st-sec">Bảng lợi nhuận – Khách thường (theo tổng giá thành)</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Giá thành đến (₫)</th><th>Lợi nhuận (%)</th><th style="width:44px;"></th></tr></thead><tbody id="margin_normal_body"><tr>
+      <td><input type="number" class="mu" value="2000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="40" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="5000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="30" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="10000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="25" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="20000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="20" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="20" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addMarginRow('normal')">＋ Thêm mốc</button>
+        <div class="st-sec">Bảng lợi nhuận – Khách đại lý</div>
+        <div class="tbl-wrap"><table class="st-tbl"><thead><tr><th>Giá thành đến (₫)</th><th>Lợi nhuận (%)</th><th style="width:44px;"></th></tr></thead><tbody id="margin_agency_body"><tr>
+      <td><input type="number" class="mu" value="2000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="30" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="5000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="25" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="10000000" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="20" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr><tr>
+      <td><input type="number" class="mu" value="" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="20" min="0" max="100" step="1"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr></tbody></table></div>
+        <button class="btn btn-ghost btn-sm" onclick="ST.addMarginRow('agency')">＋ Thêm mốc</button>
+        <button class="btn btn-p btn-sm" style="margin-left:8px;" onclick="ST.saveVAT()">💾 Lưu</button>
+        <div class="save-msg" id="msg_vat">✅ Đã lưu!</div>
+      </div>
+
+      <!-- ĐỒNG BỘ -->
+      <div id="sp_sync" class="st-panel active">
+        <div class="notice info"><span>ℹ️</span><span>Xuất bảng giá và cài đặt để gửi cho nhân viên hoặc sao lưu. Mật khẩu <b>không được</b> đồng bộ.</span></div>
+        <div class="st-sec">⭐ Lưu Làm Mặc Định</div>
+        <div style="background:linear-gradient(135deg,#fffbeb,#fef9c3);border:1.5px solid #fde68a;border-radius:var(--r-md);padding:14px 16px;margin-bottom:12px;">
+          <div style="font-size:.82rem;color:#78350f;margin-bottom:10px;line-height:1.5;">Lưu toàn bộ cài đặt hiện tại làm <strong>mặc định cá nhân</strong>. Khi bấm <strong>↩ Reset</strong> ở bất kỳ tab nào, hệ thống sẽ khôi phục về đây.</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-sm" onclick="SYNC._doSaveDefault()" style="background:linear-gradient(135deg,#d97706,#b45309);color:#fff;border:none;height:36px;padding:0 16px;font-size:.85rem;font-weight:700;box-shadow:0 2px 8px rgba(180,83,9,.3);">⭐ Lưu làm mặc định &amp; Xuất HTML</button>
+            <span id="tg_defaultSavedAt" style="font-size:.72rem;color:#92400e;">Đã lưu lúc 10:18:11</span>
+          </div>
+          <div class="save-msg" id="syncDefaultMsg" style="margin-top:8px;display:none;">✅ Đã lưu mặc định &amp; tải file HTML!</div>
+        </div>
+        <div class="st-sec">Xuất file để chia sẻ</div>
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>📦 Xuất File HTML (kèm cài đặt)</label><div class="fc-note" style="margin-bottom:8px;">Tạo file HTML mới nhúng sẵn bảng giá. Gửi cho nhân viên — mở lên dùng ngay.</div><button class="btn btn-p btn-sm" onclick="SYNC.exportHTML(()=&gt;showMsg('sync_html_msg'))">📦 Xuất File HTML</button><div class="save-msg" id="sync_html_msg">✅ Đã tải!</div></div>
+          <div class="fc-box"><label>📤 Xuất JSON (sao lưu)</label><div class="fc-note" style="margin-bottom:8px;">Xuất toàn bộ cài đặt ra file .json để backup hoặc nhập lại sau.</div><button class="btn btn-ghost btn-sm" onclick="SYNC.exportJSON()">📤 Xuất JSON</button></div>
+        </div>
+        <div class="st-sec">Nhập cài đặt</div>
+        <div class="fc-box"><label>📥 Nhập từ file JSON</label><div class="fc-note" style="margin-bottom:8px;">Chọn file .json đã xuất trước đó. App sẽ tự reload sau khi nhập.</div><label class="btn btn-ghost btn-sm" style="cursor:pointer;">📥 Chọn file JSON<input type="file" accept=".json" style="display:none;" onchange="SYNC.importJSON(this,()=&gt;showMsg('sync_json_msg'),msg=&gt;{const e=document.getElementById('sync_json_err');if(e){e.querySelector('span:last-child').textContent=msg;e.style.display='flex';}})"></label><div class="save-msg" id="sync_json_msg">✅ Đã nhập! Đang tải lại...</div><div class="notice warn" id="sync_json_err" style="display:none;margin-top:8px;"><span>❌</span><span></span></div></div>
+        <div class="st-sec">Trạng thái</div>
+        <div id="sync_info_box" class="notice ok" style="display: flex;"><span>✅</span><span id="sync_info_text">Đang giữ 3/26 cài đặt trong bộ nhớ RAM.</span></div>
+      </div>
+
+      <!-- PW -->
+      <div id="sp_pw" class="st-panel">
+        <div class="fc-grid col2">
+          <div class="fc-box"><label>Mật khẩu hiện tại</label><input type="password" id="st_pw_cur"></div>
+          <div class="fc-box"><label>Mật khẩu mới</label><input type="password" id="st_pw_new"></div>
+          <div class="fc-box"><label>Xác nhận mới</label><input type="password" id="st_pw_cf"></div>
+        </div>
+        <button class="btn btn-p btn-sm" onclick="APP.changePW()">🔐 Đổi mật khẩu</button>
+        <div class="save-msg" id="msg_pw">✅ Đã đổi!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY PW -->
+<div class="overlay" id="ov_pw">
+  <div class="modal" style="max-width:360px;">
+    <div class="modal-hd"><div class="mhd-l"><h3>🔐 Nhập mật khẩu</h3><p>Để mở cài đặt</p></div></div>
+    <div class="modal-body">
+      <div class="fg"><label>Mật khẩu</label><input type="password" id="pw_in" onkeydown="if(event.key==='Enter')APP.checkPW()"></div>
+      <div class="notice warn" id="pw_err" style="display:none;margin-top:10px;"><span>❌</span><span>Mật khẩu không đúng!</span></div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-ghost btn-sm" onclick="closeOv('ov_pw')">Hủy</button>
+      <button class="btn btn-p btn-sm" onclick="APP.checkPW()">✓ Xác nhận</button>
+    </div>
+  </div>
+</div>
+
+<script id="__cfg_tuigiay__" type="application/json">{"_version":"tuigiay_v10","_module":"tuigiay","_exported":"2026-05-19T03:18:11.508Z","v9_display":"{\"breakdown\":false,\"compare\":false,\"unit\":true,\"total\":true,\"showName\":true,\"showCust\":true,\"showDan\":false,\"showPrint\":false,\"defaultCust\":\"normal\"}","v9_brand":"{\"name\":\"BÁO GIÁ TÚI GIẤY RIRO\",\"tagline\":\"Báo giá nhanh - Đồng hành hợp tác - Phát triển bền vững\",\"address\":\"61 Phạm Thanh , Phường Đạo Thạnh , Đồng Tháp\",\"phone\":\"08.1234.3639 - 0829.740.168 - 0334.642.639\"}","v9_tgCustLock":"\"none\"","v9_user_default":"{\"_version\":\"tuigiay_v10\",\"_module\":\"tuigiay\",\"_exported\":\"2026-05-19T03:18:11.496Z\",\"v9_display\":\"{\\\"breakdown\\\":false,\\\"compare\\\":false,\\\"unit\\\":true,\\\"total\\\":true,\\\"showName\\\":true,\\\"showCust\\\":true,\\\"showDan\\\":false,\\\"showPrint\\\":false,\\\"defaultCust\\\":\\\"normal\\\"}\",\"v9_brand\":\"{\\\"name\\\":\\\"BÁO GIÁ TÚI GIẤY RIRO\\\",\\\"tagline\\\":\\\"Báo giá nhanh - Đồng hành hợp tác - Phát triển bền vững\\\",\\\"address\\\":\\\"61 Phạm Thanh , Phường Đạo Thạnh , Đồng Tháp\\\",\\\"phone\\\":\\\"08.1234.3639 - 0829.740.168 - 0334.642.639\\\"}\",\"v9_tgCustLock\":\"\\\"none\\\"\"}"}</script>
+<script>
+/* ══ PRE-INIT RAM STORE ══
+   Khởi tạo window._S (bộ nhớ RAM) và nạp embedded config (nếu có) vào _S
+   TRƯỚC KHI bất kỳ module nào chạy — đảm bảo APP.load() đọc đúng dữ liệu.
+   Không dùng localStorage / sessionStorage / IndexedDB.                    */
+(function(){
+  window._S = {};
+  try{
+    var t = document.getElementById('__cfg_tuigiay__');
+    if(t && t.textContent && t.textContent.trim()){
+      var e = JSON.parse(t.textContent);
+      if(e && typeof e === 'object'){
+        Object.keys(e).forEach(function(k){
+          if(k.charAt(0) !== '_') window._S[k] = e[k];
+        });
+      }
+    }
+  }catch(err){}
+})();
+</script>
+<script>
+const K='v9_';
+/* ═══ DEFAULT CONFIG ═══ */
+const DEF={
+  paper:[
+    {type:'ivory',    label:'Ivory',      gsm:230, price:20000},
+    {type:'ivory',    label:'Ivory',      gsm:250, price:20000},
+    {type:'ivory',    label:'Ivory',      gsm:300, price:20000},
+    {type:'couche',   label:'Couche',     gsm:250, price:24000},
+    {type:'couche',   label:'Couche',     gsm:300, price:24000},
+    {type:'kraft_nau',label:'Kraft nâu',  gsm:160, price:19000},
+    {type:'kraft_nau',label:'Kraft nâu',  gsm:180, price:19000},
+    {type:'kraft_nau',label:'Kraft nâu',  gsm:230, price:35000},
+    {type:'kraft_trang',label:'Kraft trắng',gsm:120,price:38000},
+    {type:'kraft_trang',label:'Kraft trắng',gsm:150,price:38000},
+    {type:'kraft_trang',label:'Kraft trắng',gsm:160,price:38000},
+    {type:'kraft_trang',label:'Kraft trắng',gsm:180,price:38000},
+  ],
+  sheets:[
+    {type:'ivory',      w:65,h:86},
+    {type:'ivory',      w:79,h:109},
+    {type:'couche',     w:65,h:86},
+    {type:'couche',     w:79,h:109},
+    {type:'kraft_nau',  w:65,h:86},
+    {type:'kraft_nau',  w:79,h:109},
+    {type:'kraft_trang',w:65,h:86},
+    {type:'kraft_trang',w:79,h:109},
+  ],
+  kts:[
+    {w:32.5,h:36,price:1000},
+    {w:32.5,h:49,price:2000},
+    {w:28,  h:65,price:3000},
+  ],
+  offset:[
+    {name:'52×72', w:52,h:72, tiers:[{upTo:1000,price:1000000},{upTo:2000,price:1100000},{upTo:3000,price:1200000}], extra:200},
+    {name:'79×54', w:79,h:54, tiers:[{upTo:1000,price:1200000},{upTo:2000,price:1300000},{upTo:3000,price:1400000}], extra:250},
+    {name:'72×102',w:72,h:102,tiers:[{upTo:1000,price:1500000},{upTo:2000,price:1600000},{upTo:3000,price:1700000}], extra:300},
+  ],
+  waste:{ktsPct:2,ktsMin:15,offPct:2,offMin:100},
+  // Ưu tiên KTS khi qty <= ngưỡng này theo nhóm size
+  // sizes: mảng tên nhóm áp dụng, qtyMax: ngưỡng số lượng tối đa
+  ktsQtyRules:[
+    {sizes:['SX','S','M','L','XL'], qtyMax:500},
+  ],
+  die:{sm:500000,md:700000,lg:1000000},
+  handles:[
+    {key:'poly',        label:'Quai poly',                    price:500},
+    {key:'rybang',      label:'Quai Rybang',                  price:1000},
+    {key:'rybang_gan',  label:'Quai Rybang gân',              price:2000},
+    {key:'rybang_dan',  label:'Quai Rybang (dán quai trong)', price:2500},
+    {key:'rybang_gan_dan',label:'Quai Rybang gân (dán trong)',price:3000},
+    {key:'none',        label:'Không có quai',                price:0},
+  ],
+  buttons:[
+    {key:'none',   label:'Không có nút', price:0},
+    {key:'ore_bac',label:'Ore bạc',      price:300},
+    {key:'ore_vang',label:'Ore vàng',    price:300},
+  ],
+  dan:{noi:800,lan1:600},
+  dan_min:150000,
+  lam_kts:{glossy:800,matte:1000,none:0},
+  lam_off:{glossy:2300,matte:2500,none:0},
+  lam_min:150000,
+  vat:10, rnd:50,
+  marginNormal:[
+    {upTo:2000000,  pct:40},
+    {upTo:5000000,  pct:30},
+    {upTo:10000000, pct:25},
+    {upTo:20000000, pct:20},
+    {upTo:Infinity, pct:20},
+  ],
+  marginAgency:[
+    {upTo:2000000,  pct:30},
+    {upTo:5000000,  pct:25},
+    {upTo:10000000, pct:20},
+    {upTo:Infinity, pct:20},
+  ],
+  marginMode:'interpolate', // 'interpolate' | 'fixed'
+  sizes:{
+    dung: [{w:12,h:17,g:7},{w:15,h:19,g:7},{w:18,h:22,g:8},{w:20,h:25,g:10},{w:20,h:31,g:10},{w:22,h:32,g:8},{w:25,h:35,g:10},{w:25,h:35,g:12},{w:26,h:37,g:15}],
+    ngang:[{w:18,h:16,g:8},{w:22,h:18,g:8},{w:31,h:21,g:10},{w:32,h:22,g:8},{w:35,h:25,g:10},{w:35,h:25,g:12},{w:37,h:26,g:15}],
+    vuong:[{w:10,h:10,g:5},{w:15,h:15,g:8},{w:21,h:21,g:12},{w:24,h:24,g:8}],
+  },
+  display:{breakdown:true,compare:true,unit:true,total:true,showName:true,showCust:true,showDan:true,showPrint:true,defaultCust:'normal'},
+  sizeCats:[
+    {n:'SX', W:21,  H:32},
+    {n:'S',  W:28,  H:32},
+    {n:'M',  W:32,  H:36},
+    {n:'L',  W:32,  H:43},
+    {n:'XL', W:32,  H:48.5},
+    {n:'2XL',W:36,  H:39},
+    {n:'3XL',W:39,  H:54},
+    {n:'4XL',W:43,  H:65},
+    {n:'5XL',W:54,  H:79},
+  ],
+};
+
+/* ═══ CFG ═══ */
+const CFG={
+  g(k,d){try{const v=window._S[K+k];return v!=null?JSON.parse(v):d;}catch{return d;}},
+  s(k,v){window._S[K+k]=JSON.stringify(v);},
+  paper(){return this.g('paper',DEF.paper);},
+  sheets(){return this.g('sheets',DEF.sheets);},
+  kts(){return this.g('kts',DEF.kts);},
+  offset(){return this.g('offset',DEF.offset);},
+  waste(){return this.g('waste',DEF.waste);},
+  ktsQtyRules(){return this.g('ktsQtyRules',DEF.ktsQtyRules);},
+  die(){return this.g('die',DEF.die);},
+  handles(){return this.g('handles',DEF.handles);},
+  buttons(){return this.g('buttons',DEF.buttons);},
+  dan(){return this.g('dan',DEF.dan);},
+  dan_min(){return this.g('dan_min',DEF.dan_min);},
+  lam_kts(){return this.g('lam_kts',DEF.lam_kts);},
+  lam_off(){return this.g('lam_off',DEF.lam_off);},
+  lam_min(){return this.g('lam_min',DEF.lam_min);},
+  vat(){return this.g('vat',DEF.vat);},
+  rnd(){return this.g('rnd',DEF.rnd);},
+  marginNormal(){return this.g('marginNormal',DEF.marginNormal);},
+  marginAgency(){return this.g('marginAgency',DEF.marginAgency);},
+  marginMode(){return this.g('marginMode',DEF.marginMode);},
+  sizes(){return this.g('sizes',DEF.sizes);},
+  sizeCats(){return this.g('sizeCats',DEF.sizeCats);},
+  display(){return this.g('display',DEF.display);},
+};
+
+
+/* ═══ HELPERS ═══ */
+const fmt=n=>n==null?'—':Math.round(n).toLocaleString('vi-VN')+'₫';
+const fmtN=n=>Math.round(n).toLocaleString('vi-VN');
+function el(id){return document.getElementById(id);}
+function setText(id,v){const e=el(id);if(e)e.textContent=v??'—';}
+function showMsg(id,ms=2600){const e=el(id);if(!e)return;e.style.display='block';setTimeout(()=>e.style.display='none',ms);}
+
+/* ═══ APP ═══ */
+const TOGGLES=[
+  {key:'breakdown', label:'Thông số kỹ thuật & chi phí'},
+  {key:'compare',   label:'So sánh Dán nối / Dán 1 lần'},
+  {key:'unit',      label:'Giá 1 túi'},
+  {key:'total',     label:'Tổng tiền'},
+  {key:'showName',  label:'Ô tên khách hàng'},
+  {key:'showCust',  label:'Chọn loại khách hàng'},
+  {key:'showDan',   label:'Tuỳ chọn phương án dán'},
+  {key:'showPrint', label:'Tuỳ chọn phương án in'},
+];
+const APP={
+  prevBrand(){setText('prevName',el('st_bname')?.value||'RIRO PRINT');setText('prevTagline',el('st_btagline')?.value||'');},
+  saveBrand(){
+    const n=el('st_bname').value.trim()||'RIRO PRINT';
+    const t=el('st_btagline').value.trim()||'Báo giá nhanh - Đồng hành hợp tác - Phát triển bền vững';
+    const addr=el('st_baddress')?.value.trim()||'';
+    const ph=el('st_bphone')?.value.trim()||'';
+    CFG.s('brand',{name:n,tagline:t,address:addr,phone:ph});
+    const disp={};
+    TOGGLES.forEach(tog=>{const e=el('tog_'+tog.key);if(e)disp[tog.key]=e.dataset.on==='1';});
+    disp.defaultCust=el('st_defaultCust')?.value||'normal';
+    CFG.s('display',disp);
+    setText('topName',n);setText('topTagline',t);
+    this.applyDisplay();showMsg('msg_brand');
+  },
+  loadBrand(){
+    const b=CFG.g('brand',{name:'BÁO GIÁ TÚI GIẤY RIRO',tagline:'Báo giá nhanh - Đồng hành hợp tác - Phát triển bền vững',address:'61 Phạm Thanh, P. Đạo Thạnh, Đồng Tháp',phone:'08.1234.3639 – 082.974.0168 – 0334.642.639'});
+    setText('topName',b.name);setText('topTagline',b.tagline);
+    if(el('st_bname')){el('st_bname').value=b.name;el('st_btagline').value=b.tagline;const _addr=el('st_baddress');if(_addr)_addr.value=b.address||'';const _ph=el('st_bphone');if(_ph)_ph.value=b.phone||'';}
+    const disp=CFG.display();
+    // Load defaultCust vào settings select và áp vào form
+    const defCust=disp.defaultCust||'normal';
+    if(el('st_defaultCust'))el('st_defaultCust').value=defCust;
+    if(el('v9_cust')){el('v9_cust').value=defCust;V9.onCustChange&&V9.onCustChange();}
+    // Áp dụng khoá loại khách sau khi set default (lock sẽ override default nếu cần)
+    if(typeof applyTgCustLock!=='undefined')applyTgCustLock();
+    // Build toggles
+    const cont=el('tog_container');
+    if(cont){cont.innerHTML=TOGGLES.map(tog=>{
+      const on=disp[tog.key]!==false;
+      return `<div class="tog-row" onclick="APP.toggleDisp('${tog.key}',this)">
+        <span class="tog-lbl">${tog.label}</span>
+        <div class="tog-track${on?' on':''}" id="tog_${tog.key}" data-on="${on?1:0}"><div class="tog-thumb"></div></div>
+      </div>`;
+    }).join('');}
+  },
+  toggleDisp(key,row){
+    const t=el('tog_'+key);if(!t)return;
+    const on=t.dataset.on!=='1';
+    t.dataset.on=on?'1':'0';
+    if(on)t.classList.add('on'); else t.classList.remove('on');
+  },
+  applyDisplay(){
+    const disp=CFG.display();
+    const bd=el('v9_breakdown');
+    if(bd)bd.style.display=disp.breakdown!==false&&V9.last?'block':'none';
+    const cmp=el('v9_cmp');
+    if(cmp)cmp.style.display=disp.compare!==false&&V9.last?'block':'none';
+    const pb=el('v9_priceBox');
+    if(pb){
+      const showUnit=disp.unit!==false, showTotal=disp.total!==false;
+      pb.style.display=(showUnit||showTotal)&&V9.last?'block':'none';
+      const pu=pb.querySelector('.pbox.unit');if(pu)pu.style.display=showUnit?'':'none';
+      const pt=pb.querySelector('.pbox.total');if(pt)pt.style.display=showTotal?'':'none';
+    }
+    // Ẩn/hiện ô tên khách hàng
+    const nameRow=el('v9_name')?.closest('.fg');
+    if(nameRow)nameRow.style.display=disp.showName!==false?'':'none';
+    // Ẩn/hiện select loại khách (nếu defaultCust đã cố định)
+    // Ẩn/hiện select loại khách
+    const custRow=el('v9_cust')?.closest('.fg');
+    const showCust=disp.showCust!==false;
+    if(custRow)custRow.style.display=showCust?'':'none';
+    const agNote=el('v9_agNote');
+    if(agNote&&!showCust)agNote.style.display='none';
+    // Ẩn/hiện phương án dán
+    const danRow=el('dan_btn_noi')?.closest('.fg');
+    if(danRow)danRow.style.display=disp.showDan!==false?'':'none';
+    // Ẩn/hiện phương án in
+    const printRow=el('pm_btn_auto')?.closest('.fg');
+    if(printRow)printRow.style.display=disp.showPrint!==false?'':'none';
+  },
+  checkPW(){
+    const v=el('pw_in').value,s=window._S[K+'pw']||'999999';
+    if(v===s){closeOv('ov_pw');el('pw_in').value='';el('pw_err').style.display='none';ST.loadAll();openOv('ov_settings');}
+    else el('pw_err').style.display='flex';
+  },
+  changePW(){
+    const cur=el('st_pw_cur').value,nw=el('st_pw_new').value,cf=el('st_pw_cf').value;
+    const s=window._S[K+'pw']||'999999';
+    if(cur!==s){alert('Mật khẩu hiện tại không đúng!');return;}
+    if(nw!==cf){alert('Không khớp!');return;}
+    if(nw.length<4){alert('Tối thiểu 4 ký tự!');return;}
+    window._S[K+'pw']=nw;showMsg('msg_pw');
+  }
+};
+
+/* ═══ SETTINGS ═══ */
+const ST_IDS=['brand','giay','in','be','quai','size','nhom','vat','sync','pw'];
+function swST(tab,btn){
+  ST_IDS.forEach(id=>el('sp_'+id)?.classList.remove('active'));
+  document.querySelectorAll('.st-tab').forEach(b=>b.classList.remove('active'));
+  el('sp_'+tab)?.classList.add('active');if(btn)btn.classList.add('active');
+  if(tab==='sync')SYNC.showInfo();
+}
+
+const DEL_BTN=`<button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button>`;
+
+const ST={
+  loadAll(){APP.loadBrand();this.loadPaperCombined();this.loadPrint();this.loadDie();this.loadQuai();this.loadSizes();this.loadSizeCats();this.loadVAT();},
+
+  /* ── PAPER ── */
+  loadPaperCombined(){
+    const papers=CFG.paper(), sheets=CFG.sheets();
+    const combined=[];
+    papers.forEach(p=>{
+      const matching=sheets.filter(s=>s.type===p.type);
+      if(matching.length){
+        matching.forEach(s=>combined.push({label:p.label,type:p.type,gsm:p.gsm,price:p.price,sw:s.w,sh:s.h}));
+      } else {
+        combined.push({label:p.label,type:p.type,gsm:p.gsm,price:p.price,sw:'',sh:''});
+      }
+    });
+    const el_body=document.getElementById('paper_combined_body');
+    if(!el_body)return;
+    el_body.innerHTML=combined.map(r=>`<tr>
+      <td><input type="text" class="pc_lbl" value="${r.label}" style="min-width:90px;"></td>
+      <td><input type="number" class="pc_gsm" value="${r.gsm}" min="1" style="width:65px;"></td>
+      <td><input type="number" class="pc_price" value="${r.price}" min="0"></td>
+      <td><input type="number" class="pc_sw" value="${r.sw||''}" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><input type="number" class="pc_sh" value="${r.sh||''}" min="1" step="0.5" style="width:65px;" placeholder="—"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+    </tr>`).join('');
+  },
+  loadPaper(){
+    const rows=CFG.paper();
+    (()=>{const __e=document.getElementById('paper_body');if(__e)__e.innerHTML=rows.map(r=>`<tr>
+      <td><input type="text" class="pt" value="${r.label}" style="min-width:90px;"></td>
+      <td><input type="number" class="pg" value="${r.gsm}" min="1" style="width:70px;"></td>
+      <td><input type="number" class="pp" value="${r.price}" min="0"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');})()
+    const sheets=CFG.sheets();
+    (()=>{const __e=document.getElementById('sheet_body');if(__e)__e.innerHTML=sheets.map(r=>`<tr>
+      <td><input type="text" class="sht" value="${r.type}" style="min-width:90px;"></td>
+      <td><input type="number" class="shw" value="${r.w}" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="shh" value="${r.h}" min="1" step="0.5" style="width:70px;"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');})()
+  },
+  addPaperRow(){
+    const r=document.createElement('tr');
+    r.innerHTML=`<td><input type="text" class="pt" placeholder="Tên giấy"></td><td><input type="number" class="pg" placeholder="gsm" style="width:70px;"></td><td><input type="number" class="pp" placeholder="₫/kg"></td><td>${DEL_BTN}</td>`;
+    el('paper_body').appendChild(r);
+  },
+  addSheetRow(){
+    const r=document.createElement('tr');
+    r.innerHTML=`<td><input type="text" class="sht" placeholder="type giấy"></td><td><input type="number" class="shw" placeholder="W" style="width:70px;"></td><td><input type="number" class="shh" placeholder="H" style="width:70px;"></td><td>${DEL_BTN}</td>`;
+    el('sheet_body').appendChild(r);
+  },
+  savePaper(){
+    const paper=[...el('paper_body').querySelectorAll('tr')].map(r=>({
+      type:r.querySelector('.pt')?.value.toLowerCase().replace(/\s+/g,'_')||'',
+      label:r.querySelector('.pt')?.value||'',
+      gsm:+r.querySelector('.pg')?.value||0,
+      price:+r.querySelector('.pp')?.value||0,
+    })).filter(r=>r.type&&r.gsm>0);
+    const sheets=[...el('sheet_body').querySelectorAll('tr')].map(r=>({
+      type:r.querySelector('.sht')?.value.toLowerCase().replace(/\s+/g,'_')||'',
+      w:+r.querySelector('.shw')?.value||0,
+      h:+r.querySelector('.shh')?.value||0,
+    })).filter(r=>r.type&&r.w>0&&r.h>0);
+    CFG.s('paper',paper);CFG.s('sheets',sheets);
+    showMsg('msg_paper');V9.buildPaperSelect();V9.calc();
+  },
+
+  /* ── PRINT ── */
+  renderOffsetMachines(){
+    const machines=CFG.offset();
+    const panel=document.getElementById('offset_machines_panel');
+    if(!panel)return;
+    panel.innerHTML=machines.map((m,mi)=>{
+      const tiers=(m.tiers||[{upTo:3000,price:m.pkg||0}]).slice().sort((a,b)=>a.upTo-b.upTo);
+      const tiersHtml=tiers.map((t,ti)=>`<tr>
+        <td><input type="number" class="ot_upto" value="${t.upTo}" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><input type="number" class="ot_price" value="${t.price}" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+        <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>
+      </tr>`).join('');
+      return `<div class="offset-machine-box" style="background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;margin-bottom:10px;">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+          <input type="text" class="om_name" value="${m.name||''}" placeholder="Tên máy" style="width:90px;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--brand);font-family:var(--font);">
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">W:<input type="number" class="om_w" value="${m.w}" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">H:<input type="number" class="om_h" value="${m.h}" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+          <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">Thêm/tờ (₫):<input type="number" class="om_extra" value="${m.extra||0}" min="0" style="width:75px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"></label>
+          <button class="btn btn-red btn-sm" onclick="this.closest('.offset-machine-box').remove()">✕ Xóa máy</button>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;color:var(--brand);margin-bottom:5px;">Mốc trọn gói:</div>
+          <div class="tbl-wrap" style="margin-bottom:6px;">
+            <table class="st-tbl">
+              <thead><tr><th>Đến (tờ/khổ)</th><th>Giá trọn gói (₫)</th><th style="width:44px;"></th></tr></thead>
+              <tbody class="tiers_body">${tiersHtml}</tbody>
+            </table>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="ST.addTierRow(this)">＋ Thêm mốc</button>
+        </div>
+      </div>`;
+    }).join('');
+  },
+  addTierRow(btn){
+    const tbody=btn.closest('div').querySelector('.tiers_body');
+    if(!tbody)return;
+    const r=document.createElement('tr');
+    r.innerHTML=`<td><input type="number" class="ot_upto" placeholder="Đến tờ" min="1" style="width:80px;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td><td><input type="number" class="ot_price" placeholder="₫" min="0" style="width:100%;padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td><td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>`;
+    tbody.appendChild(r);
+  },
+  addOffsetMachine(){
+    const panel=document.getElementById('offset_machines_panel');
+    if(!panel)return;
+    const div=document.createElement('div');
+    div.className='offset-machine-box';
+    div.style.cssText='background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;margin-bottom:10px;';
+    div.innerHTML=`<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+      <input type="text" class="om_name" placeholder="Tên máy" style="width:90px;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--brand);font-family:var(--font);">
+      <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">W:<input type="number" class="om_w" placeholder="0" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+      <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">H:<input type="number" class="om_h" placeholder="0" min="1" step="0.5" style="width:60px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"> cm</label>
+      <label style="font-size:.75rem;color:var(--text3);display:flex;align-items:center;gap:4px;">Thêm/tờ (₫):<input type="number" class="om_extra" value="0" min="0" style="width:75px;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);margin-left:3px;"></label>
+      <button class="btn btn-red btn-sm" onclick="this.closest('.offset-machine-box').remove()">✕ Xóa máy</button>
+    </div>
+    <div>
+      <div style="font-size:.7rem;font-weight:700;color:var(--brand);margin-bottom:5px;">Mốc trọn gói:</div>
+      <div class="tbl-wrap" style="margin-bottom:6px;">
+        <table class="st-tbl"><thead><tr><th>Đến (tờ/khổ)</th><th>Giá trọn gói (₫)</th><th style="width:44px;"></th></tr></thead>
+        <tbody class="tiers_body"></tbody></table>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="ST.addTierRow(this)">＋ Thêm mốc</button>
+    </div>`;
+    panel.appendChild(div);
+  },
+  loadPrint(){
+    const w=CFG.waste(),k=CFG.kts(),o=CFG.offset();
+    this.renderOffsetMachines();
+    el('kts_rules_body').innerHTML=CFG.ktsQtyRules().map(r=>`<tr>
+      <td><input type="text" class="kr_sizes" value="${r.sizes.join(', ')}" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;font-family:var(--font);" placeholder="VD: SX, S, M"></td>
+      <td><input type="number" class="kr_qty" value="${r.qtyMax}" min="1" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');
+    el('waste_kts_pct').value=w.ktsPct??2;el('waste_kts_min').value=w.ktsMin??15;
+    el('waste_off_pct').value=w.offPct??2;el('waste_off_min').value=w.offMin??100;
+    this.renderOffsetMachines();
+    el('kts_body').innerHTML=k.map(m=>`<tr>
+      <td><input type="number" class="kw" value="${m.w}" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kh" value="${m.h}" min="1" step="0.5" style="width:65px;"></td>
+      <td><input type="number" class="kp" value="${m.price}" min="0"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');
+    // offset_body: removed, using renderOffsetMachines()
+  },
+  addKtsRuleRow(){
+    const r=document.createElement('tr');
+    r.innerHTML=`<td><input type="text" class="kr_sizes" placeholder="VD: L, XL, 2XL" style="width:100%;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;font-family:var(--font);"></td><td><input type="number" class="kr_qty" placeholder="500" min="1" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:.82rem;text-align:center;font-family:var(--font);"></td><td>${DEL_BTN}</td>`;
+    el('kts_rules_body').appendChild(r);
+  },
+  addKtsRow(){const r=document.createElement('tr');r.innerHTML=`<td><input type="number" class="kw" placeholder="W" style="width:65px;"></td><td><input type="number" class="kh" placeholder="H" style="width:65px;"></td><td><input type="number" class="kp" placeholder="₫/tờ"></td><td>${DEL_BTN}</td>`;el('kts_body').appendChild(r);},
+  addOffsetRow(){const r=document.createElement('tr');r.innerHTML=`<td><input type="text" class="on" placeholder="Tên máy"></td><td><input type="number" class="ow" placeholder="W" style="width:60px;"></td><td><input type="number" class="oh" placeholder="H" style="width:60px;"></td><td><input type="number" class="opkg" placeholder="Trọn gói"></td><td><input type="number" class="oex" placeholder="/tờ"></td><td>${DEL_BTN}</td>`;el('offset_body').appendChild(r);},
+  savePrint(){
+    const rules=[...document.querySelectorAll('#kts_rules_body tr')].map(r=>({
+      sizes:(r.querySelector('.kr_sizes')?.value||'').split(',').map(s=>s.trim()).filter(Boolean),
+      qtyMax:+r.querySelector('.kr_qty')?.value||0
+    })).filter(r=>r.sizes.length&&r.qtyMax>0);
+    CFG.s('ktsQtyRules',rules);
+    CFG.s('waste',{ktsPct:+el('waste_kts_pct').value||2,ktsMin:+el('waste_kts_min').value||15,offPct:+el('waste_off_pct').value||2,offMin:+el('waste_off_min').value||100});
+    CFG.s('kts',[...el('kts_body').querySelectorAll('tr')].map(r=>({w:+r.querySelector('.kw')?.value||0,h:+r.querySelector('.kh')?.value||0,price:+r.querySelector('.kp')?.value||0})).filter(m=>m.w>0));
+    // Save offset from machine panels
+    const machines=[];
+    document.querySelectorAll('#offset_machines_panel>div').forEach(panel=>{
+      const name=panel.querySelector('.om_name')?.value||'';
+      const w=+panel.querySelector('.om_w')?.value||0;
+      const h=+panel.querySelector('.om_h')?.value||0;
+      const extra=+panel.querySelector('.om_extra')?.value||0;
+      const tiers=[...panel.querySelectorAll('.tiers_body tr')].map(r=>({
+        upTo:+r.querySelector('.ot_upto')?.value||0,
+        price:+r.querySelector('.ot_price')?.value||0
+      })).filter(t=>t.upTo>0&&t.price>0).sort((a,b)=>a.upTo-b.upTo);
+      if(w>0)machines.push({name,w,h,tiers,extra});
+    });
+    if(machines.length)CFG.s('offset',machines);
+    showMsg('msg_print');V9.calc();
+  },
+
+  /* ── DIE ── */
+  loadDie(){const d=CFG.die();el('die_sm').value=d.sm;el('die_md').value=d.md;el('die_lg').value=d.lg;},
+  saveDie(){CFG.s('die',{sm:+el('die_sm').value,md:+el('die_md').value,lg:+el('die_lg').value});showMsg('msg_die');V9.calc();},
+
+  /* ── QUAI ── */
+  loadQuai(){
+    const h=CFG.handles(),d=CFG.dan(),lk=CFG.lam_kts(),lo=CFG.lam_off(),lmin=CFG.lam_min();
+    el('handle_body').innerHTML=h.map(r=>`<tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="hn" value="${r.label}" style="min-width:160px;"></td>
+      <td><input type="number" class="hp" value="${r.price}" min="0"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');
+    el('dan_noi').value=d.noi??1000;el('dan_1lan').value=d.lan1??800;
+    el('button_body').innerHTML=CFG.buttons().map(r=>`<tr>
+      <td style="text-align:left;padding-left:10px;"><input type="text" class="btn_n" value="${r.label}" style="min-width:160px;"></td>
+      <td><input type="number" class="btn_p" value="${r.price}" min="0"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');
+    el('lkts_glossy').value=lk.glossy??800;el('lkts_matte').value=lk.matte??1000;
+    el('loff_glossy').value=lo.glossy??2300;el('loff_matte').value=lo.matte??2500;
+    if(el('lam_min_val'))el('lam_min_val').value=lmin??150000;
+    if(el('dan_min_val'))el('dan_min_val').value=CFG.dan_min()??150000;
+  },
+  addHandleRow(){const r=document.createElement('tr');r.innerHTML=`<td style="text-align:left;padding-left:10px;"><input type="text" class="hn" placeholder="Tên loại quai" style="min-width:160px;"></td><td><input type="number" class="hp" placeholder="₫/túi"></td><td>${DEL_BTN}</td>`;el('handle_body').appendChild(r);},
+  addButtonRow(){const r=document.createElement('tr');r.innerHTML=`<td style="text-align:left;padding-left:10px;"><input type="text" class="btn_n" placeholder="Tên loại nút" style="min-width:160px;"></td><td><input type="number" class="btn_p" placeholder="₫/túi"></td><td>${DEL_BTN}</td>`;el('button_body').appendChild(r);},
+  saveQuai(){
+    const handles=[...el('handle_body').querySelectorAll('tr')].map((r,i)=>({
+      key:'h'+i,label:r.querySelector('.hn')?.value||'',price:+r.querySelector('.hp')?.value||0
+    })).filter(h=>h.label);
+    // Preserve 'none' key
+    if(!handles.find(h=>h.label==='Không có quai'))handles.push({key:'none',label:'Không có quai',price:0});
+    CFG.s('handles',handles);
+    const buttons=[...el('button_body').querySelectorAll('tr')].map((r,i)=>({
+      key:'btn'+i,label:r.querySelector('.btn_n')?.value||'',price:+r.querySelector('.btn_p')?.value||0
+    })).filter(b=>b.label);
+    if(!buttons.find(b=>b.label==='Không có nút'))buttons.unshift({key:'none',label:'Không có nút',price:0});
+    CFG.s('buttons',buttons);
+    CFG.s('dan',{noi:+el('dan_noi').value,lan1:+el('dan_1lan').value});
+    CFG.s('lam_kts',{glossy:+el('lkts_glossy').value,matte:+el('lkts_matte').value,none:0});
+    CFG.s('lam_off',{glossy:+el('loff_glossy').value,matte:+el('loff_matte').value,none:0});
+    if(el('lam_min_val'))CFG.s('lam_min',+el('lam_min_val').value||150000);
+    if(el('dan_min_val'))CFG.s('dan_min',+el('dan_min_val').value||150000);
+    showMsg('msg_quai');V9.buildHandleSelect();V9.buildButtonSelect();V9.calc();
+  },
+
+  /* ── SIZE ── */
+  loadSizes(){
+    const sz=CFG.sizes();
+    ['dung','ngang','vuong'].forEach(type=>{
+      el('size_'+type+'_body').innerHTML=(sz[type]||[]).map(s=>`<tr>
+        <td><input type="number" class="sw" value="${s.w}" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sh" value="${s.h}" min="1" step="0.5" style="width:65px;"></td>
+        <td><input type="number" class="sg" value="${s.g}" min="0" step="0.5" style="width:65px;"></td>
+        <td>${DEL_BTN}</td></tr>`).join('');
+    });
+  },
+  addSizeRow(type){const r=document.createElement('tr');r.innerHTML=`<td><input type="number" class="sw" placeholder="W" style="width:65px;"></td><td><input type="number" class="sh" placeholder="H" style="width:65px;"></td><td><input type="number" class="sg" placeholder="Hông" style="width:65px;"></td><td>${DEL_BTN}</td>`;el('size_'+type+'_body').appendChild(r);},
+  saveSizes(){
+    const sz={};
+    ['dung','ngang','vuong'].forEach(type=>{
+      sz[type]=[...el('size_'+type+'_body').querySelectorAll('tr')].map(r=>({
+        w:+r.querySelector('.sw')?.value||0,h:+r.querySelector('.sh')?.value||0,g:+r.querySelector('.sg')?.value||0
+      })).filter(s=>s.w>0&&s.h>0);
+    });
+    CFG.s('sizes',sz);showMsg('msg_size');V9.buildSizeGrids();
+  },
+
+  /* ── VAT ── */
+  loadVAT(){
+    el('st_vat').value=CFG.vat();el('st_rnd').value=CFG.rnd();
+    const mode=CFG.marginMode();
+    ['interpolate','fixed'].forEach(m=>el('mmode_'+m)?.classList.toggle('dan-active',m===mode));
+    const notes={interpolate:'Lợi nhuận thay đổi liên tục giữa 2 mốc. VD: giá thành 3.5tr → nội suy giữa 2tr(40%) và 5tr(30%) → ~35%.',fixed:'Lợi nhuận nhảy bậc thang. VD: giá thành 3.5tr → áp dụng mốc ≤5tr → 30% cố định.'};
+    const t=el('margin_mode_txt');if(t)t.textContent=notes[mode]||'';
+    const render=(tbl,bodyId)=>{el(bodyId).innerHTML=tbl.map(t=>`<tr>
+      <td><input type="number" class="mu" value="${t.upTo===Infinity?'':t.upTo}" placeholder="∞" min="0" step="500000"></td>
+      <td><input type="number" class="mp" value="${t.pct}" min="0" max="100" step="1"></td>
+      <td>${DEL_BTN}</td></tr>`).join('');};
+    render(CFG.marginNormal(),'margin_normal_body');render(CFG.marginAgency(),'margin_agency_body');
+  },
+  setMarginMode(mode){
+    CFG.s('marginMode',mode);
+    const notes={interpolate:'Lợi nhuận thay đổi liên tục giữa 2 mốc. VD: giá thành 3.5tr → nội suy giữa 2tr(40%) và 5tr(30%) → ~35%.',fixed:'Lợi nhuận nhảy bậc thang. VD: giá thành 3.5tr → áp dụng mốc ≤5tr → 30% cố định.'};
+    ['interpolate','fixed'].forEach(m=>el('mmode_'+m)?.classList.toggle('dan-active',m===mode));
+    const t=el('margin_mode_txt');if(t)t.textContent=notes[mode]||'';
+    V9.calc();
+  },
+  addMarginRow(type){const b=type==='normal'?'margin_normal_body':'margin_agency_body';const r=document.createElement('tr');r.innerHTML=`<td><input type="number" class="mu" placeholder="∞" min="0" step="500000"></td><td><input type="number" class="mp" placeholder="%" min="0" max="100"></td><td>${DEL_BTN}</td>`;el(b).appendChild(r);},
+  /* ── NHÓM SIZE ── */
+  loadSizeCats(){
+    el('size_cat_body').innerHTML=CFG.sizeCats().map(s=>`<tr>
+      <td><input type="text" class="scn" value="${s.n}" style="min-width:60px;"></td>
+      <td><input type="number" class="scw" value="${s.W}" min="1" step="0.5" style="width:70px;"></td>
+      <td><input type="number" class="sch" value="${s.H}" min="1" step="0.5" style="width:70px;"></td>
+      <td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td></tr>`).join('');
+  },
+  addSizeCatRow(){const r=document.createElement('tr');r.innerHTML=`<td><input type="text" class="scn" placeholder="Tên" style="min-width:60px;"></td><td><input type="number" class="scw" placeholder="W" style="width:70px;"></td><td><input type="number" class="sch" placeholder="H" style="width:70px;"></td><td><button class="btn btn-red btn-sm" onclick="this.closest('tr').remove()">✕</button></td>`;el('size_cat_body').appendChild(r);},
+  saveSizeCats(){
+    const cats=[...el('size_cat_body').querySelectorAll('tr')].map(r=>({
+      n:r.querySelector('.scn')?.value||'',W:+r.querySelector('.scw')?.value||0,H:+r.querySelector('.sch')?.value||0
+    })).filter(s=>s.n&&s.W>0&&s.H>0).sort((a,b)=>a.W-b.W||a.H-b.H);
+    CFG.s('sizeCats',cats);showMsg('msg_nhom');V9.buildSizeGrids();V9.calc();
+  },
+
+  saveVAT(){
+    CFG.s('vat',+el('st_vat').value||10);CFG.s('rnd',+el('st_rnd').value||50);
+    const parse=id=>[...document.querySelectorAll('#'+id+' tr')].map(r=>({upTo:+r.querySelector('.mu')?.value||Infinity,pct:+r.querySelector('.mp')?.value||0})).filter(t=>t.pct>0).sort((a,b)=>a.upTo-b.upTo).map((t,i,a)=>({...t,upTo:i===a.length-1?Infinity:t.upTo}));
+    CFG.s('marginNormal',parse('margin_normal_body'));CFG.s('marginAgency',parse('margin_agency_body'));
+    showMsg('msg_vat');V9.calc();
+  }
+};
+
+// Tính giá cho 1 dòng trong bảng tham khảo
+function calcRowPrice(qty,dn,d1,paperType,gsm,lam,handleObj,buttonObj,cat,cust,isPreset,danMode,printMode){
+  const p=calcPlan(dn,d1,qty,paperType,gsm,printMode||'auto',cat);
+  const dm=danMode||'auto';
+  const cD=getDieCost(cat)*(isPreset?0.5:1);
+  const cHU=(handleObj?.price||0)+(buttonObj?.price||0);
+  function fc(pl){if(!pl)return Infinity;const cLa=lamCost(lam,pl.isKts,pl.sheet.w,pl.sheet.h,pl.realSh,qty);return pl.cPaper+pl.cPrint+cD+cLa+pl.cDan+cHU*qty;}
+  let C;
+  if(dm==='noi') C=p.planNoi;
+  else if(dm==='1lan') C=p.plan1;
+  else C=fc(p.planNoi)<=fc(p.plan1)?(p.planNoi||p.plan1):(p.plan1||p.planNoi);
+  if(!C)return null;
+  const cLa=lamCost(lam,C.isKts,C.sheet.w,C.sheet.h,C.realSh,qty);
+  const tc=C.cPaper+C.cPrint+cD+cLa+C.cDan+cHU*qty;
+  const vat=CFG.vat()/100,rnd=CFG.rnd();
+  const uF=Math.round(tc*(1+getMarginPct(tc,cust)/100)*(1+vat)/qty/rnd)*rnd;
+  return{C,uF,tot:uF*qty};
+}
+function SIZE_CAT(){return CFG.sizeCats();}
+function getDN(w,h,g){return{W:w+g+2,H:g/2+h+5.5};}
+function getD1(w,h,g){return{W:(w+g)*2+2,H:g/2+h+5.5};}
+function getCat(W,H){const a=Math.min(W,H),b=Math.max(W,H);for(const s of SIZE_CAT()){const sa=Math.min(s.W,s.H),sb=Math.max(s.W,s.H);if(a<=sa&&b<=sb)return s.n;}return '5XL+';}
+function getDieCost(c){
+  const d=CFG.die();
+  // sm: first 5 cats, md: next 2, lg: rest
+  const cats=SIZE_CAT().map(s=>s.n);
+  const i=cats.indexOf(c);
+  if(i<0)return d.lg;
+  if(i<=4)return d.sm;
+  if(i<=6)return d.md;
+  return d.lg;
+}
+function sheetFit(dW,dH,sW,sH){return Math.max(Math.floor(sW/dW)*Math.floor(sH/dH),Math.floor(sW/dH)*Math.floor(sH/dW));}
+function bestSheetFor(dW,dH,paperType){
+  const sheets=CFG.sheets().filter(s=>s.type===paperType);
+  if(!sheets.length){// fallback: all sheets
+    const all=CFG.sheets();
+    let best={n:0,s:null};
+    for(const s of all){const n=sheetFit(dW,dH,s.w,s.h);if(n>best.n)best={n,s};}
+    return best;
+  }
+  let best={n:0,s:null};
+  for(const s of sheets){const n=sheetFit(dW,dH,s.w,s.h);if(n>best.n)best={n,s};}
+  return best;
+}
+function ktsForDim(dW,dH){const ms=CFG.kts();let best=null;for(const m of ms){if((m.w>=dW&&m.h>=dH)||(m.w>=dH&&m.h>=dW)){if(!best||m.price<best.price)best=m;}}return best;}
+function bestOffMachine(dW,dH){const ms=CFG.offset();let best=null;for(const m of ms){if((m.w>=dW&&m.h>=dH)||(m.w>=dH&&m.h>=dW)){if(!best||m.pkg<best.pkg)best=m;}}return best;}
+function addWaste(sheets,isKts){const w=CFG.waste();const pct=isKts?w.ktsPct:w.offPct;const minW=isKts?w.ktsMin:w.offMin;const waste=Math.max(Math.ceil(sheets*pct/100),minW);return{total:sheets+waste,waste};}
+// bù hao trên SỐ TÚI thành phẩm, rồi quy ra khổ/tờ
+function addWasteQty(qty,isKts){const w=CFG.waste();const pct=isKts?w.ktsPct:w.offPct;const minW=isKts?w.ktsMin:w.offMin;const wasteQty=Math.max(Math.ceil(qty*pct/100),minW);return{totalQty:qty+wasteQty,wasteQty};}
+function paperPricePerSheet(sW,sH,gsm,paperType){const row=CFG.paper().find(r=>r.type===paperType&&r.gsm===gsm);if(!row)return 0;return(sW/100)*(sH/100)*gsm/1000*row.price;}
+function calcKtsCost(m,sheets){return m.price*sheets;}
+function calcOffCost(m,sheets){
+  // Tiers: [{upTo, price}] sorted ascending
+  const tiers=(m.tiers||[{upTo:3000,price:m.pkg||0}]).slice().sort((a,b)=>a.upTo-b.upTo);
+  for(const t of tiers) if(sheets<=t.upTo) return t.price;
+  const last=tiers[tiers.length-1];
+  return last.price+(sheets-last.upTo)*(m.extra||0);
+}
+function getMarginPct(totalCost,cust){
+  const tbl=cust==='agency'?CFG.marginAgency():CFG.marginNormal();
+  const mode=CFG.marginMode();
+  // Tìm vị trí trong bảng
+  const finite=tbl.filter(t=>isFinite(t.upTo));
+  if(!finite.length)return tbl[tbl.length-1]?.pct||20;
+  // Mốc cố định: lấy tier đầu tiên mà totalCost <= upTo
+  if(mode==='fixed'){
+    for(const t of tbl)if(totalCost<=t.upTo)return t.pct;
+    return tbl[tbl.length-1].pct;
+  }
+  // Nội suy tuyến tính: nội suy giữa 2 mốc liền kề
+  const sorted=[...tbl].filter(t=>isFinite(t.upTo)).sort((a,b)=>a.upTo-b.upTo);
+  if(totalCost<=sorted[0].upTo)return sorted[0].pct;
+  if(totalCost>=sorted[sorted.length-1].upTo)return sorted[sorted.length-1].pct;
+  for(let i=0;i<sorted.length-1;i++){
+    const lo=sorted[i],hi=sorted[i+1];
+    if(totalCost>=lo.upTo&&totalCost<=hi.upTo){
+      const t=(totalCost-lo.upTo)/(hi.upTo-lo.upTo);
+      return Math.round(lo.pct+(hi.pct-lo.pct)*t);
+    }
+  }
+  return sorted[sorted.length-1].pct;
+}
+function lamCost(lam,isKts,sW,sH,realSh,qty){
+  if(!lam||lam==='none')return 0;
+  const raw=isKts?(CFG.lam_kts()[lam]||0)*qty:(CFG.lam_off()[lam]||0)*(sW/100)*(sH/100)*realSh;
+  const minLam=CFG.lam_min();
+  return Math.max(raw,minLam);
+}
+
+// Kiểm tra có nên ưu tiên KTS không dựa trên nhóm size + số lượng
+function shouldUseKts(cat,qty){
+  const rules=CFG.ktsQtyRules();
+  for(const r of rules){
+    if(r.sizes.includes(cat)&&qty<=r.qtyMax)return true;
+  }
+  return false;
+}
+function calcPlan(dn,d1,qty,paperType,gsm,pm,cat){
+  pm=pm||'auto'; cat=cat||'';
+  const danCfg=CFG.dan();
+  const danMin=CFG.dan_min();
+  // ── DÁN NỐI: mỗi túi cần 2 khổ dán nối ──
+  let planNoi=null;
+  const snoi=bestSheetFor(dn.W,dn.H,paperType);
+  if(snoi.s&&snoi.n>0){
+    const perTor=snoi.n; // số khổ dán nối xếp được / tờ giấy
+    const tuiPerTor=Math.floor(perTor/2); // số túi thành phẩm / tờ
+    const ktsM=ktsForDim(dn.W,dn.H);
+    const {totalQty:qtyEst}=addWasteQty(qty,true);
+    const isKts=pm==='kts'?!!ktsM:pm==='offset'?false:!!ktsM&&shouldUseKts(cat,qty);
+    const machine=isKts?ktsM:bestOffMachine(dn.W,dn.H);
+    if(machine){
+      const {totalQty:qtyNoi,wasteQty:wasteQtyNoi}=addWasteQty(qty,isKts);
+      const bdeSheets=qtyNoi*2; // tổng khổ dán nối cần in
+      const realSh=Math.ceil(bdeSheets/perTor); // số tờ giấy thực
+      const cPaper=paperPricePerSheet(snoi.s.w,snoi.s.h,gsm,paperType)*realSh;
+      const cPrint=isKts?calcKtsCost(machine,bdeSheets):calcOffCost(machine,bdeSheets);
+      const cDan=Math.max(danCfg.noi*qty, danMin);
+      planNoi={danType:'noi',sheet:snoi.s,perTor,tuiPerTor,bdeSheets,wasteQty:wasteQtyNoi,realSh,machine,isKts,cPaper,cPrint,cDan,sub:cPaper+cPrint+cDan,label:'Dán nối',macLabel:`${machine.w}×${machine.h}`,method:isKts?'KTS':'Offset'};
+    }
+  }
+  // ── DÁN 1 LẦN: mỗi túi cần 1 khổ dán 1 lần ──
+  let plan1=null;
+  const s1=bestSheetFor(d1.W,d1.H,paperType);
+  if(s1.s&&s1.n>0){
+    const perTor=s1.n; // số khổ dán 1 lần / tờ = số túi / tờ
+    const tuiPerTor=perTor;
+    const ktsM=ktsForDim(d1.W,d1.H);
+    const {totalQty:qtyEst}=addWasteQty(qty,true);
+    const isKts=pm==='kts'?!!ktsM:pm==='offset'?false:!!ktsM&&shouldUseKts(cat,qty);
+    const machine=isKts?ktsM:bestOffMachine(d1.W,d1.H);
+    if(machine){
+      const {totalQty:qty1,wasteQty:wasteQty1}=addWasteQty(qty,isKts);
+      const bdeSheets=qty1; // khổ dán 1 lần = số túi sau bù hao
+      const realSh=Math.ceil(bdeSheets/perTor);
+      const cPaper=paperPricePerSheet(s1.s.w,s1.s.h,gsm,paperType)*realSh;
+      const cPrint=isKts?calcKtsCost(machine,bdeSheets):calcOffCost(machine,bdeSheets);
+      const cDan=Math.max(danCfg.lan1*qty, danMin);
+      plan1={danType:'1lan',sheet:s1.s,perTor,tuiPerTor,bdeSheets,wasteQty:wasteQty1,realSh,machine,isKts,cPaper,cPrint,cDan,sub:cPaper+cPrint+cDan,label:'Dán 1 lần',macLabel:`${machine.w}×${machine.h}`,method:isKts?'KTS':'Offset'};
+    }
+  }
+  if(planNoi&&plan1){return{chosen:planNoi.sub<=plan1.sub?planNoi:plan1,planNoi,plan1};}
+  return{chosen:planNoi||plan1,planNoi,plan1};
+}
+
+/* ═══ V9 MODULE ═══ */
+const V9={
+  last:null,
+  _danMode:'auto',
+  _printMode:'auto',
+  _adjProfitPct:0,
+  _adjPanelOpen:false,
+  setPrintMode(mode){
+    this._printMode=mode;
+    ['auto','kts','offset'].forEach(m=>el('pm_btn_'+m)?.classList.toggle('dan-active',m===mode));
+    ['kts','offset'].forEach(m=>{const b=el('pm_btn_'+m);if(b)b.style.opacity='1';});
+    this.calc();
+  },
+  setDanMode(mode){
+    // Click lại nút đang active → bỏ chọn về auto
+    if(this._danMode===mode) mode='auto';
+    this._danMode=mode;
+    ['noi','1lan'].forEach(m=>{
+      el('dan_btn_'+m)?.classList.toggle('dan-active', m===mode);
+    });
+    this.calc();
+  },
+  init(){this.buildPaperSelect();this.buildHandleSelect();this.buildSizeGrids();},
+  buildPaperSelect(){
+    const paper=CFG.paper();
+    const types=[...new Set(paper.map(r=>r.type))];
+    const sel=el('v9_paper');
+    if(!sel)return;
+    const prev=sel.value;
+    sel.innerHTML=types.map(t=>{const label=paper.find(r=>r.type===t)?.label||t;return`<option value="${t}">${label}</option>`;}).join('');
+    if(types.includes(prev))sel.value=prev;
+    this.buildGsmSelect();
+  },
+  buildGsmSelect(){
+    const paper=CFG.paper();
+    const type=el('v9_paper')?.value;
+    const gsms=paper.filter(r=>r.type===type).map(r=>r.gsm).sort((a,b)=>a-b);
+    const sel=el('v9_gsm');if(!sel)return;
+    const prev=+sel.value;
+    sel.innerHTML=gsms.map(g=>`<option value="${g}"${g===prev?' selected':''}>${g} gsm</option>`).join('');
+    if(!gsms.includes(+sel.value)&&gsms.length)sel.value=gsms[0];
+  },
+  onPaperChange(){this.buildGsmSelect();this.calc();},
+  buildHandleSelect(){
+    const h=CFG.handles();
+    const sel=el('v9_handle');if(!sel)return;
+    const prev=sel.value;
+    sel.innerHTML=h.map(r=>`<option value="${r.key||r.label}">${r.label}</option>`).join('');
+    if([...sel.options].find(o=>o.value===prev))sel.value=prev;
+    this.buildButtonSelect();
+  },
+  buildButtonSelect(){
+    const b=CFG.buttons();
+    const sel=el('v9_button');if(!sel)return;
+    const prev=sel.value;
+    sel.innerHTML=b.map(r=>`<option value="${r.key}">${r.label}</option>`).join('');
+    const def=b.find(x=>x.key==='ore_bac');
+    // Mặc định Ore bạc: chỉ giữ prev nếu người dùng đã chọn (khác none)
+    if(prev&&prev!=='none'&&[...sel.options].find(o=>o.value===prev))sel.value=prev;
+    else if(def)sel.value=def.key;
+  },
+  buildSizeGrids(){
+    const sz=CFG.sizes();
+    this.buildGrid('v9_sizeGrid',sz.dung||[]);
+    this.buildGrid('v9_sizeGridNgang',sz.ngang||[]);
+    this.buildGrid('v9_sizeGridVuong',sz.vuong||[]);
+  },
+  buildGrid(id,sizes){
+    const e=el(id);if(!e)return;
+    e.innerHTML=sizes.map(s=>{
+      const dn=getDN(s.w,s.h,s.g);const c=getCat(dn.W,dn.H);
+      return`<div class="size-card" onclick="V9.pickSize(this,${s.w},${s.h},${s.g})"><div class="sc-dim">${s.w}×${s.h}×${s.g}</div><div class="sc-cat">Size ${c}</div></div>`;
+    }).join('');
+  },
+  pickSize(e,w,h,g){document.querySelectorAll('.size-card').forEach(c=>c.classList.remove('sel'));e.classList.add('sel');el('v9_w').value=w;el('v9_h').value=h;el('v9_g').value=g;this._preset=true;this.calc();},
+  onManualDim(){document.querySelectorAll('.size-card').forEach(c=>c.classList.remove('sel'));this._preset=false;this.calc();},
+  onCustChange(){
+    const _tgLv=CFG.g('tgCustLock','none');
+    const _tgIsAg=el('v9_cust').value==='agency';
+    el('v9_agNote').style.display=(_tgIsAg&&_tgLv!=='agency')?'flex':'none';
+    this.calc();
+  },
+  hideAll(){el('v9_breakdown').style.display='none';el('v9_cmp').style.display='none';el('v9_priceBox').style.display='none';el('v9_notice').style.display='none';setText('v9_punit','—');setText('v9_ptotal','—');},
+  notice(txt){el('v9_notice').style.display='flex';setText('v9_ntxt',txt);},
+  calc(){
+    const w=+el('v9_w').value,h=+el('v9_h').value,g=+el('v9_g').value||0;
+    const qty=+el('v9_qty').value||0;
+    const paperType=el('v9_paper').value,gsm=+el('v9_gsm').value;
+    const lam=el('v9_lam').value;
+    const handleKey=el('v9_handle').value;
+    const buttonKey=el('v9_button')?.value||'none';
+    const cust=el('v9_cust').value;
+    if(!w||!h||qty<1){this.hideAll();this.last=null;const _adjTR3=el('tg_adjToggleRow');if(_adjTR3)_adjTR3.style.display='none';return;}
+    if(qty<100){this.hideAll();this.notice('Số lượng tối thiểu là 100 túi.');this.last=null;const _adjTR4=el('tg_adjToggleRow');if(_adjTR4)_adjTR4.style.display='none';return;}
+    el('v9_notice').style.display='none';
+    const dn=getDN(w,h,g),d1=getD1(w,h,g);
+    const cat=getCat(dn.W,dn.H);
+    if(cat==='5XL+')this.notice('Kích thước vượt 5XL – có thể cần báo giá riêng.');
+    const plan=calcPlan(dn,d1,qty,paperType,gsm,this._printMode,cat);
+    // Áp dụng danMode
+    const mode=this._danMode;
+    const handleObj=CFG.handles().find(hh=>hh.key===handleKey||hh.label===handleKey);
+    const buttonObj=CFG.buttons().find(b=>b.key===buttonKey);
+    const cDie=getDieCost(cat)*(this._preset?0.5:1);
+    const cHandleUnit=(handleObj?.price||0)+(buttonObj?.price||0);
+
+    // Chọn plan tối ưu dựa trên totalCost đầy đủ (gồm lam, die, quai, nút)
+    function fullCost(pl){
+      if(!pl)return Infinity;
+      const cLa=lamCost(lam,pl.isKts,pl.sheet.w,pl.sheet.h,pl.realSh,qty);
+      return pl.cPaper+pl.cPrint+cDie+cLa+pl.cDan+cHandleUnit*qty;
+    }
+    let C;
+    if(mode==='noi') C=plan.planNoi;
+    else if(mode==='1lan') C=plan.plan1;
+    else{
+      const fNoi=fullCost(plan.planNoi), f1=fullCost(plan.plan1);
+      C=fNoi<=f1?(plan.planNoi||plan.plan1):(plan.plan1||plan.planNoi);
+    }
+    if(!C){this.notice('Không tìm được phương án in phù hợp.');this.hideAll();this.last=null;const _adjTR5=el('tg_adjToggleRow');if(_adjTR5)_adjTR5.style.display='none';return;}
+
+    const cLam=lamCost(lam,C.isKts,C.sheet.w,C.sheet.h,C.realSh,qty);
+    const cHandle=(handleObj?.price||0)*qty;
+    const cButton=(buttonObj?.price||0)*qty;
+    const cHandleTotal=cHandle+cButton;
+    const totalCost=C.cPaper+C.cPrint+cDie+cLam+C.cDan+cHandleTotal;
+    const cpu=totalCost/qty;
+    const vat=CFG.vat()/100,rnd=CFG.rnd();
+    const marginPct=getMarginPct(totalCost,cust);
+    const lnAmt=totalCost*(marginPct/100);
+    const totalPreVAT=totalCost+lnAmt;
+    const vatAmt=totalPreVAT*vat;
+    const totalWithVAT=totalPreVAT+vatAmt;
+    let unitF=Math.round(totalWithVAT/qty/rnd)*rnd;
+    const totalF=unitF*qty;
+    // Breakdown — card trái
+    const isNoi=C.danType==='noi';
+    setText('bd_cat','Size '+cat);
+    // Highlight 2 khung dán
+    const fNoi=el('bd_frame_noi'),f1lan=el('bd_frame_1lan');
+    const lNoi=el('bd_frame_noi_lbl'),l1lan=el('bd_frame_1lan_lbl');
+    if(isNoi){
+      fNoi.style.cssText='border-radius:8px;padding:8px 10px;border:2.5px solid var(--brand);background:#eff6ff;box-shadow:0 2px 8px rgba(26,58,107,.15);transition:.2s;';
+      f1lan.style.cssText='border-radius:8px;padding:8px 10px;border:2px solid var(--border);background:var(--surface2);opacity:.55;transition:.2s;';
+      lNoi.style.cssText='font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px;color:var(--brand);';
+      l1lan.style.cssText='font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px;color:var(--text3);';
+    }else{
+      f1lan.style.cssText='border-radius:8px;padding:8px 10px;border:2.5px solid var(--brand);background:#eff6ff;box-shadow:0 2px 8px rgba(26,58,107,.15);transition:.2s;';
+      fNoi.style.cssText='border-radius:8px;padding:8px 10px;border:2px solid var(--border);background:var(--surface2);opacity:.55;transition:.2s;';
+      l1lan.style.cssText='font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px;color:var(--brand);';
+      lNoi.style.cssText='font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px;color:var(--text3);';
+    }
+    // Kích thước 2 khổ
+    const eNoi=el('bd_dnoi_dim'),e1lan=el('bd_d1lan_dim');
+    if(eNoi)eNoi.style.color=isNoi?'var(--brand)':'var(--text3)';
+    if(e1lan)e1lan.style.color=isNoi?'var(--text3)':'var(--brand)';
+    setText('bd_dnoi_dim',dn.W.toFixed(1)+'×'+dn.H.toFixed(1));
+    setText('bd_d1lan_dim',d1.W.toFixed(1)+'×'+d1.H.toFixed(1));
+    setText('bd_method',C.method+' – Máy '+C.macLabel+' – '+C.label);
+    setText('bd_sheet',C.sheet.w+'×'+C.sheet.h+' cm');
+    // Bảng tính chi tiết
+    const khoLabel=isNoi?'dán nối':'dán 1 lần';
+    const detailTitle=el('bd_detail_title');
+    if(detailTitle)detailTitle.textContent='Chi tiết – Khổ '+khoLabel+' trên tờ '+C.sheet.w+'×'+C.sheet.h;
+    setText('bd_tui_per_tor',C.tuiPerTor+' túi / tờ');
+    const khoLbl=el('bd_kho_label');
+    if(khoLbl)khoLbl.textContent='Khổ '+khoLabel+' / tờ';
+    setText('bd_kho_per_tor',C.perTor+' khổ '+khoLabel+' / tờ');
+    setText('bd_kho_pure',fmtN(qty*(isNoi?2:1))+' khổ');
+    const wasteLbl=el('bd_waste_label');
+    if(wasteLbl)wasteLbl.textContent='Bù hao +'+fmtN(C.wasteQty)+' túi ('+fmtN(C.wasteQty*(isNoi?2:1))+' khổ)';
+    setText('bd_kho_waste','('+(C.isKts?CFG.waste().ktsPct:CFG.waste().offPct)+'% min '+(C.isKts?CFG.waste().ktsMin:CFG.waste().offMin)+')');
+    setText('bd_kho_total',fmtN(C.bdeSheets)+' khổ '+khoLabel);
+    setText('bd_tor_total',fmtN(C.realSh)+' tờ '+C.sheet.w+'×'+C.sheet.h);
+    // Highlight nút in
+    if(this._printMode==='auto'){
+      el('pm_btn_auto')?.classList.add('dan-active');
+      el('pm_btn_kts')?.classList.remove('dan-active');
+      el('pm_btn_offset')?.classList.remove('dan-active');
+      el('pm_btn_kts').style.opacity=C.isKts?'1':'0.45';
+      el('pm_btn_offset').style.opacity=C.isKts?'0.45':'1';
+    } else {
+      el('pm_btn_kts').style.opacity='1';
+      el('pm_btn_offset').style.opacity='1';
+    }
+    // Cập nhật highlight nút dán
+    if(this._danMode==='auto'){
+      el('dan_btn_noi')?.classList.toggle('dan-active', C.danType==='noi');
+      el('dan_btn_1lan')?.classList.toggle('dan-active', C.danType==='1lan');
+      ['noi','1lan'].forEach(m=>{const b=el('dan_btn_'+m);if(b)b.style.opacity=C.danType===m?'1':'0.45';});
+    }else{
+      ['noi','1lan'].forEach(m=>{const b=el('dan_btn_'+m);if(b)b.style.opacity='1';});
+    }
+    setText('bd_cpaper',fmt(C.cPaper));setText('bd_cprint',fmt(C.cPrint));
+    setText('bd_cdie',fmt(cDie)+(this._preset?' (−50% size có sẵn)':''));
+    setText('bd_clam',lam!=='none'?fmt(cLam)+(cLam===CFG.lam_min()?' (tối thiểu)':''):'—');
+    setText('bd_cdan',fmt(C.cDan));
+    // Gộp quai + nút
+    const handleLbl=el('bd_handle_lbl');
+    const handleParts=[];
+    if(handleObj&&handleObj.key!=='none')handleParts.push(handleObj.label);
+    if(buttonObj&&buttonObj.key!=='none')handleParts.push(buttonObj.label);
+    if(handleLbl)handleLbl.textContent=handleParts.length?handleParts.join(' + '):'Quai & Nút';
+    setText('bd_chandle',cHandleTotal>0?fmt(cHandleTotal):'—');
+    setText('bd_ctotal',fmt(totalCost));
+    setText('bd_margin_pct',marginPct+'%');setText('bd_margin',fmt(lnAmt));
+    setText('bd_vat_pct',CFG.vat()+'%');
+    setText('bd_pretotal',fmt(totalPreVAT));setText('bd_vat',fmt(vatAmt));
+    setText('bd_withtotal',fmt(totalWithVAT));setText('bd_unitprice',fmt(unitF));
+    // Compare
+    this.renderBox('noi',plan.planNoi,plan.plan1,C);
+    this.renderBox('1lan',plan.plan1,plan.planNoi,C);
+    // Price
+    setText('v9_punit',fmt(unitF));
+    el('v9_punit_s').textContent='';
+    setText('v9_ptotal',fmt(totalF));
+    el('v9_ptotal_s').textContent='';
+    this.last={w,h,g,qty,cat,dn,d1,plan:{...plan,chosen:C},C,paperType,gsm,lam,handleKey,handleObj,buttonKey,buttonObj,cButton,cHandleTotal,cust,cDie,cLam,cHandle,totalCost,cpu,marginPct,lnAmt,totalPreVAT,vatAmt,totalWithVAT,unitF,totalF,vat:CFG.vat(),rnd,isPreset:!!this._preset,danMode:this._danMode,printMode:this._printMode,
+      paperLabel:el('v9_paper').options[el('v9_paper').selectedIndex]?.text||'',
+      lamLabel:el('v9_lam').options[el('v9_lam').selectedIndex]?.text||'',
+      name:el('v9_name').value.trim()};
+    APP.applyDisplay();
+    const _adjTR2=el('tg_adjToggleRow');if(_adjTR2)_adjTR2.style.display='';
+    const _tgVatTR=el('tg_vatToggleRow');if(_tgVatTR)_tgVatTR.style.display='';
+    if(typeof _syncTgVatUI!=='undefined')_syncTgVatUI();
+    this.applyAdj();
+  },
+  renderBox(type,plan,other,chosen){
+    const box=el('mb_'+type),badge=el('mb_'+type+'_badge'),body=el('mb_'+type+'_body');
+    if(!plan){box.className='method-box na';badge.textContent=type==='noi'?'Dán nối':'Dán 1 lần';body.innerHTML=`<div class="method-na">Không có phương án phù hợp</div>`;return;}
+    const isW=chosen&&chosen.danType===plan.danType;
+    box.className='method-box '+(isW?'winner':'loser');
+    badge.textContent=(type==='noi'?'Dán nối':'Dán 1 lần')+(isW?' ✓ Tối ưu':'');
+    body.innerHTML=`<div class="method-rows">
+      <div class="method-row"><span class="mr-l">Giá giấy</span><span class="mr-v">${fmt(plan.cPaper)}</span></div>
+      <div class="method-row"><span class="mr-l">Tiền in</span><span class="mr-v">${fmt(plan.cPrint)}</span></div>
+      <div class="method-row"><span class="mr-l">Tiền dán</span><span class="mr-v">${fmt(plan.cDan)}</span></div>
+    </div><div class="method-total"><span class="mt-l">Tổng chi phí (Giấy+In+Dán)</span><span class="mt-v">${fmt(plan.sub)}</span></div>`;
+  },
+  async _captureQuote(){
+    const el=document.getElementById('q_inner')||document.querySelector('#ov_quote .modal-body');
+    if(!el)return null;
+    return await html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false});
+  },
+  async copyQuoteImg(){
+    const btn=document.getElementById('q_copy_btn');
+    if(btn){btn.textContent='⏳ Đang xử lý...';btn.disabled=true;}
+    try{
+      const canvas=await this._captureQuote();
+      canvas.toBlob(async blob=>{
+        try{
+          await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+          if(btn){btn.textContent='✅ Đã copy!';setTimeout(()=>{btn.textContent='📋 Copy Ảnh';btn.disabled=false;},2000);}
+        }catch{
+          // Fallback: mở ảnh trong tab mới
+          window.open(canvas.toDataURL('image/png'));
+          if(btn){btn.textContent='📋 Copy Ảnh';btn.disabled=false;}
+        }
+      },'image/png');
+    }catch(e){if(btn){btn.textContent='📋 Copy Ảnh';btn.disabled=false;}}
+  },
+  async saveQuoteImg(){
+    const btn=document.getElementById('q_save_btn');
+    if(btn){btn.textContent='⏳...';btn.disabled=true;}
+    try{
+      const canvas=await this._captureQuote();
+      const a=document.createElement('a');
+      const L=this.last;
+      const stamp=new Date().toISOString().slice(0,10).replace(/-/g,'');
+      a.download=`BaoGia_TuiGiay_${L?L.qty+'tui_':''}${stamp}.png`;
+      a.href=canvas.toDataURL('image/png');
+      a.click();
+      if(btn){btn.textContent='✅ Đã lưu!';setTimeout(()=>{btn.textContent='💾 Lưu Ảnh';btn.disabled=false;},2000);}
+    }catch(e){if(btn){btn.textContent='💾 Lưu Ảnh';btn.disabled=false;}}
+  },
+  openQuote(){
+    if(!this.last){alert('Vui lòng nhập đầy đủ thông số!');return;}
+    const L=this.last,C=L.C;
+    const _tgB=CFG.g('brand',{name:'RIRO PRINT',address:'',phone:''});
+    setText('q_brand','🛍️ '+(el('topName').textContent||_tgB.name));
+    const _tgAEl=el('tg_q_address');if(_tgAEl)_tgAEl.textContent=_tgB.address?'📍 '+_tgB.address:'';
+    const _tgPEl=el('tg_q_phone');if(_tgPEl)_tgPEl.textContent=_tgB.phone?'📞 '+_tgB.phone:'';
+    setText('v9_qcode','TG-'+Date.now().toString().slice(-6));
+    setText('v9_qdate',new Date().toLocaleDateString('vi-VN'));
+    setText('v9_qsub',L.name||(L.w+'×'+L.h+'×'+L.g+' cm'));
+    const rows=[['Khách hàng',L.name||'—'],['Kích thước',L.w+'×'+L.h+'×'+L.g+' cm'],['Loại giấy',L.paperLabel+' '+L.gsm+'gsm'],['Cán màng',L.lam!=='none'?L.lamLabel:'Không cán màng'],['Quai xách',L.handleObj?.label||'—'],
+      ['Đóng nút',L.buttonObj?.label||'—'],['Số lượng',fmtN(L.qty)+' túi']];
+    el('q_info').innerHTML=rows.filter(([,v])=>v&&v!=='—').map(([l,v])=>`<div class="qi-row"><span class="qi-l">${l}</span><span class="qi-v">${v}</span></div>`).join('');
+    const _tgQUnit=L.hasAdj?L.adjUnit:L.unitF;
+    const _tgQTotal=L.hasAdj?L.adjTotal:L.totalF;
+    setText('q_unit',fmt(_tgQUnit));setText('q_total',fmt(_tgQTotal));
+    const vat=CFG.vat()/100,rnd=CFG.rnd();
+    const refQtys=[100,200,300,500,700,1000,2000,3000,5000];
+    // enforceMonotonic: giá/túi không tăng khi SL tăng
+    function enforceMonotonicTG(arr){
+      if(!arr||arr.length<2)return arr;
+      const sorted=[...arr].filter(Boolean).sort((a,b)=>a.q-b.q);
+      for(let i=1;i<sorted.length;i++){
+        if(sorted[i].uF>sorted[i-1].uF){sorted[i].uF=sorted[i-1].uF;sorted[i].tot=sorted[i].uF*sorted[i].q;}
+      }
+      return sorted;
+    }
+    const _adjMulTG=(L.hasAdj&&L.unitF)?L.adjUnit/L.unitF:1;
+    let rows2=refQtys.map(q=>{
+      const r=calcRowPrice(q,L.dn,L.d1,L.paperType,L.gsm,L.lam,L.handleObj,L.buttonObj,L.cat,L.cust,L.isPreset,L.danMode,L.printMode);
+      if(!r)return null;
+      if(_adjMulTG!==1){r.uF=Math.round(r.uF*_adjMulTG/CFG.rnd())*CFG.rnd();r.tot=r.uF*q;}
+      return{q,...r};
+    });
+    rows2=enforceMonotonicTG(rows2);
+    /* ── Bảng tham chiếu chuẩn RIRO – có cột Kỹ thuật in (KTS/Offset) ── */
+    el('q_ref').innerHTML='<table style="width:100%;border-collapse:separate;border-spacing:0 5px;">'
+      +'<thead><tr>'
+      +'<th style="background:var(--brand);color:#fff;padding:8px 10px;text-align:left;font-size:.72rem;font-weight:700;border-radius:var(--r-sm) 0 0 var(--r-sm);">Số lượng</th>'
+      +'<th style="background:var(--brand);color:#fff;padding:8px 8px;text-align:center;font-size:.72rem;font-weight:700;">Kỹ thuật in</th>'
+      +'<th style="background:var(--brand);color:#fff;padding:8px 8px;text-align:center;font-size:.72rem;font-weight:700;">Giá / túi</th>'
+      +'<th style="background:var(--brand);color:#fff;padding:8px 10px;text-align:right;font-size:.72rem;font-weight:700;border-radius:0 var(--r-sm) var(--r-sm) 0;">Thành tiền</th>'
+      +'</tr></thead><tbody>'
+      +rows2.map(row=>{
+        if(!row)return '';
+        const {q,uF,tot,C:Ci}=row;
+        const cur=q===L.qty;
+        const bg=cur?'#eff6ff':'var(--surface2)';
+        const bdr=cur?'1.5px solid var(--brand)':'1.5px solid var(--border)';
+        const qc=cur?'var(--brand)':'var(--text2)';
+        const vc=cur?'var(--green)':'var(--text1)';
+        const fw=cur?'800':'600';
+        // Badge kỹ thuật in: KTS (xanh dương) hoặc Offset (xám)
+        const isKts=Ci&&Ci.isKts;
+        const badge=isKts
+          ?'<span style="background:#dbeafe;color:#1d4ed8;font-size:.65rem;font-weight:800;padding:2px 7px;border-radius:20px;letter-spacing:.2px;">⚡ KTS</span>'
+          :'<span style="background:#f3f4f6;color:#6b7280;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.2px;">🖨 Offset</span>';
+        return`<tr>
+          <td style="padding:8px 10px;font-size:.83rem;font-weight:${fw};color:${qc};background:${bg};border:${bdr};border-right:none;border-radius:var(--r-sm) 0 0 var(--r-sm);white-space:nowrap;">${cur?'▶ ':''}${fmtN(q)} túi</td>
+          <td style="padding:8px 8px;text-align:center;background:${bg};border-top:${bdr};border-bottom:${bdr};">${badge}</td>
+          <td style="padding:8px 8px;font-size:.9rem;font-weight:800;color:${vc};text-align:center;background:${bg};border-top:${bdr};border-bottom:${bdr};">${fmt(uF)}</td>
+          <td style="padding:8px 10px;font-size:.83rem;font-weight:700;color:${vc};text-align:right;background:${bg};border:${bdr};border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;">${fmtN(tot)}đ</td>
+        </tr>`;
+      }).join('')+'</tbody></table>';
+    const _tgVatNote=el('tg_vat_note');
+    if(_tgVatNote)_tgVatNote.style.display=(typeof _showTgVatLabel!=='undefined'?_showTgVatLabel:true)?'':'none';
+    openOv('ov_quote');
+  },
+  clearForm(){
+    ['v9_name','v9_w','v9_h'].forEach(id=>el(id).value='');
+    el('v9_g').value='';el('v9_qty').value='';
+    el('v9_lam').value='matte';el('v9_cust').value='normal';if(el('v9_button')){el('v9_button').value='ore_bac';}
+    el('v9_agNote').style.display='none';
+    document.querySelectorAll('.size-card').forEach(c=>c.classList.remove('sel'));
+    this.hideAll();this.last=null;
+    this._adjPanelOpen=false;
+    const _adjTR=el('tg_adjToggleRow');if(_adjTR)_adjTR.style.display='none';
+    const _adjC=el('tg_adjustCard');if(_adjC)_adjC.style.display='none';
+    ['tg_adj_unit_out','tg_adj_total_out'].forEach(id=>{const e=el(id);if(e)e.textContent='—';});
+    ['tg_adj_inc','tg_adj_dec','tg_adj_profit_custom'].forEach(id=>{const e=el(id);if(e)e.value='';});
+  },
+  toggleAdjPanel(){
+    this._adjPanelOpen=!this._adjPanelOpen;
+    const card=el('tg_adjustCard'),arrow=el('tg_adjToggleArrow'),hint=el('tg_adjToggleHint');
+    if(card)card.style.display=this._adjPanelOpen?'':'none';
+    if(arrow)arrow.style.transform=this._adjPanelOpen?'rotate(180deg)':'rotate(0)';
+    if(hint)hint.textContent=this._adjPanelOpen?'Đang bật':'Bấm để mở';
+  },
+  setProfit(pct,btn){
+    this._adjProfitPct=pct;
+    document.querySelectorAll('.tg-adj-btn').forEach(b=>{b.style.fontWeight=b===btn?'900':'700';b.style.outline=b===btn?'2px solid var(--brand)':'none';});
+    const cust=el('tg_adj_profit_custom');if(cust)cust.value='';
+    this.applyAdj();
+  },
+  setCustomProfit(val){
+    if(isNaN(val))return;this._adjProfitPct=val;
+    document.querySelectorAll('.tg-adj-btn').forEach(b=>{b.style.fontWeight='700';b.style.outline='none';});
+    this.applyAdj();
+  },
+  applyAdj(){
+    if(!this.last)return;
+    const rnd=CFG.rnd();
+    const inc=+(el('tg_adj_inc')?.value||0),dec=+(el('tg_adj_dec')?.value||0),netAdj=inc-dec;
+    const pct=Number.isFinite(this._adjProfitPct)?this._adjProfitPct:0;
+    const profitFactor=1+(pct/100);
+    const adjUnit=Math.round((this.last.unitF*profitFactor+netAdj)/rnd)*rnd;
+    const adjTotal=adjUnit*this.last.qty;
+    const lbl=el('tg_adj_profit_lbl');if(lbl)lbl.textContent=(pct>=0?'+':'')+pct+'%';
+    const pLbl=el('tg_adj_price_lbl');if(pLbl)pLbl.textContent=(netAdj>=0?'+':'')+netAdj.toLocaleString('vi-VN')+'đ';
+    const uEl=el('tg_adj_unit_out');if(uEl)uEl.textContent=adjUnit.toLocaleString('vi-VN')+'đ';
+    const tEl=el('tg_adj_total_out');if(tEl)tEl.textContent=adjTotal.toLocaleString('vi-VN')+'đ';
+    this.last.adjUnit=adjUnit;this.last.adjTotal=adjTotal;this.last.hasAdj=Number.isFinite(adjUnit)&&(adjUnit!==this.last.unitF);
+  },
+  resetAdj(){
+    this._adjProfitPct=0;
+    ['tg_adj_inc','tg_adj_dec','tg_adj_profit_custom'].forEach(id=>{const e=el(id);if(e)e.value='';});
+    document.querySelectorAll('.tg-adj-btn').forEach(b=>{b.style.fontWeight='700';b.style.outline='none';});
+    this.applyAdj();
+  },
+  toggleVatLabel(){
+    _showTgVatLabel=!_showTgVatLabel;
+    CFG.s('tgShowVat',_showTgVatLabel?'1':'0');
+    _syncTgVatUI();
+  }
+};
+
+// ── KHOÁ LOẠI KHÁCH HÀNG (TUI_GIAY) ──
+function applyTgCustLock(){
+  const lockVal=CFG.g('tgCustLock','none');
+  const sel=el('v9_cust');
+  const badge=el('tg_custLockBadge');
+  const cfgSel=el('cfg_tg_custLock');
+  if(cfgSel)cfgSel.value=lockVal;
+  if(lockVal==='none'){
+    if(sel){sel.disabled=false;sel.style.opacity='';sel.style.cursor='';}
+    if(badge)badge.style.display='none';
+  } else {
+    if(sel){sel.value=lockVal;sel.disabled=true;sel.style.opacity='0.75';sel.style.cursor='not-allowed';}
+    if(badge)badge.style.display='';
+    if(V9&&V9.onCustChange)V9.onCustChange();
+  }
+}
+function saveTgCustLock(){
+  const cfgSel=el('cfg_tg_custLock');if(!cfgSel)return;
+  CFG.s('tgCustLock',cfgSel.value);applyTgCustLock();showMsg('tg_custLockSaveMsg');
+}
+
+// ── TOGGLE VAT LABEL (TUI_GIAY) ──
+let _showTgVatLabel=CFG.g('tgShowVat','1')==='1';
+function _syncTgVatUI(){
+  const icon=el('tg_vatToggleIcon'),state=el('tg_vatToggleState'),btn=el('tg_vatToggleBtn');
+  if(icon)icon.textContent=_showTgVatLabel?'☑️':'⬜';
+  if(state){state.textContent=_showTgVatLabel?'BẬT':'TẮT';state.style.background=_showTgVatLabel?'#dcfce7':'#f1f5f9';state.style.color=_showTgVatLabel?'#15803d':'var(--text3)';}
+  if(btn)btn.style.borderColor=_showTgVatLabel?'#86efac':'var(--border)';
+}
+
+function openOv(id){el(id).classList.add('open');}
+function closeOv(id){el(id).classList.remove('open');}
+document.querySelectorAll('.overlay').forEach(ov=>ov.addEventListener('click',e=>{if(e.target===ov)closeOv(ov.id);}));
+
+/* ── INIT ── */
+APP.loadBrand();
+applyTgCustLock();
+_syncTgVatUI();
+V9.buildPaperSelect();
+V9.buildHandleSelect();
+V9.buildSizeGrids();
+
+/* ── SYNC MODULE ── */
+const SYNC=(()=>{
+  const MODULE_ID='tuigiay';
+  const VER='tuigiay_v10';
+  const CFG_TAG_ID='__cfg_tuigiay__';
+  const SYNC_KEYS=[
+    'v9_paper',
+    'v9_sheets',
+    'v9_kts',
+    'v9_offset',
+    'v9_waste',
+    'v9_ktsQtyRules',
+    'v9_die',
+    'v9_handles',
+    'v9_buttons',
+    'v9_dan',
+    'v9_lam_kts',
+    'v9_lam_off',
+    'v9_vat',
+    'v9_rnd',
+    'v9_marginNormal',
+    'v9_marginAgency',
+    'v9_marginMode',
+    'v9_sizes',
+    'v9_sizeCats',
+    'v9_display',
+    'v9_brand',
+    'v9_dan_min',
+    'v9_lam_min',
+    'v9_tgCustLock',
+    'v9_tgShowVat',
+    'v9_user_default',
+  ];
+
+  function _collect(){const cfg={_version:VER,_module:MODULE_ID,_exported:new Date().toISOString()};SYNC_KEYS.forEach(k=>{const v=window._S[k];if(v!==undefined)cfg[k]=v;});return cfg;}
+  function _apply(cfg){if(!cfg||cfg._module!==MODULE_ID)return false;SYNC_KEYS.forEach(k=>{if(cfg[k]!==undefined)window._S[k]=cfg[k];});return true;}
+
+  function exportHTML(onSuccess){
+    const cfg=_collect();const cfgJson=JSON.stringify(cfg);
+    const _ovs=[];document.querySelectorAll('.overlay.open').forEach(function(ov){_ovs.push(ov);ov.classList.remove('open');});
+    let src=document.documentElement.outerHTML;
+    _ovs.forEach(function(ov){ov.classList.add('open');});
+    const OPEN='<script id="'+CFG_TAG_ID+'" type="application/json">';
+    const CLOSE='<'+'/'+'script>';
+    const parts=src.split(OPEN);
+    if(parts.length<2){const BC='<'+'/'+'body>';src=src.replace(BC,OPEN+cfgJson+CLOSE+'\n'+BC);}
+    else{const inner=parts[1].split(CLOSE);inner[0]=cfgJson;parts[1]=inner.join(CLOSE);src=parts.join(OPEN);}
+    const output='<!DOCTYPE html>\n'+src;
+    const blob=new Blob([output],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a');const d=new Date();
+    const stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+    a.download='TUI_GIAY_RIRO_'+stamp+'.html';
+    a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);
+    if(onSuccess)onSuccess();
+  }
+
+  function exportJSON(){
+    const cfg=_collect();
+    const blob=new Blob([JSON.stringify(cfg,null,2)],{type:'application/json'});
+    const a=document.createElement('a');const d=new Date();
+    const stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+    a.download='TUI_GIAY_RIRO_config_'+stamp+'.json';
+    a.href=URL.createObjectURL(blob);a.click();URL.revokeObjectURL(a.href);
+  }
+
+  function importJSON(input,onSuccess,onError){
+    const file=input.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=function(e){
+      try{
+        const cfg=JSON.parse(e.target.result);
+        if(typeof cfg!=='object'||!cfg._module||cfg._module!==MODULE_ID){onError&&onError('File không hợp lệ!');return;}
+        _apply(cfg);onSuccess&&onSuccess();setTimeout(()=>location.reload(),500);
+      }catch(err){onError&&onError(err.message);}
+    };
+    reader.readAsText(file,'utf-8');
+  }
+
+  function applyEmbedded(){/* Đã được xử lý bởi pre-init script */}
+  function showInfo(){const box=document.getElementById('sync_info_box');const txt=document.getElementById('sync_info_text');if(!box||!txt)return;const keys=SYNC_KEYS.filter(k=>window._S[k]!==undefined);txt.textContent='Đang giữ '+keys.length+'/'+SYNC_KEYS.length+' cài đặt trong bộ nhớ RAM.';box.style.display='flex';}
+  function _doSaveDefault(){
+    const snap=_collect();window._S['v9_user_default']=JSON.stringify(snap);
+    const el2=document.getElementById('tg_defaultSavedAt');
+    if(el2)el2.textContent='Đã lưu lúc '+new Date().toLocaleTimeString('vi-VN');
+    exportHTML(()=>showMsg('syncDefaultMsg'));
+  }
+  function saveDefault(){const snap=_collect();window._S['v9_user_default']=JSON.stringify(snap);return snap;}
+  function loadDefault(){try{const r=window._S['v9_user_default'];if(!r)return null;return JSON.parse(r);}catch{return null;}}
+  function hasDefault(){return !!window._S['v9_user_default'];}
+  function _applySnap(snap){_apply(snap);}
+  return{exportJSON,importJSON,exportHTML,applyEmbedded,showInfo,saveDefault,loadDefault,hasDefault,_applySnap,_doSaveDefault};
+})();
+window.SYNC=SYNC;
+
+const RESET=(()=>{
+  function full(confirm_msg,onReset){
+    if(confirm_msg&&!confirm(confirm_msg))return;
+    const snap=SYNC.loadDefault();
+    if(snap){SYNC._applySnap(snap);if(onReset)onReset();setTimeout(()=>location.reload(),300);}
+    else{if(onReset)onReset();}
+  }
+  return{full};
+})();
+window.RESET=RESET;
+
+</script>
+
+
+</body></html>
